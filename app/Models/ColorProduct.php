@@ -6,6 +6,7 @@ use Illuminate\Database\Eloquent\Model;
 
 class ColorProduct extends Model
 {
+    public $timestamps = false;
     protected $table = 'color_products';
 
     /**
@@ -13,7 +14,6 @@ class ColorProduct extends Model
      *
      * @var array
      */
-
     protected $fillable = [ 'product_id', 'color', 'unit-price'
     ];
 

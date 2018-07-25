@@ -3,6 +3,7 @@
 namespace App\Models;
 
 use Illuminate\Database\Eloquent\Model;
+use Illuminate\Database\Eloquent\SoftDeletes;
 
 class Product extends Model
 {
@@ -41,19 +42,9 @@ class Product extends Model
      *
      * @return \Illuminate\Database\Eloquent\Relations\HasMany
      */
-    public function orderDetail()
+    public function orderDetails()
     {
         return $this->hasMany(App\Models\OrderDetail, 'product_id', 'id');
-    }
-
-    /**
-     * Get Discount Object
-     *
-     * @return \Illuminate\Database\Eloquent\Relations\BelongsTo
-     */
-    public function discounts()
-    {
-        return $this->belongsTo(App\Models\Discount, 'discount_id', 'id');
     }
 
     /**
@@ -64,16 +55,6 @@ class Product extends Model
     public function categories()
     {
         return $this->belongsTo(App\Models\Category, 'category_id', 'id');
-    }
-
-    /**
-     * Get AboutStore Object
-     *
-     * @return \Illuminate\Database\Eloquent\Relations\BelongsTo
-     */
-    public function aboutStores()
-    {
-        return $this->belongsTo(App\Models\AboutStore, 'about_store_id', 'id');
     }
 
     /**

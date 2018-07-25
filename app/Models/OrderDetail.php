@@ -23,7 +23,7 @@ class OrderDetail extends Model
      *
      * @return \Illuminate\Database\Eloquent\Relations\BelongsTo
      */
-    public function orders()
+    public function order()
     {
         return $this->belongsTo(App\Models\Order, 'order_id', 'id');
     }
@@ -33,7 +33,7 @@ class OrderDetail extends Model
      *
      * @return \Illuminate\Database\Eloquent\Relations\BelongsTo
      */
-    public function products()
+    public function product()
     {
         return $this->belongsTo(App\Models\Product, 'product_id', 'id');
     }

@@ -3,6 +3,7 @@
 namespace App\Models;
 
 use Illuminate\Database\Eloquent\Model;
+use Illuminate\Database\Eloquent\SoftDeletes;
 
 class AboutStore extends Model
 {
@@ -18,16 +19,6 @@ class AboutStore extends Model
     protected $fillable = [
         'name', 'address', 'phonenuber', 'description', 'address', 'avatar',
     ];
-
-    /**
-     * Get Product of User
-     *
-     * @return \Illuminate\Database\Eloquent\Relations\HasMany
-     */
-    public function products()
-    {
-        return $this->hasMany(App\Models\Product, 'about_store_id', 'id');
-    }
 
     /**
      * The attributes that should be mutated to dates.
