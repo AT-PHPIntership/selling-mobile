@@ -18,7 +18,7 @@ class CreateColorProductsTable extends Migration
             $table->unsignedInteger('product_id');
             $table->foreign('product_id')
                     ->references('id')->on('products')
-                    ->onDelete('no action');
+                    ->onDelete('cascade');
             $table->string('color');
             $table->double('unit_price');
         });

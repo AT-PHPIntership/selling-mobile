@@ -18,7 +18,7 @@ class CreateImagesTable extends Migration
             $table->unsignedInteger('color_product_id');
             $table->foreign('color_product_id')
                     ->references('id')->on('color_products')
-                    ->onDelete('no action');
+                    ->onDelete('cascade');
             $table->string('path');
         });
     }

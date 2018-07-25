@@ -17,11 +17,11 @@ class CreateReviewsTable extends Migration
             $table->increments('id');
             $table->unsignedInteger('product_id');
             $table->foreign('product_id')
-                    ->references('id')->on('products')->onDelete('no action');
-            $table->string('content')->charset('utf8')->collation('utf8_unicode_ci');
+                    ->references('id')->on('products')->onDelete('cascade');
+            $table->string('content');
             $table->unsignedInteger('user_id');
             $table->foreign('user_id')
-                    ->references('id')->on('users');
+                    ->references('id')->on('users')->onDelete('cascade');
             $table->unsignedInteger('parent_id')->default(0);
             $table->timestamps();
             $table->softDeletes('deleted_at');
