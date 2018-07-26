@@ -1,5 +1,6 @@
 @extends('backend.master')
-@section('title', 'Welcome To Dashboard')
+@section('title', __('admin.welcome'))
 @section('content')
 
 @endsection
+

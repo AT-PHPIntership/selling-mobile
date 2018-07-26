@@ -12,16 +12,27 @@
                 </div>
             </li>
             <li>
-                <a href="index.html"><i class="fa fa-dashboard fa-fw"></i> Dashboard</a>
+            <a href="index.html"><i class="fa fa-dashboard fa-fw"></i> {{ __('admin.dashboard') }}</a>
             </li>
             <li>
-                <a href="#"><i class="fa fa-table fa-fw"></i> Category<span class="fa arrow"></span></a>
+                <a href="#"><i class="fa fa-user-plus"></i> {{ __('admin.user') }}<span class="fa arrow"></span></a>
                 <ul class="nav nav-second-level">
                     <li>
-                        <a href="#">Category List</a>
+                        <a href="#">{{ __('admin.user_list') }}</a>
                     </li>
                     <li>
-                        <a href="#">Category Add</a>
+                        <a href="#">{{ __('admin.user_add') }}</a>
+                    </li>
+                </ul>
+            </li>
+            <li>
+                <a href="#"><i class="fa fa-table fa-fw"></i> {{ __('admin.category') }}<span class="fa arrow"></span></a>
+                <ul class="nav nav-second-level">
+                    <li>
+                        <a href="#">{{ __('admin.category_list') }}</a>
+                    </li>
+                    <li>
+                        <a href="#">{{ __('admin.category_add') }}</a>
                     </li>
                 </ul>
             </li>
