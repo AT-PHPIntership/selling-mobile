@@ -9,16 +9,16 @@ use Auth;
 class AdminAuthenticate
 {
     /**
-     * Handle an incoming request.
-     *
-     * @param  \Illuminate\Http\Request  $request
-     * @param  \Closure  $next
-     * @return mixed
-     */
+    * Handle an incoming request.
+    *
+    * @param \Illuminate\Http\Request $request Request
+    * @param \Closure                 $next    Next
+    *
+    * @return mixed
+    */
     public function handle($request, Closure $next)
     {
         if (!Auth::User()->getOriginal('role') == config('setting.role.admin')) {
-
             return redirect('/');
         }
 
