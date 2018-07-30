@@ -11,6 +11,7 @@ class CategoriesTableSeeder extends Seeder
      */
     public function run()
     {
-        factory(App\Models\Category::class, 10)->states('id')->create();
+    	factory(App\Models\Category::class, 15)->create();
+        factory(App\Models\Category::class, 15)->states('id')->create();
     }
 }

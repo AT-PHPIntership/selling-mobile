@@ -11,6 +11,6 @@ class AboutStoreTableSeeder extends Seeder
      */
     public function run()
     {
-        factory(App\Models\AboutStore::class, 10)->create();
+        factory(App\Models\AboutStore::class, 15)->create();
     }
 }
