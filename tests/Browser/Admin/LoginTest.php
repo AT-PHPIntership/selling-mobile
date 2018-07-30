@@ -4,20 +4,43 @@ namespace Tests\Browser\Admin;
 
 use Tests\DuskTestCase;
 use Laravel\Dusk\Browser;
+use App\Models\User;
 use Illuminate\Foundation\Testing\DatabaseMigrations;
 
 class LoginTest extends DuskTestCase
 {
+    use DatabaseMigrations;
+    protected $user;
     /**
-     * A Dusk test login failure.
+     * Override function setUp() for make user login
      *
      * @return void
      */
+    public function setUp()
+    {
+        parent::setUp();
+        $this->user = factory(User::class)->create([
+            'email' => 'admin@gmail.com',
+            'username' => 'dangviet',
+            'password' => bcrypt('123123'),
+            'phonenumber' => '131123234',
+            'address' => 'adfsdfasdf',
+            'role' => '0',
+            'avatar' => 'adfaf.pdf',
+        ]);
+    }
+
+
+    // /**
+    //  * A Dusk test login failure.
+    //  *
+    //  * @return void
+    //  */
     public function testFailure()
     {
         $this->browse(function (Browser $browser) {
             $browser->visit('/admin/login')
-                    ->type('email', 'afds!23*@gmail.test')
+                    ->type('email', 'afds!23@gmail.com')
                     ->type('password', '12345')
                     ->press('Login')
                     ->assertPathIs('/admin/login')
@@ -34,7 +57,7 @@ class LoginTest extends DuskTestCase
     {
         $this->browse(function (Browser $browser) {
             $browser->visit('/admin/login')
-                    ->type('email', 'admin@gmail.com')
+                    ->type('email', $this->user->email)
                     ->type('password', '123123')
                     ->press('Login')
                     ->assertPathIs('/admin/home')
