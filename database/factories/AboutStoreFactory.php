@@ -6,7 +6,7 @@ $factory->define(App\Models\AboutStore::class, function (Faker $faker) {
     return [
         'name' => $faker->name,
         'address' => $faker->address,
-        'phonenumber' => $faker->phoneNumber,
+        'phonenumber' => $faker->e164PhoneNumber,
         'description' => $faker->text(500)
     ];
 });

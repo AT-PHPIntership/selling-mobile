@@ -18,7 +18,7 @@ $factory->define(App\Models\User::class, function (Faker $faker) {
         'username' => $faker->unique()->username,
         'email' => $faker->unique()->email,
         'password' => bcrypt('12345'),
-        'phonenumber' => $faker->text(12),
+        'phonenumber' => $faker->e164PhoneNumber,
         'address' => $faker->address,
         'role' => $faker->numberBetween($min = 0, $max = 1),
         'avatar' => 'image.png',
