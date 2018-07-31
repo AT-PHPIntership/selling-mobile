@@ -31,11 +31,11 @@ class LoginTest extends DuskTestCase
     }
 
 
-    // /**
-    //  * A Dusk test login failure.
-    //  *
-    //  * @return void
-    //  */
+    /**
+     * A Dusk test login failure.
+     *
+     * @return void
+     */
     public function testFailure()
     {
         $this->browse(function (Browser $browser) {

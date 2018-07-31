@@ -18,10 +18,12 @@ class AdminAuthenticate
     */
     public function handle($request, Closure $next)
     {
-        if (!Auth::User()->getOriginal('role') == config('setting.role.admin')) {
-            return redirect('/');
-        }
+        if (Auth::User()) {
+            if (!Auth::User()->getOriginal('role') == config('setting.role.admin')) {
+                return redirect('/');
+            }
 
-        return $next($request);
+            return $next($request);
+        }
     }
 }
