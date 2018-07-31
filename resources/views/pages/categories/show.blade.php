@@ -27,7 +27,7 @@
 										<td>{{ $data->id }}</td>
 										<td>{{ $data->name }}</td>
 										<td>
-											@if (! empty($subCategories))
+											@if ( !empty($subCategories))
 												{{ $subCategories->name }}
 											@else 
 												{{ $data->parent_id }}

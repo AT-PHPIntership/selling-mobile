@@ -34,8 +34,7 @@ class CategoryController extends Controller
         try {
             $data = Category::findOrFail($id);
             if ($data->parent_id) {
-                $findId = $data->parent_id;
-                $subCategories = Category::findOrFail($findId);
+                $subCategories = Category::findOrFail($data->parent_id);
             }
             return view('pages.categories.show', compact('subCategories', 'data'));
         } catch (Exception $ex) {
