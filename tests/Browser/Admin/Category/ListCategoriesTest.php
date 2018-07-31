@@ -22,7 +22,8 @@ class ListCategoriesTest extends DuskTestCase
     public function testListCategories()
     {
         $this->browse(function (Browser $browser) {
-            $browser->visit(new ListCategories());
+            $browser->loginAs($this->user)
+                    ->visit(new ListCategories());
         });
     }
 
@@ -34,7 +35,8 @@ class ListCategoriesTest extends DuskTestCase
     public function testDataEmpty()
     {
         $this->browse(function (Browser $browser) {
-            $browser->visit('/admin/categories')
+            $browser->loginAs($this->user)
+                    ->visit('/admin/categories')
                     ->assertSee(__('category.admin.list.title'));
             $elements = $browser->elements('.table-responsive table tbody tr');
             $numRecord = count($elements);
@@ -50,7 +52,8 @@ class ListCategoriesTest extends DuskTestCase
     {
         $this->browse(function (Browser $browser) {
             factory('App\Models\Category', 15)->create();
-            $elements = $browser->visit('/admin/categories')
+            $elements = $browser->loginAs($this->user)
+                                ->visit('/admin/categories')
                                 ->elements('.table-responsive table tbody tr');
             $numRecord = count($elements);
             $this->assertTrue($numRecord == 10);

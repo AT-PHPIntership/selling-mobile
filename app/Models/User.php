@@ -10,6 +10,8 @@ class User extends Authenticatable
 {
     use SoftDeletes;
     
+    const ADMIN_ROLE = 1;
+    
     /**
      * The attributes that are mass assignable.
      *
