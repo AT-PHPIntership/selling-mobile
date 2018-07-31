@@ -22,7 +22,7 @@ class LoginTest extends DuskTestCase
         $this->user = factory(User::class)->create([
             'email' => 'admin@gmail.com',
             'username' => 'dangviet',
-            'password' => bcrypt('123123'),
+            'password' => bcrypt('12345'),
             'phonenumber' => '131123234',
             'address' => 'adfsdfasdf',
             'role' => '0',
@@ -41,7 +41,7 @@ class LoginTest extends DuskTestCase
         $this->browse(function (Browser $browser) {
             $browser->visit('/admin/login')
                     ->type('email', 'afds!23@gmail.com')
-                    ->type('password', '12345')
+                    ->type('password', '12312')
                     ->press('Login')
                     ->assertPathIs('/admin/login')
                     ->assertSee('These credentials do not match our records.');
@@ -58,7 +58,7 @@ class LoginTest extends DuskTestCase
         $this->browse(function (Browser $browser) {
             $browser->visit('/admin/login')
                     ->type('email', $this->user->email)
-                    ->type('password', '123123')
+                    ->type('password', '12345')
                     ->press('Login')
                     ->assertPathIs('/admin/home')
                     ->assertSee('Welcome To Dashboard');
