@@ -17,7 +17,7 @@
             <li><a href="#"><i class="fa fa-gear fa-fw"></i>{{ __('admin.change_password') }}</a>
             </li><li class="divider"></li>
             <li>
-                <a href="{{ route('logout') }}" onclick="event.preventDefault();
+                <a href="{{ route('logout') }}" id="click-logout" onclick="event.preventDefault();
                     document.getElementById('logout-form').submit();">
                     <i class="fa fa-sign-out fa-fw"></i>
                     {{ __('admin.logout') }}
