@@ -25,7 +25,6 @@ class ListCategories extends Page
     public function assert(Browser $browser)
     {
         $browser->assertPathIs($this->url())
-                ->assertSee('List Categories')
                 ->assertSee('Show Category')
                 ->assertSee('ID')
                 ->assertSee('Name')
