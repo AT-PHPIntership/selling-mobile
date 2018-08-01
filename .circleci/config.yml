@@ -20,7 +20,7 @@ jobs:
 
       - run: sudo apt-get install -y libsqlite3-dev
       - run: chmod -R 777 storage
-      - run: cp .env.dusk .env
+      - run: cp .env.testing .env
       - run: touch database/database.sqlite
 
       # Download and cache dependencies
@@ -54,7 +54,7 @@ jobs:
       - run: php artisan key:generate
       - run: ./vendor/bin/phpcs -n --standard=phpcs.xml
       - run: ./vendor/bin/phpmd app text phpmd.xml
-      #- run: ./vendor/bin/phpunit -d memory_limit=-1 tests
+      # - run: ./vendor/bin/phpunit -d memory_limit=-1 tests
       - run:
           name: Start Chrome Driver
           command: ./vendor/laravel/dusk/bin/chromedriver-linux
