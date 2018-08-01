@@ -29,4 +29,7 @@ return [
     'user' => 'User',
     'user_list' => 'User List',
     'user_add' => 'User Add',
+
+    //User
+    'user_list' => 'User List'
 ];
