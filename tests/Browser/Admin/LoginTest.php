@@ -74,8 +74,6 @@ class LoginTest extends DuskTestCase
     {
         $this->browse(function (Browser $browser) {
             $browser->visit('/admin/home')
-                    ->click('.dropdown')
-                    ->click('#click-logout')
                     ->clickLink('Logout')
                     ->assertPathIs('/admin/login');
         });
