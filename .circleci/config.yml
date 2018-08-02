@@ -8,11 +8,6 @@ jobs:
     docker:
       # specify the version you desire here
       - image: circleci/php:7.1-jessie-node-browsers
-      - image: circleci/mysql:5.7.18
-        environment:
-          MYSQL_ALLOW_EMPTY_PASSWORD: yes
-          MYSQL_ROOT_PASSWORD: ''
-          MYSQL_DATABASE: circle_test
 
     working_directory: ~/code
 
@@ -25,7 +20,8 @@ jobs:
 
       - run: sudo apt-get install -y libsqlite3-dev
       - run: chmod -R 777 storage
-      - run: cp .env.dusk .env
+      - run: cp .env.testing .env
+      - run: touch database/database.sqlite
 
       # Download and cache dependencies
       # Composer
@@ -56,9 +52,10 @@ jobs:
       # - run: php artisan migrate
       # run tests!
       - run: php artisan key:generate
+      - run: php artisan config:cache
       - run: ./vendor/bin/phpcs -n --standard=phpcs.xml
       - run: ./vendor/bin/phpmd app text phpmd.xml
-      #- run: ./vendor/bin/phpunit -d memory_limit=-1 tests
+      # - run: ./vendor/bin/phpunit -d memory_limit=-1 tests
       - run:
           name: Start Chrome Driver
           command: ./vendor/laravel/dusk/bin/chromedriver-linux
