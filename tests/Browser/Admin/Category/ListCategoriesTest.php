@@ -4,10 +4,11 @@ namespace Tests\Browser\Admin\Category;
 
 use Tests\DuskTestCase;
 use Laravel\Dusk\Browser;
+use Tests\AdminTestCase;
 use Illuminate\Foundation\Testing\DatabaseMigrations;
 use Tests\Browser\Pages\Admin\Category\ListCategories;
 
-class ListCategoriesTest extends DuskTestCase
+class ListCategoriesTest extends AdminTestCase
 {
 
     use DatabaseMigrations;
@@ -21,6 +22,7 @@ class ListCategoriesTest extends DuskTestCase
      */
     public function testListCategories()
     {
+        factory(\App\Models\Category::class, self::ROW_LIMIT)->create();
         $this->browse(function (Browser $browser) {
             $browser->loginAs($this->user)
                     ->visit(new ListCategories());

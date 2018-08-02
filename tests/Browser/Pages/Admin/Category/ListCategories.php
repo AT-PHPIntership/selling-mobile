@@ -25,11 +25,11 @@ class ListCategories extends Page
     public function assert(Browser $browser)
     {
         $browser->assertPathIs($this->url())
-                ->assertSee('Show Category')
-                ->assertSee('ID')
-                ->assertSee('Name')
-                ->assertSee('Action')
-                ->assertSee('Back');
+                ->assertSee(__('category.admin.show.title'))
+                ->assertSee(__('category.admin.table.id'))
+                ->assertSee(__('category.admin.table.name'))
+                ->assertSee(__('category.admin.table.action'))
+                ->assertSee(__('category.admin.add.back'));
     }
 
     /**

@@ -19,7 +19,7 @@ class CategoryController extends Controller
     public function index()
     {
         $categories['data'] = Category::paginate(config('paging.number_element_in_page'));
-        return view('pages.categories.index', $categories);
+        return view('backend.pages.categories.index', $categories);
     }
 
     /**
@@ -36,7 +36,7 @@ class CategoryController extends Controller
             if ($data->parent_id) {
                 $subCategories = Category::findOrFail($data->parent_id);
             }
-            return view('pages.categories.show', compact('subCategories', 'data'));
+            return view('backend.pages.categories.show', compact('subCategories', 'data'));
         } catch (Exception $ex) {
             return $ex;
         }

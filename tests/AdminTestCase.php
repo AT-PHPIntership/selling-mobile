@@ -28,5 +28,4 @@ abstract class AdminTestCase extends DuskTestCase
             'role' => config('setting.role.admin'),
         ]);
     }
-
 }
