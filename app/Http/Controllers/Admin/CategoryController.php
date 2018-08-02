@@ -20,7 +20,7 @@ class CategoryController extends Controller
     {
         $listCategoriesParent = Category::where('parent_id', null)->get();
         $data['listCategoriesParent'] = $listCategoriesParent;
-        return view('pages.categories.create', $data);
+        return view('backend.pages.categories.create', $data);
     }
 
     /**
