@@ -14,6 +14,7 @@ abstract class AdminTestCase extends DuskTestCase
     use DatabaseMigrations;
 
     protected $user;
+
     /**
      * Override function setUp() for make user login
      *
@@ -23,14 +24,8 @@ abstract class AdminTestCase extends DuskTestCase
     {
         parent::setUp();
         $this->user = factory(User::class)->create([
-            'email' => 'admin@gmail.com',
-            'username' => 'dangviet',
             'password' => bcrypt('12345'),
-            'phonenumber' => '131123234',
-            'address' => 'adfsdfasdf',
-            'role' => '0',
-            'avatar' => 'adfaf.pdf',
+            'role' => config('setting.role.admin'),
         ]);
     }
-
 }

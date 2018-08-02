@@ -31,5 +31,6 @@ return [
     'user_add' => 'User Add',
 
     //User
-    'user_list' => 'User List'
+    'user_list' => 'User List',
+    'user_info' => 'User Info',
 ];

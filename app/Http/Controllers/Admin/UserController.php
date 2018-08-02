@@ -5,6 +5,7 @@ namespace App\Http\Controllers\Admin;
 use Illuminate\Http\Request;
 use App\Http\Controllers\Controller;
 use App\Models\User;
+use Exception;
 
 class UserController extends Controller
 {
@@ -49,7 +50,9 @@ class UserController extends Controller
      */
     public function show($id)
     {
-        //
+        $user = User::findOrFail($id);
+        // dd($user);
+        return view('backend.user.info', compact('user'));
     }
 
     /**

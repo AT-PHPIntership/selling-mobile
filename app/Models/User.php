@@ -53,4 +53,29 @@ class User extends Authenticatable
      * @var array
      */
     protected $dates = ['deleted_at'];
+
+    /**
+     * Get the user's role.
+     *
+     * @return string
+     */
+    public function getRoleAttribute($role)
+    {
+        if ($role == config('setting.role.admin')) {
+            return $this->attributes['role'] = 'Admin';
+        }
+
+        return $this->attributes['role'] = 'Member';
+    }
+
+    /**
+     * Set the user's password.
+     *
+     * @param  string  $value
+     * @return void
+     */
+    public function setPasswordAttribute($password)
+    {
+        $this->attributes['password'] = bcrypt($password);
+    }
 }
