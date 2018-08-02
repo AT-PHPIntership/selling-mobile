@@ -4,7 +4,7 @@ namespace App\Http\Middleware;
 
 use Closure;
 
-use Auth;
+use Illuminate\Support\Facades\Auth;
 
 class AdminAuthenticate
 {
@@ -18,10 +18,10 @@ class AdminAuthenticate
     */
     public function handle($request, Closure $next)
     {
-        if (!Auth::User()->getOriginal('role') == config('setting.role.admin')) {
-            return redirect('/');
+        if (Auth::check() && Auth::User()->getOriginal('role') == config('setting.role.admin')) {
+            return $next($request);
         }
 
-        return $next($request);
+        return redirect('/');
     }
 }
