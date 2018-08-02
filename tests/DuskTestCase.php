@@ -15,25 +15,6 @@ abstract class DuskTestCase extends BaseTestCase
     protected $user;
 
     /**
-     * Override function setUp() for make user login
-     *
-     * @return void
-     */
-    public function setUp()
-    {
-        parent::setUp();
-        $this->user = factory('App\Models\User')->create([
-            'username' => 'truongbe',
-            'email' => 'truongbe@gmail.com',
-            'password' => bcrypt('12345'), // secret
-            'phonenumber' => '7119883772066',
-            'address' => 'da nang',
-            'role' => User::ADMIN_ROLE,
-            'avatar' => 'image.png'
-        ]);
-    }
-
-    /**
      * Prepare for Dusk test execution.
      *
      * @beforeClass
