@@ -8,6 +8,7 @@ use App\Http\Controllers\Controller;
 use App\Http\Requests\Backend\EditCategoryRequest;
 use App\Http\Requests\Backend\CategoryRequest;
 use App\Models\Category;
+use Exception;
 
 class CategoryController extends Controller
 {
@@ -18,8 +19,8 @@ class CategoryController extends Controller
      */
     public function index()
     {
-        $categories['data'] = Category::paginate(config('paging.number_element_in_page'));
-        return view('backend.pages.categories.index', $categories);
+        $data['categories'] = Category::paginate(config('paging.number_element_in_page'));
+        return view('backend.pages.categories.index', $data);
     }
 
     /**
@@ -30,13 +31,14 @@ class CategoryController extends Controller
      * @return \Illuminate\Http\Response
      */
     public function show($id)
-    {
+    {   
+        $categories = Category::with('parent')->find($id)->get();
         try {
-            $data = Category::findOrFail($id);
-            if ($data->parent_id) {
-                $subCategories = Category::findOrFail($data->parent_id);
+            $category = Category::findOrFail($id);
+            if ($category->parent_id) {
+                $parrentCategory = Category::with('parent')->findOrFail($id)->getRelation('parent');
             }
-            return view('backend.pages.categories.show', compact('subCategories', 'data'));
+            return view('backend.pages.categories.show', compact('parrentCategory', 'category'));
         } catch (Exception $ex) {
             return $ex;
         }

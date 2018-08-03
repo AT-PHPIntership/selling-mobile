@@ -24,17 +24,17 @@
 								</thead>
 								<tbody>
 									<tr class="even pointer">
-										<td>{{ $data->id }}</td>
-										<td>{{ $data->name }}</td>
+										<td>{{ $category->id }}</td>
+										<td>{{ $category->name }}</td>
 										<td>
-											@if ( !empty($subCategories))
-												{{ $subCategories->name }}
-											@else 
-												{{ $data->parent_id }}
+											@if ( !empty($parrentCategory))
+											{{ $parrentCategory->name }}
+											@else
+											{{ $category->parent_id }}
 											@endif
 										</td>
-										<td>{{ $data->created_at }}</td>
-										<td>{{ $data->updated_at }}</td>
+										<td>{{ $category->created_at }}</td>
+										<td>{{ $category->updated_at }}</td>
 									</tr>
 								</tbody>
 							</table>

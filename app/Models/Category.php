@@ -30,7 +30,7 @@ class Category extends Model
      *
      * @return \Illuminate\Database\Eloquent\Relations\HasMany
      */
-    public function children()
+    public function childrens()
     {
         return $this->hasMany('App\Models\Category', 'parent_id', 'id');
     }
