@@ -32,7 +32,7 @@
                         <a href="{{ route('admin.categories.index') }}">{{ __('admin.category_list') }}</a>
                     </li>
                     <li>
-                        <a href="#">{{ __('admin.category_add') }}</a>
+                        <a href="{{ route('admin.categories.create') }}">{{ __('admin.category_add') }}</a>
                     </li>
                 </ul>
             </li>

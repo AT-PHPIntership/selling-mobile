@@ -10,6 +10,7 @@
             <h2>{{ __('category.admin.show.title') }}</h2>
             <div class="clearfix"></div>
           </div>
+          @include('backend.message') 
           <div class="x_content">
             <div class="table-responsive">
               <table class="table table-striped jambo_table bulk_action">

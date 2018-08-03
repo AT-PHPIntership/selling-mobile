@@ -34,7 +34,8 @@ return [
         ],
         'message' => [
             'add' => 'Create New Category Successfull!',
-            'add_fail' => 'Can not add New Category. Please check connect database!',
+            'unique_name' => 'Can not add New Category. Name category can exist in database. Please check name category!',
+            'add_fail' => 'Can not Create New Category. Please check connect database!',
             'edit' => 'Update Category Successfull!',
             'edit_fail' => 'Can not edit Category by this Child!',
             'del' => 'Delete Category Successfull!',
