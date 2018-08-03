@@ -1,5 +1,4 @@
 <?php
-
 namespace App\Models;
 
 use Illuminate\Database\Eloquent\Model;
@@ -17,7 +16,7 @@ class User extends Authenticatable
      * @var array
      */
     protected $fillable = ['username', 'email', 'phonenumber', 'address', 'avatar'];
-
+    
     /**
      * The attributes that should be hidden for arrays.
      *
@@ -26,7 +25,7 @@ class User extends Authenticatable
     protected $hidden = [
         'password', 'role', 'remember_token'
     ];
-
+    
     /**
      * Get Orders of User
      *
@@ -36,7 +35,7 @@ class User extends Authenticatable
     {
         return $this->hasMany(App\Models\Order, 'user_id', 'id');
     }
-
+    
     /**
      * Get Reviews of User
      *
