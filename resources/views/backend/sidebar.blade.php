@@ -18,7 +18,7 @@
                 <a href="#"><i class="fa fa-user-plus"></i> {{ __('admin.user') }}<span class="fa arrow"></span></a>
                 <ul class="nav nav-second-level">
                     <li>
-                        <a href="#">{{ __('admin.user_list') }}</a>
+                        <a href="{{ route('admin.categories.index') }}">{{ __('admin.user_list') }}</a>
                     </li>
                     <li>
                         <a href="#">{{ __('admin.user_add') }}</a>
@@ -29,7 +29,7 @@
                 <a href="#"><i class="fa fa-table fa-fw"></i> {{ __('admin.category') }}<span class="fa arrow"></span></a>
                 <ul class="nav nav-second-level">
                     <li>
-                        <a href="#">{{ __('admin.category_list') }}</a>
+                        <a href="{{ route('admin.categories.index') }}">{{ __('admin.category_list') }}</a>
                     </li>
                     <li>
                         <a href="{{ route('admin.categories.create') }}">{{ __('admin.category_add') }}</a>
