@@ -8,6 +8,8 @@ use App\Http\Controllers\Controller;
 use App\Http\Requests\Backend\CreateCategoryRequest;
 use App\Http\Requests\Backend\CategoryRequest;
 use App\Models\Category;
+use Exception;
+use Session;
 
 class CategoryController extends Controller
 {
@@ -34,10 +36,12 @@ class CategoryController extends Controller
     {
         try {
             if (Category::create($request->all())) {
-                return redirect()->route('admin.categories.index')->with('message', __('category.admin.message.add'));
+                Session::flash('message', __('category.admin.message.add'));
+                return redirect()->route('admin.categories.index');
             }
         } catch (Exception $ex) {
-            return redirect()->route('admin.categories.create')->with('message', __('category.admin.message.add_fail'));
+            Session::flash('message', __('category.admin.message.add_fail'));
+            return redirect()->route('admin.categories.create');
         }
     }
 }
