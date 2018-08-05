@@ -6,6 +6,7 @@ use DB;
 use Illuminate\Http\Request;
 use App\Http\Controllers\Controller;
 use App\Http\Requests\Backend\CreateCategoryRequest;
+use App\Http\Requests\Backend\EditCategoryRequest;
 use App\Http\Requests\Backend\CategoryRequest;
 use App\Models\Category;
 use Exception;
@@ -73,6 +74,72 @@ class CategoryController extends Controller
         } catch (Exception $ex) {
             Session::flash('message', __('category.admin.message.add_fail'));
             return redirect()->route('admin.categories.create');
+        }
+    }
+
+    /**
+     * Show the form for editing the specified resource.
+     *
+     * @param int $id id
+     *
+     * @return \Illuminate\Http\Response
+     */
+    public function edit($id)
+    {
+        $category = Category::find($id);
+        $listCategoriesParent = Category::where('parent_id', null)->get();
+        return view('backend.pages.categories.edit', compact('category', 'listCategoriesParent'));
+    }
+
+    /**
+     * Update the specified resource in storage.
+     *
+     * @param EditCategoryRequest $request  EditCategoryRequest
+     * @param Category            $category Category
+     *
+     * @return \Illuminate\Http\Response
+     */
+    public function update(EditCategoryRequest $request, Category $category)
+    {
+        try {
+            $category->name = $request->name;
+            $category->parent_id =  $request->parent_id;
+            $category->created_at = $request->created_at;
+            $category->updated_at = $request->updated_at;
+            $category->save();
+            Session::flash('message', __('category.admin.message.edit'));
+            return redirect()->route('admin.categories.index');
+        } catch (Exception $ex) {
+            Session::flash('message', __('category.admin.message.edit_fail'));
+            return redirect()->route('admin.categories.edit');
+        }
+    }
+
+    /**
+     * Remove the specified resource from storage.
+     *
+     * @param int $id id
+     *
+     * @return \Illuminate\Http\Response
+     */
+    public function destroy($id)
+    {
+        try {
+            $category = Category::find($id);
+            $categoriesChild = Category::with('childrens')->findOrFail($id)->getRelation('childrens');
+            if ($categoriesChild->isEmpty()) {
+                $category->delete();
+            } else {
+                foreach ($categoriesChild as $child) {
+                    $child->delete();
+                }
+                $category->delete();
+            }
+            Session::flash('message', __('category.admin.message.del'));
+            return redirect()->route('admin.categories.index');
+        } catch (Exception $ex) {
+            Session::flash('message', __('category.admin.message.del_fail'));
+            return redirect()->route('admin.categories.index');
         }
     }
 }
