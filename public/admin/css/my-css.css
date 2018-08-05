@@ -1,0 +1,16 @@
+.imgAvatar {
+    width: 80px;
+}
+
+.table tbody tr td {
+    vertical-align: middle;
+}
+
+.action-inline {
+    display: inline;
+}
+
+.pagination {
+    float: right;
+    margin-right: 60px;
+}

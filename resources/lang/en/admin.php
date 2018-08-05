@@ -33,4 +33,5 @@ return [
     //User
     'user_list' => 'User List',
     'user_info' => 'User Info',
+    'flash_error' => 'Have error, please try again!',
 ];
