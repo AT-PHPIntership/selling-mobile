@@ -9,3 +9,10 @@
     </div>
   </div>
 @endif
+<div class="box">
+  @if (Session::has('message'))
+    <div class="alert alert-{{ Session::get('alert-class') }}">
+      {{ Session::get('message') }}
+    </div>
+  @endif
+</div>
