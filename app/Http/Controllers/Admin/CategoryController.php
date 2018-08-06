@@ -102,11 +102,7 @@ class CategoryController extends Controller
     public function update(EditCategoryRequest $request, Category $category)
     {
         try {
-            $category->name = $request->name;
-            $category->parent_id =  $request->parent_id;
-            $category->created_at = $request->created_at;
-            $category->updated_at = $request->updated_at;
-            $category->save();
+            $category->update($request->all());
             Session::flash('message', __('category.admin.message.edit'));
             return redirect()->route('admin.categories.index');
         } catch (Exception $ex) {

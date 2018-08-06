@@ -26,6 +26,7 @@ class CreateCategoryRequest extends FormRequest
         return [
             'name' => [
                 'required',
+                'regex:/(^[A-Za-z0-9 ]+$)+/',
                 'unique:categories'
             ]
         ];

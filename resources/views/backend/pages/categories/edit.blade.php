@@ -29,7 +29,8 @@
                   <select class="form-control" name="parent_id">
                     <option value=""></option>
                     @foreach ($listCategoriesParent as $list)
-                      <option value="{{ $list->id }}" {{ (collect(old('parent_id'))->contains($list->id)) ? 'selected':'' }}>{{ $list->name }}</option>
+                      <option @if($list->id == $category->parent_id) selected @endif
+                        value="{{ $list->id }}">{{ $list->name }}</option>
                     @endforeach
                   </select>
                 </div>
