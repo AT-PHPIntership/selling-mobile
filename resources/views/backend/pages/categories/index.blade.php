@@ -33,10 +33,12 @@
                       <form class="col-md-4">
                         <a class="btn btn-primary" id="edit{{ $item->id }}" href="{{ route('admin.categories.edit', ['id' => $item->id] ) }}"><i class="fa fa-edit"></i></a>
                       </form>
-                      <form class="col-md-4" method="POST" action="{{ route('admin.categories.destroy', ['id' => $item->id]) }}" id="deleted{{ $item->id }}">
+                      <form onsubmit="return confirm('{{__('category.admin.message.msg_del')}}');" class="col-md-4" action="{{ route('admin.categories.destroy', $item->id) }}" method="POST">
+                        @csrf
                         @method('DELETE')
-                        {{ csrf_field() }}
-                        <button class="btn btn-danger" type="submit" onclick="return confirm('@lang('category.admin.message.msg_del')')"><i class="fa fa-trash icon-size" ></i></button>
+                        <button id="deleted{{ $item->id }}" class="btn btn-danger" type="submit">
+                          <i class="fa fa-trash icon-size"></i>
+                        </button>
                       </form>
                     </td>
                   </tr>

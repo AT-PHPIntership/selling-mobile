@@ -121,16 +121,11 @@ class CategoryController extends Controller
     public function destroy($id)
     {
         try {
-            $category = Category::find($id);
-            $categoriesChild = Category::with('childrens')->findOrFail($id)->getRelation('childrens');
-            if ($categoriesChild->isEmpty()) {
-                $category->delete();
-            } else {
-                foreach ($categoriesChild as $child) {
-                    $child->delete();
-                }
-                $category->delete();
+            $category = Category::with(['childrens'])->findOrFail($id);
+            if ($category->childrens) {
+                $category->childrens()->delete();
             }
+            $category->delete();
             Session::flash('message', __('category.admin.message.del'));
             return redirect()->route('admin.categories.index');
         } catch (Exception $ex) {
