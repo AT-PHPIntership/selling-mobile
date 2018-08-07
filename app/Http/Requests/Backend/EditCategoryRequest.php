@@ -4,7 +4,7 @@ namespace App\Http\Requests\Backend;
 
 use Illuminate\Foundation\Http\FormRequest;
 
-class CreateCategoryRequest extends FormRequest
+class EditCategoryRequest extends FormRequest
 {
     /**
      * Determine if the user is authorized to make this request.
@@ -23,12 +23,14 @@ class CreateCategoryRequest extends FormRequest
      */
     public function rules()
     {
+        $category = $this->route()->parameter('category');
         return [
             'name' => [
                 'required',
                 'regex:/(^[A-Za-z0-9 ]+$)+/',
-                'unique:categories'
-            ]
+                'unique:categories,name,' . $category->name . ',name'
+            ],
+            'parent_id' => 'nullable|exists:categories,id'
         ];
     }
 }
