@@ -21,7 +21,7 @@
                         <a href="{{ url('admin/user') }}">{{ __('admin.user_list') }}</a>
                     </li>
                     <li>
-                        <a href="#">{{ __('admin.user_add') }}</a>
+                        <a href="{{ url('admin/user/create') }}">{{ __('admin.user_add') }}</a>
                     </li>
                 </ul>
             </li>

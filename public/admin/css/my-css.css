@@ -14,3 +14,7 @@
     float: right;
     margin-right: 60px;
 }
+
+.invalid-feedback {
+    color: red;
+}
