@@ -9,6 +9,7 @@
     <link href="{{ url('admin/css/metisMenu.min.css') }}" rel="stylesheet">
     <link href="{{ url('admin/css/sb-admin-2.css') }}" rel="stylesheet">
     <link href="{{ url('/admin/css/font-awesome.min.css') }}" rel="stylesheet">
+    <script src="https://ajax.googleapis.com/ajax/libs/jquery/3.3.1/jquery.min.js"></script>
 </head>
 <body>
     <nav class="navbar navbar-default navbar-static-top" role="navigation" style="margin-bottom: 0">
@@ -17,6 +18,7 @@
     </nav>
     <div id="wrapper">
         <div id="page-wrapper">
+            @include('backend.error')
             <div class="row">
                 <div class="col-lg-12">
                     <h1 class="page-header">@yield('title')</h1>
@@ -29,5 +31,6 @@
     <script src="{{ url('admin/js/bootstrap.min.js') }}"></script>
     <script src="{{ url('admin/js/metisMenu.min.js') }}"></script>
     <script src="{{ url('admin/js/sb-admin-2.js') }}"></script>
+    <script src="{{ url('admin/js/my-jquery.js') }}"></script>
 </body>
 </html>
