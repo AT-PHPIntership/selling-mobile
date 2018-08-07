@@ -21,7 +21,7 @@ $factory->define(App\Models\User::class, function (Faker $faker) {
         'phonenumber' => $faker->e164PhoneNumber,
         'address' => $faker->address,
         'role' => $faker->numberBetween($min = 0, $max = 1),
-        'avatar' => 'image.png',
+        'avatar' => $faker->imageUrl($width = 200, $height = 200),
         'remember_token' => str_random(10)
     ];
 });
