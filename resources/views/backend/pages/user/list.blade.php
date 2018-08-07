@@ -13,13 +13,13 @@
               <table class="table table-striped jambo_table bulk_action">
                 <thead>
                   <tr class="headings">
-                    <th>STT</th>
-                    <th>Avatar</th>
-                    <th>Username</th>
-                    <th>Email</th>
-                    <th>Phone</th>
-                    <th>Address</th>
-                    <th>Role</th>
+                    <th>{{ __('admin.stt') }}</th>
+                    <th>{{ __('admin.avatar') }}</th>
+                    <th>{{ __('admin.username') }}</th>
+                    <th>{{ __('admin.email') }}</th>
+                    <th>{{ __('admin.phone') }}</th>
+                    <th>{{ __('admin.address') }}</th>
+                    <th>{{ __('admin.role') }}</th>
                     <th width="15%" class="column-title no-link last"><center class="nobr">{{ __('category.admin.table.action') }}</center></th>
                   </tr>
                 </thead>
@@ -27,12 +27,12 @@
                   @foreach($users as $item)
                   <tr class="even pointer">
                     <td>{{ $loop->iteration }}</td>
-                    <td><img src="{{ url($item->avatar) }}" class="imgAvatar"></td>
+                    <td><img src="{{ url($item->avatar) }}" class="img-avatar"></td>
                     <td>{{ $item->username }}</td>
                     <td>{{ $item->email }}</td>
                     <td>{{ $item->phonenumber }}</td>
                     <td>{{ $item->address }}</td>
-                    <td>{{ $item->role }}</td>
+                    <td>{{ $item->currentRole }}</td>
                     <td>
                       <form class="col-md-4">
                         <a class="btn btn-primary" title="Edit" href="#"><i class="fa fa-edit"></i></a>
@@ -41,7 +41,7 @@
                         <button class="btn btn-danger" title="Delete" type="submit"><i class="fa fa-trash icon-size" ></i></button>
                       </form>
                       <form class="col-md-4">
-                        <a class="btn btn-primary" title="Info" href="{{ url('admin/user', ['id' => $item->id]) }}"><i class="fa fa-eye icon-size" ></i></a>
+                        <a class="btn btn-primary" title="Info" href="{{ route('admin.users.show', ['id' => $item->id]) }}"><i class="fa fa-eye icon-size" ></i></a>
                       </form>
                     </td>
                   </tr>

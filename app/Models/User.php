@@ -9,6 +9,8 @@ use Illuminate\Foundation\Auth\User as Authenticatable;
 class User extends Authenticatable
 {
     use SoftDeletes;
+    const ADMIN_ROLE = 'Admin';
+    const MEMBER_ROLE = 'Member';
 
     /**
      * The attributes that are mass assignable.
@@ -56,16 +58,16 @@ class User extends Authenticatable
     /**
      * Get the user's role
      *
-     * @param int $role role
-     *
      * @return string
      */
-    public function getRoleAttribute($role)
+    public function getCurrentRoleAttribute()
     {
-        if ($role == config('setting.role.admin')) {
-            return $this->attributes['role'] = 'Admin';
+        switch ($this->role) {
+            case config('setting.role.admin'):
+                return self::ADMIN_ROLE;
+            case config('setting.role.member'):
+                return self::MEMBER_ROLE;
+            default:
         }
-
-        return $this->attributes['role'] = 'Member';
     }
 }

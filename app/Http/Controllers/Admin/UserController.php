@@ -8,6 +8,7 @@ use App\Models\User;
 use Exception;
 use App\Http\Requests\Backend\UserRequest;
 use Illuminate\Support\Facades\Storage;
+use Session;
 
 class UserController extends Controller
 {
@@ -19,11 +20,14 @@ class UserController extends Controller
     public function index()
     {
         try {
-            $users = User::orderBy('created_at', 'desc')->paginate(10);
+            $users = User::orderBy('created_at', 'desc')->paginate(config('setting.paginate.limit_rows'));
 
             return view('backend.pages.user.list', compact('users'));
         } catch (Exception $e) {
-            return redirect()->back()->with(['flash' => 'danger', 'message' => __('admin.flash_error')]);
+            Session::flash('message', __('admin.flash_error'));
+            Session::flash('alert-class', 'danger');
+
+            return redirect()->back();
         }
     }
 
@@ -63,8 +67,10 @@ class UserController extends Controller
             $input['avatar'] = $avatarName;
         }
         User::create($input);
+        Session::flash('message', __('admin.flash_success'));
+        Session::flash('alert-class', 'success');
 
-        return redirect('admin/user/create')->with(['flash' => 'success', 'message' => __('admin.flash_success')]);
+        return redirect('admin/users/create');
     }
 
     /**
@@ -81,7 +87,10 @@ class UserController extends Controller
 
             return view('backend.pages.user.info', compact('user'));
         } catch (Exception $e) {
-            return redirect()->back()->with(['flash' => 'danger', 'message' => __('admin.flash_error')]);
+            Session::flash('message', __('admin.flash_error'));
+            Session::flash('alert-class', 'danger');
+
+            return redirect()->back();
         }
     }
 }

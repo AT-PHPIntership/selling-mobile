@@ -39,7 +39,7 @@ return [
             'edit' => 'Update Category Successfull!',
             'edit_fail' => 'Can not edit Category by this Child!',
             'del' => 'Delete Category Successfull!',
-            'del_fail' => 'Can not Delete Category. Please check connect database!',
+            'del_fail' => 'Can not Delete Category. Please check foreign key with product!',
             'msg_del' => 'Do you want to delete this Category?',
         ]
 

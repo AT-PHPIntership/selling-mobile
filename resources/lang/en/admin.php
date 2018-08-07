@@ -51,4 +51,9 @@ return [
     'placeholder_repass' => 'Enter password again',
     'reset' => 'Reset',
     'submit' => 'Submit',
+    'stt' => 'STT',
+    'user_list' => 'User List',
+    'user_info' => 'User Info',
+    'phone' => 'Phone',
+    'edit' => 'Edit',
 ];

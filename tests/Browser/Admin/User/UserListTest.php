@@ -43,7 +43,7 @@ class UserListTest extends AdminTestCase
     {
         $this->browse(function (Browser $browser) {
             $browser->loginAs($this->user)
-                    ->visit('/admin/user')
+                    ->visit('/admin/users')
                     ->assertSee('User List');
             $elements = $browser->elements('.table-responsive table tbody tr');
             $numRecord = count($elements);
@@ -61,11 +61,11 @@ class UserListTest extends AdminTestCase
         $this->browse(function (Browser $browser) {
             factory(User::class, self::NUMBER_ROW)->create();
             $elements = $browser->loginAs($this->user)
-                                ->visit('/admin/user')
+                                ->visit('/admin/users')
                                 ->elements('.table-responsive table tbody tr');
             $numRecord = count($elements);
             $this->assertTrue($numRecord == 10);
-            $elements = $browser->visit('/admin/user?page=2')
+            $elements = $browser->visit('/admin/users?page=2')
                 ->elements('.table-responsive table tbody tr');
             $numRecord = count($elements);
             $this->assertFalse($numRecord == 5);

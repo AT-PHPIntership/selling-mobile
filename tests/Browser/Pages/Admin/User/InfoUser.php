@@ -14,13 +14,14 @@ class InfoUser extends Page
      */
     public function url()
     {
-        return '/admin/user/1';
+        return '/admin/users/1';
     }
 
     /**
      * Assert that the browser is on the page.
      *
-     * @param  Browser  $browser
+     * @param Browser $browser Browser
+     *
      * @return void
      */
     public function assert(Browser $browser)
