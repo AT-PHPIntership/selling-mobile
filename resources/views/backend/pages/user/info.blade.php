@@ -4,7 +4,7 @@
 <div class="row">
     <div class="col-md-3">
     <div class="text-center">
-      <img src="{{ url($user->avatar) }}" class="avatar img-circle" alt="avatar">
+      <img src="{{ url($user->avatar) }}" class="img-avatar-info avatar img-circle" alt="avatar">
     </div>
     </div>
     <div class="col-md-9 personal-info">

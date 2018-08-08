@@ -9,6 +9,7 @@
     <link href="{{ url('admin/css/metisMenu.min.css') }}" rel="stylesheet">
     <link href="{{ url('admin/css/sb-admin-2.css') }}" rel="stylesheet">
     <link href="{{ url('/admin/css/font-awesome.min.css') }}" rel="stylesheet">
+    <link href="{{ url('/admin/css/master.css') }}" rel="stylesheet">
     <script src="https://ajax.googleapis.com/ajax/libs/jquery/3.3.1/jquery.min.js"></script>
 </head>
 <body>

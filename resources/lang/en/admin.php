@@ -56,4 +56,5 @@ return [
     'user_info' => 'User Info',
     'phone' => 'Phone',
     'edit' => 'Edit',
+    'add_user' => 'Add User',
 ];

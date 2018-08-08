@@ -19,8 +19,8 @@ class CreateColorProductsTable extends Migration
             $table->foreign('product_id')
                     ->references('id')->on('products')
                     ->onDelete('cascade');
-            $table->string('color')->nullable;
-            $table->integer('unit_price')->nullable;
+            $table->string('color')->nullable();
+            $table->integer('unit_price')->nullable();
         });
     }
 

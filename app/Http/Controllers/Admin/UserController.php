@@ -9,9 +9,12 @@ use Exception;
 use App\Http\Requests\Backend\UserRequest;
 use Illuminate\Support\Facades\Storage;
 use Session;
+use App\Traits\UploadAvatar;
 
 class UserController extends Controller
 {
+    use UploadAvatar;
+
     /**
      * Display a listing of the resource.
      *
@@ -50,27 +53,23 @@ class UserController extends Controller
      */
     public function store(UserRequest $request)
     {
-        $input = $request->only([
-            'username',
-            'email',
-            'phonenumber',
-            'address',
-            'avatar',
-            'role',
-        ]);
-        $input['password'] = bcrypt($request->password);
-        if ($request->hasFile('avatar')) {
-            $avatarName = null;
+        try {
+            $input = $request->all();
+            $input['password'] = bcrypt($request->password);
+            $checkFile = $request->hasFile('avatar');
             $file = $request->file('avatar');
-            $path = Storage::disk('public')->put('avatars', $file);
-            $avatarName = baseName($path);
-            $input['avatar'] = $avatarName;
-        }
-        User::create($input);
-        Session::flash('message', __('admin.flash_success'));
-        Session::flash('alert-class', 'success');
+            $input['avatar'] = $this->uploadAvatar($checkFile, $file);
+            User::create($input);
+            Session::flash('message', __('admin.flash_success'));
+            Session::flash('alert-class', 'success');
 
-        return redirect('admin/users/create');
+            return redirect('admin/users');
+        } catch (Exception $e) {
+            Session::flash('message', __('admin.flash_error'));
+            Session::flash('alert-class', 'danger');
+
+            return redirect()->back();
+        }
     }
 
     /**

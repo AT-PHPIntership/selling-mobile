@@ -34,8 +34,7 @@ class UserRequest extends FormRequest
                     'password' => 'required|max:255|min:5',
                     'passwordAgain' => 'required|same:password',
                     'address' => 'required|max:255',
-                    'phone' => 'required|max:255',
-                    'role' => 'required',
+                    'phonenumber' => 'required|numeric',
                     'avatar' => 'image|mimes:jpeg,png,jpg,gif,svg|max:2048',
                 ];
             case 'PUT':

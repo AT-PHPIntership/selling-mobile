@@ -15,10 +15,10 @@ class CreateAboutStoreTable extends Migration
     {
         Schema::create('about_store', function (Blueprint $table) {
             $table->increments('id');
-            $table->string('name')->nullable;
-            $table->string('address')->nullable;
-            $table->string('phonenumber')->nullable;
-            $table->text('description')->nullable;
+            $table->string('name')->nullable();
+            $table->string('address')->nullable();
+            $table->string('phonenumber')->nullable();
+            $table->text('description')->nullable();
             $table->timestamps();
             $table->softDeletes('deleted_at');
         });

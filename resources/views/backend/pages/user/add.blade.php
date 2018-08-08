@@ -1,5 +1,5 @@
 @extends('backend.master')
-@section('title', 'Add User')
+@section('title', __('admin.add_user'))
 @section('content')
 <div class="right_col" role="main">
   <div class="">
@@ -9,7 +9,7 @@
           <div class="clearfix"></div>
           <div class="x_content">
             <br />
-          <form class="form-horizontal form-label-left" method="POST" enctype="multipart/form-data" action="{{ url('admin/user') }}">
+          <form class="form-horizontal form-label-left" method="POST" enctype="multipart/form-data" action="{{ route('admin.users.store') }}">
               @csrf
               <div class="form-group">
                 <label class="control-label col-md-3 col-sm-3 col-xs-12">{{ __('admin.username') }}</label>
@@ -36,7 +36,7 @@
               <div class="form-group">
                 <label class="control-label col-md-3 col-sm-3 col-xs-12">{{ __('admin.phone') }}</label>
                 <div class="col-md-6 col-sm-6 col-xs-12">
-                  <input type="text" class="form-control" placeholder="{{ __('admin.placeholder_phone') }}" name="phoneNumber" value="{{ old('phonenumber') }}">
+                  <input type="text" class="form-control" placeholder="{{ __('admin.placeholder_phone') }}" name="phonenumber" value="{{ old('phonenumber') }}">
                   @if ($errors->has('phonenumber'))
                     <span class="invalid-feedback" role="alert">
                         <strong>{{ $errors->first('phonenumber') }}</strong>
@@ -92,18 +92,13 @@
                 <label class="control-label col-md-3 col-sm-3 col-xs-12">{{ __('admin.role') }}</label>
                 <div class="col-md-6 col-sm-6 col-xs-12">
                   <label class="radio-inline">
-                    <input type="radio" name="role" id="role1" value="{{ config('setting.role.admin') }}" {{ (old('radio_admin') == 'Admin') ? 'checked' : '' }}>
+                    <input type="radio" name="role" id="role" value="{{ config('setting.role.admin') }}">
                     {{ __('admin.admin') }}
                   </label>
                   <label class="radio-inline">
-                    <input type="radio" name="role" id="role2" value="{{ config('setting.role.member') }}" {{ (old('radio_admin') == 'Member') ? 'checked' : '' }}>
+                    <input type="radio" name="role" id="role" value="{{ config('setting.role.member') }}" checked>
                     {{ __('admin.member') }}
                   </label>
-                  @if ($errors->has('role'))
-                    <span class="invalid-feedback" role="alert">
-                        <strong>{{ $errors->first('role') }}</strong>
-                    </span>
-                  @endif
                 </div>
               </div>
               <div class="form-group">

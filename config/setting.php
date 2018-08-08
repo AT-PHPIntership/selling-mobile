@@ -8,4 +8,8 @@ return [
     'paginate' => [
         'limit_rows' => 10,
     ],
+    'avatars' => [
+        'path' => '/avatars/',
+        'avatar_default' => 'default.png',
+    ],
 ];
