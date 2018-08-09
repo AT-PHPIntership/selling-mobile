@@ -37,11 +37,15 @@
                       <form class="col-md-4">
                       <a class="btn btn-primary" title="Edit" href="{{ route('admin.users.edit', ['id' => $item->id]) }}"><i class="fa fa-edit"></i></a>
                       </form>
-                      <form class="col-md-4" method="POST" >
-                        <button class="btn btn-danger" title="Delete" type="submit"><i class="fa fa-trash icon-size" ></i></button>
-                      </form>
                       <form class="col-md-4">
                         <a class="btn btn-primary" title="Info" href="{{ route('admin.users.show', ['id' => $item->id]) }}"><i class="fa fa-eye icon-size" ></i></a>
+                      </form>
+                      <form class="col-md-4" action="{{ route('admin.users.destroy', ['id' => $item->id]) }}" method="POST">
+                        @csrf
+                        @method('DELETE')
+                        @if ($item->role != config('setting.role.admin'))
+                          <button id="deleted" class="btn btn-danger" title="Delete" onclick="return confirm('@lang('admin.mesage_delete')')" type="submit"><i class="fa fa-trash icon-size" ></i></button>
+                        @endif
                       </form>
                     </td>
                   </tr>

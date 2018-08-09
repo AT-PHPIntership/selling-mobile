@@ -58,5 +58,7 @@ return [
     'edit' => 'Edit',
     'add_user' => 'Add User',
     'edit_user' => 'Edit User',
-    'flash_edit_success' => 'Edit Success !'
+    'flash_edit_success' => 'Edit Success !',
+    'flash_delete_success' => 'Delete Success !',
+    'mesage_delete' => 'Do you want to delete ?',
 ];
