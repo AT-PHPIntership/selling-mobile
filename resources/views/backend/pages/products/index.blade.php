@@ -1,5 +1,5 @@
 @extends('backend.master')
-@section('title', 'List Categories') )
+@section('title', __('product.admin.list.title') )
 @section('content')
 <div class="row clearfix">
   @include('backend.message')
@@ -26,21 +26,13 @@
               @foreach ($products as $product)
               <tr>
                 <td>{{ $product->id }}</td>
-                @if (count($images))
-                  <td><img class="img-responsive thumbnail" src="{{ $images[0]->path }}"></td>
-                @else
-                  <td><img class="img-responsive thumbnail" src="https://encrypted-tbn0.gstatic.com/images?q=tbn:ANd9GcQ7Qsw_ECf6sVU8xTKXhSyfXlfgwHojXM_7JQxlB8N2sACGfeu2"></td>
-                @endif
+                <td><img class="img-responsive thumbnail" src="https://encrypted-tbn0.gstatic.com/images?q=tbn:ANd9GcQ7Qsw_ECf6sVU8xTKXhSyfXlfgwHojXM_7JQxlB8N2sACGfeu2"></td>
                 <td>{{ $product->name }}</td>
                 <td>{{ $product->quantity }}</td>
                 <td>{{ $product->manufacturing_date}}</td>
                 <td>
-                  @foreach ($colorProduct as $itemColor)
-                    <?php $number = 0; ?>
-                    @if ($number < $product->count_color)
-                      <a>{{ $itemColor->color }}</a>
-                        <?php $number++; ?>
-                    @endif
+                  @foreach ($product->colorProducts as $item_color)
+                    <a href="{{ route('admin.products.show', ['id' => $item_color->id]) }}">{{ $item_color->color }}</a>
                   @endforeach
                 </td>
                 <td>

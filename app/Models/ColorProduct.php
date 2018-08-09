@@ -24,7 +24,7 @@ class ColorProduct extends Model
      */
     public function images()
     {
-        return $this->hasMany(App\Models\Image, 'color_product_id', 'id');
+        return $this->hasMany('App\Models\Image', 'color_product_id', 'id');
     }
 
     /**
@@ -34,6 +34,6 @@ class ColorProduct extends Model
      */
     public function products()
     {
-        return $this->belongsTo(App\Models\Product, 'product_id', 'id');
+        return $this->belongsTo('App\Models\Product', 'product_id', 'id');
     }
 }

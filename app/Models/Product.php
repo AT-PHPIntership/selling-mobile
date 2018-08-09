@@ -24,7 +24,7 @@ class Product extends Model
      */
     public function reviews()
     {
-        return $this->hasMany(App\Models\Review, 'product_id', 'id');
+        return $this->hasMany('App\Models\Review', 'product_id', 'id');
     }
     
     /**
@@ -34,7 +34,7 @@ class Product extends Model
      */
     public function colorProducts()
     {
-        return $this->hasMany(App\Models\ColorProduct, 'product_id', 'id');
+        return $this->hasMany('App\Models\ColorProduct', 'product_id', 'id');
     }
 
     /**
@@ -44,7 +44,7 @@ class Product extends Model
      */
     public function orderDetails()
     {
-        return $this->hasMany(App\Models\OrderDetail, 'product_id', 'id');
+        return $this->hasMany('App\Models\OrderDetail', 'product_id', 'id');
     }
 
     /**
