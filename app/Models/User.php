@@ -17,7 +17,7 @@ class User extends Authenticatable
      *
      * @var array
      */
-    protected $fillable = ['username', 'email', 'phonenumber', 'address', 'avatar'];
+    protected $fillable = ['username', 'email', 'phonenumber', 'address', 'avatar', 'password', 'role'];
 
     /**
      * The attributes that should be hidden for arrays.
@@ -69,5 +69,19 @@ class User extends Authenticatable
                 return self::MEMBER_ROLE;
             default:
         }
+    }
+
+    /**
+     * Get the user's avatar
+     *
+     * @param string $avatar Avatar
+     *
+     * @return string
+     */
+    public function getAvatarAttribute($avatar)
+    {
+        $avatar = $avatar ? $avatar : config('setting.avatars.avatar_default');
+
+        return config('setting.avatars.path') . $avatar;
     }
 }

@@ -20,8 +20,8 @@ class CreateProductsTable extends Migration
             $table->date('manufacturing_date');
             $table->boolean('status');
             $table->string('producer');
-            $table->text('detail')->nullable;
-            $table->text('description')->nullable;
+            $table->text('detail')->nullable();
+            $table->text('description')->nullable();
             $table->unsignedInteger('category_id');
             $table->foreign('category_id')
                     ->references('id')->on('categories')->onDelete('cascade');

@@ -18,7 +18,7 @@ class CreateReviewsTable extends Migration
             $table->unsignedInteger('product_id');
             $table->foreign('product_id')
                     ->references('id')->on('products')->onDelete('cascade');
-            $table->string('content')->nullable;
+            $table->string('content')->nullable();
             $table->unsignedInteger('user_id');
             $table->foreign('user_id')
                     ->references('id')->on('users')->onDelete('cascade');

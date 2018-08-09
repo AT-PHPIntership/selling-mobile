@@ -21,7 +21,7 @@
                         <a href="{{ route('admin.users.index') }}">{{ __('admin.user_list') }}</a>
                     </li>
                     <li>
-                        <a href="#">{{ __('admin.user_add') }}</a>
+                        <a href="{{ route('admin.users.create') }}">{{ __('admin.user_add') }}</a>
                     </li>
                 </ul>
             </li>

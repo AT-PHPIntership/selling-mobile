@@ -42,6 +42,6 @@ return [
             'del_fail' => 'Can not Delete Category. Please check foreign key with product!',
             'msg_del' => 'Do you want to delete this Category?',
         ]
-    
+
     ]
 ];
