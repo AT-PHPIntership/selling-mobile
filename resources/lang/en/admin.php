@@ -57,4 +57,6 @@ return [
     'phone' => 'Phone',
     'edit' => 'Edit',
     'add_user' => 'Add User',
+    'edit_user' => 'Edit User',
+    'flash_edit_success' => 'Edit Success !'
 ];

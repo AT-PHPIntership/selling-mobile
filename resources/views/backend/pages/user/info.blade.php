@@ -43,7 +43,7 @@
       <div class="form-group">
         <label class="col-md-3 control-label"></label>
         <div class="col-md-8">
-          <a href="#" class="btn btn-primary">{{ __('admin.edit') }}</a>
+          <a href="{{ route('admin.users.edit', ['id'=> $user->id]) }}" class="btn btn-primary">{{ __('admin.edit') }}</a>
           <input type="reset" class="btn btn-default" value="Cancel">
         </div>
       </div>

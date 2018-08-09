@@ -35,7 +35,7 @@
                     <td>{{ $item->currentRole }}</td>
                     <td>
                       <form class="col-md-4">
-                        <a class="btn btn-primary" title="Edit" href="#"><i class="fa fa-edit"></i></a>
+                      <a class="btn btn-primary" title="Edit" href="{{ route('admin.users.edit', ['id' => $item->id]) }}"><i class="fa fa-edit"></i></a>
                       </form>
                       <form class="col-md-4" method="POST" >
                         <button class="btn btn-danger" title="Delete" type="submit"><i class="fa fa-trash icon-size" ></i></button>
