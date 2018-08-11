@@ -73,6 +73,56 @@ class UserController extends Controller
     }
 
     /**
+     * Show the form for editing the specified resource.
+     *
+     * @param int $id id
+     *
+     * @return \Illuminate\Http\Response
+     */
+    public function edit($id)
+    {
+        try {
+            $user = User::findOrFail($id);
+
+            return view('backend.pages.user.edit', compact('user'));
+        } catch (Exception $e) {
+            Session::flash('message', __('admin.flash_error'));
+            Session::flash('alert-class', 'danger');
+
+            return redirect()->back();
+        }
+    }
+
+    /**
+     * Update the specified resource in storage.
+     *
+     * @param \Illuminate\Http\Request $request Request
+     * @param int                      $id      id
+     *
+     * @return \Illuminate\Http\Response
+     */
+    public function update(UserRequest $request, $id)
+    {
+        try {
+            $user = User::findOrFail($id);
+            $input = $request->all();
+            $checkFile = $request->hasFile('avatar');
+            $file = $request->file('avatar');
+            $input['avatar'] = $this->uploadAvatar($checkFile, $file, $user);
+            $user->update($input);
+            Session::flash('message', __('admin.flash_edit_success'));
+            Session::flash('alert-class', 'success');
+
+            return redirect()->back();
+        } catch (Exception $e) {
+            Session::flash('message', __('admin.flash_error'));
+            Session::flash('alert-class', 'danger');
+
+            return redirect()->back();
+        }
+    }
+
+    /**
      * Display the specified resource.
      *
      * @param int $id id
@@ -91,5 +141,25 @@ class UserController extends Controller
 
             return redirect()->back();
         }
+    }
+
+    /**
+     * Remove the specified resource from storage.
+     *
+     * @param int $id id
+     *
+     * @return \Illuminate\Http\Response
+     */
+    public function destroy($id)
+    {
+        $user = User::findOrFail($id);
+        if (Storage::disk('public')->exists('avatars', $user->avatar)) {
+            Storage::disk('public')->delete($user->avatar);
+        }
+        $user->delete();
+        Session::flash('message', __('admin.flash_delete_success'));
+        Session::flash('alert-class', 'success');
+
+        return redirect()->back();
     }
 }

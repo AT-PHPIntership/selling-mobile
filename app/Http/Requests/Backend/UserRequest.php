@@ -40,7 +40,10 @@ class UserRequest extends FormRequest
             case 'PUT':
             case 'PATCH':
                 return [
-                    //
+                    'username' => 'max:255|min:5',
+                    'address' => 'max:255',
+                    'phonenumber' => 'numeric',
+                    'avatar' => 'image|mimes:jpeg,png,jpg,gif,svg|max:2048',
                 ];
             default:
                 break;
