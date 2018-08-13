@@ -14,7 +14,7 @@
           <div class="x_content">
             <br />
             <form class="form-horizontal form-label-left" method="post" action="{{ route('admin.categories.store') }}">
-              @include('backend.error')
+              
               @csrf
               @method('POST')
               <div class="form-group">
