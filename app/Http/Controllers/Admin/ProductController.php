@@ -8,6 +8,9 @@ use Illuminate\Support\Facades\DB;
 use App\Models\Product;
 use App\Models\ColorProduct;
 use App\Models\Image;
+use App\Models\Category;
+use Exception;
+use Session;
 
 class ProductController extends Controller
 {
@@ -54,6 +57,28 @@ class ProductController extends Controller
             return view('backend.pages.products.showcolorproduct', compact('colors'));
         } catch (Exception $ex) {
             return $ex;
+        }
+    }
+
+    /**
+     * Remove the specified resource from storage.
+     *
+     * @param int $id id
+     *
+     * @return \Illuminate\Http\Response
+     */
+    public function destroy($id)
+    {
+        try {
+            $product = Product::with('colorProducts')->findOrFail($id);
+            $product->delete();
+            Session::flash('message', __('product.admin.message.del'));
+            Session::flash('alert-class', 'success');
+            return redirect()->route('admin.products.index');
+        } catch (Exception $ex) {
+            Session::flash('message', __('product.admin.message.del_fail'));
+            Session::flash('alert-class', 'success');
+            return redirect()->route('admin.products.index');
         }
     }
 }
