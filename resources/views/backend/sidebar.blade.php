@@ -36,6 +36,17 @@
                     </li>
                 </ul>
             </li>
+            <li>
+                <a href="#"><i class="fa fa-table fa-fw"></i> {{ __('product.admin.title') }}<span class="fa arrow"></span></a>
+                <ul class="nav nav-second-level">
+                    <li>
+                        <a href="{{ route('admin.products.index') }}">{{ __('product.admin.list.title') }}</a>
+                    </li>
+                    <li>
+                        <a href="#">{{ __('product.admin.add.title') }}</a>
+                    </li>
+                </ul>
+            </li>
         </ul>
     </div>
 </div>
