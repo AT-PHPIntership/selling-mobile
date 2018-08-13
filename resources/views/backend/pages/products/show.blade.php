@@ -1,7 +1,6 @@
 @extends('backend.master')
 @section('title', __('product.admin.list.title') )
 @section('content')
-@include('backend.message')
 <div class="row clearfix">
   <div class="col-md-3">
     <div class="text-center">
@@ -10,7 +9,7 @@
           @if (strpos($item_image->path, 'http://') !== false)
             <img class="img-responsive thumbnail" src="{{ $item_image->path }}">
           @else
-            <img class="img-responsive thumbnail" src=" {{ url('admin/images/products/'. $item_image->path }}">
+            <img class="img-responsive thumbnail" src=" {{ url('admin/images/products/'. $item_image->path) }}">
           @endif
         @else
           <img class="img-responsive thumbnail" url="https://encrypted-tbn0.gstatic.com/images?q=tbn:ANd9GcQ7Qsw_ECf6sVU8xTKXhSyfXlfgwHojXM_7JQxlB8N2sACGfeu2">

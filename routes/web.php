@@ -22,6 +22,7 @@ Route::prefix('admin')->namespace('Admin')->group(function () {
             Route::resource('categories', 'CategoryController');
             Route::resource('users', 'UserController');
             Route::resource('products', 'ProductController');
+            Route::get('products/{product}/showchild', 'ProductController@showchild')->name('products.showchild');
         });
     });
 });

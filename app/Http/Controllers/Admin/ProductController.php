@@ -98,9 +98,11 @@ class ProductController extends Controller
                 $colorProduct->images()->createMany($imagesData);
             }
             Session::flash('message', __('product.admin.message.add'));
+            Session::flash('alert-class', 'success');
             return redirect()->route('admin.products.index');
         } catch (Exception $ex) {
             Session::flash('message', __('product.admin.message.add_fail'));
+            Session::flash('alert-class', 'success');
             return redirect()->route('admin.products.index');
         }
     }
@@ -154,9 +156,11 @@ class ProductController extends Controller
                 $colorProduct->images()->createMany($imagesData);
             }
             Session::flash('message', __('product.admin.message.edit'));
+            Session::flash('alert-class', 'success');
             return redirect()->route('admin.products.index');
         } catch (Exception $ex) {
             Session::flash('message', __('product.admin.message.edit_fail'));
+            Session::flash('alert-class', 'success');
             return redirect()->route('admin.products.edit');
         }
     }
@@ -174,9 +178,11 @@ class ProductController extends Controller
             $product = Product::with('colorProducts')->findOrFail($id);
             $product->delete();
             Session::flash('message', __('product.admin.message.del'));
+            Session::flash('alert-class', 'success');
             return redirect()->route('admin.products.index');
         } catch (Exception $ex) {
             Session::flash('message', __('product.admin.message.del_fail'));
+            Session::flash('alert-class', 'success');
             return redirect()->route('admin.products.index');
         }
     }

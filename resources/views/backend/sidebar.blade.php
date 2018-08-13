@@ -21,7 +21,7 @@
                         <a href="{{ route('admin.users.index') }}">{{ __('admin.user_list') }}</a>
                     </li>
                     <li>
-                        <a href="{{ route('admin.users.create') }}">{{ __('admin.user_add') }}</a>
+                        <a href="#">{{ __('admin.user_add') }}</a>
                     </li>
                 </ul>
             </li>
@@ -43,7 +43,7 @@
                         <a href="{{ route('admin.products.index') }}">{{ __('product.admin.list.title') }}</a>
                     </li>
                     <li>
-                        <a href="#">{{ __('product.admin.add.title') }}</a>
+                        <a href="{{ route('admin.products.create') }}">{{ __('product.admin.add.title') }}</a>
                     </li>
                 </ul>
             </li>

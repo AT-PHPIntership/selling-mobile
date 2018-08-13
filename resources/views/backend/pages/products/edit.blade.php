@@ -6,7 +6,6 @@
     <div class="card">
       <div class="body">
         <h2 class="card-inside-title">{{__('product.admin.edit.title')}}</h2>
-        @include('backend.message')
         <div class="row clearfix">
           <div class="col-sm-12">
             <form id="demo-form2" method="POST" action="{{ route('admin.products.update', $product->id) }}" enctype="multipart/form-data">

@@ -14,7 +14,7 @@
                   @if (strpos($item_color->images->first()['path'], 'http://') !== false)
                     <img class="img-responsive thumbnail" src="{{$item_color->images->first()['path']}}" style="margin: 0 auto;">
                   @else
-                    <img class="img-responsive thumbnail" src="{{ url('admin/images/products/'.$item_color->images->first()['path'])}}" style="margin: 0 auto;">
+                    <img class="img-responsive thumbnail" src="{{ url('admin/images/products/'.$item_color->images->first()['path']) }}" style="margin: 0 auto;">
                   @endif
                 @else
                   <img class="img-responsive thumbnail" src="https://encrypted-tbn0.gstatic.com/images?q=tbn:ANd9GcQ7Qsw_ECf6sVU8xTKXhSyfXlfgwHojXM_7JQxlB8N2sACGfeu2">
