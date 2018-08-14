@@ -61,4 +61,13 @@ return [
     'flash_edit_success' => 'Edit Success !',
     'flash_delete_success' => 'Delete Success !',
     'mesage_delete' => 'Do you want to delete ?',
+
+    //Order
+    'list_order' => 'List Order',
+    'date_order' => 'Date Order',
+    'status' => 'Status',
+    'order' => 'Order',
+    'order_list' => 'Order List',
+    'id' => 'ID',
+    'detail_order' => 'Detail Order',
 ];

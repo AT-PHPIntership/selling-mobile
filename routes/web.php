@@ -21,6 +21,7 @@ Route::prefix('admin')->namespace('Admin')->group(function () {
         Route::group(['as' => 'admin.'], function () {
             Route::resource('categories', 'CategoryController');
             Route::resource('users', 'UserController');
+            Route::resource('orders', 'OrderController');
         });
     });
 });

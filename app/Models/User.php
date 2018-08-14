@@ -17,7 +17,7 @@ class User extends Authenticatable
      *
      * @var array
      */
-    protected $fillable = ['username', 'email', 'phonenumber', 'address', 'avatar', 'password', 'role'];
+    protected $fillable = ['id', 'username', 'email', 'phonenumber', 'address', 'avatar', 'password', 'role'];
 
     /**
      * The attributes that should be hidden for arrays.
@@ -35,7 +35,7 @@ class User extends Authenticatable
      */
     public function orders()
     {
-        return $this->hasMany(App\Models\Order, 'user_id', 'id');
+        return $this->hasMany(Order::class, 'user_id', 'id');
     }
 
     /**
@@ -45,7 +45,7 @@ class User extends Authenticatable
      */
     public function reviews()
     {
-        return $this->hasMany(App\Models\Review, 'user_id', 'id');
+        return $this->hasMany(Review::class, 'user_id', 'id');
     }
 
     /**
