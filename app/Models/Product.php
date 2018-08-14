@@ -14,7 +14,7 @@ class Product extends Model
      * @var array
      */
     protected $fillable = [
-        'name', 'quantity', 'manufacturing_date', 'status', 'producer', 'detail', 'description', 'category_id','discount_id', 'about_store_id'
+        'name', 'manufacturing_date', 'price', 'producer', 'detail', 'description', 'category_id'
     ];
 
     /**
@@ -24,9 +24,9 @@ class Product extends Model
      */
     public function reviews()
     {
-        return $this->hasMany(App\Models\Review, 'product_id', 'id');
+        return $this->hasMany('App\Models\Review', 'product_id', 'id');
     }
-    
+
     /**
      * Get ColorProduct of Product
      *
@@ -34,7 +34,17 @@ class Product extends Model
      */
     public function colorProducts()
     {
-        return $this->hasMany(App\Models\ColorProduct, 'product_id', 'id');
+        return $this->hasMany('App\Models\ColorProduct', 'product_id', 'id');
+    }
+
+    /**
+     * Get Image of Product
+     *
+     * @return \Illuminate\Database\Eloquent\Relations\HasMany
+     */
+    public function images()
+    {
+        return $this->hasMany('App\Models\Image', 'product_id', 'id');
     }
 
     /**
@@ -44,7 +54,7 @@ class Product extends Model
      */
     public function orderDetails()
     {
-        return $this->hasMany(App\Models\OrderDetail, 'product_id', 'id');
+        return $this->hasMany('App\Models\OrderDetail', 'product_id', 'id');
     }
 
     /**
@@ -54,7 +64,7 @@ class Product extends Model
      */
     public function categories()
     {
-        return $this->belongsTo(App\Models\Category, 'category_id', 'id');
+        return $this->belongsTo('App\Models\Category', 'category_id', 'id');
     }
 
     /**
@@ -63,4 +73,14 @@ class Product extends Model
      * @var array
      */
     protected $dates = ['deleted_at'];
+
+    /**
+     * Get OrderDetail of Order
+     *
+     * @return \Illuminate\Database\Eloquent\Relations\BelongsToMany
+     */
+    public function orders()
+    {
+        return $this->belongsToMany('App\Models\Order', 'order_details', 'order_id', 'product_id');
+    }
 }

@@ -14,7 +14,7 @@ class Image extends Model
      */
 
     protected $fillable = [
-        'color_product_id', 'path'
+        'product_id', 'path_image'
     ];
 
     /**
@@ -24,6 +24,6 @@ class Image extends Model
      */
     public function colorProducts()
     {
-        return $this->belongsTo(App\Models\ColorProduct, 'color_product_id', 'id');
+        return $this->belongsTo('App\Models\Product', 'product_id', 'id');
     }
 }

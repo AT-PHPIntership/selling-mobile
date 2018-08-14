@@ -61,6 +61,7 @@ return [
     'flash_edit_success' => 'Edit Success !',
     'flash_delete_success' => 'Delete Success !',
     'mesage_delete' => 'Do you want to delete ?',
+    'flash_update_success' => 'Update Success !',
 
     //Order
     'list_order' => 'List Order',
@@ -70,4 +71,20 @@ return [
     'order_list' => 'Order List',
     'id' => 'ID',
     'detail_order' => 'Detail Order',
+    'pending' => 'Pending',
+    'approve' => 'Approve',
+    'cancel' => 'Cancel',
+    'order_info' => 'Ordering Info',
+    'customer_info' => 'Customer Info',
+    'date_checkout' => 'Date Checkout',
+    'product_name' => 'Product Name',
+    'quantity' => 'Quantity',
+    'price' => 'Price',
+    'vnd' => ' VNĐ',
+    'order_status' => 'Order Status: ',
+    'total_price' => 'Total Price',
+    '' => '',
+    '' => '',
+
+
 ];

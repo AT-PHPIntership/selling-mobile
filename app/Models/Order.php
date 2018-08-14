@@ -24,7 +24,7 @@ class Order extends Model
      *
      * @return \Illuminate\Database\Eloquent\Relations\HasMany
      */
-    public function orderdetails()
+    public function orderDetails()
     {
         return $this->hasMany(OrderDestail::class, 'order_id', 'id');
     }
@@ -37,6 +37,26 @@ class Order extends Model
     public function user()
     {
         return $this->belongsTo(User::class, 'user_id', 'id');
+    }
+
+    /**
+     * Get OrderDetail of Product
+     *
+     * @return \Illuminate\Database\Eloquent\Relations\HasMany
+     */
+    public function orders()
+    {
+        return $this->hasMany('App\Models\Order', 'order_details', 'order_id', 'product_id');
+    }
+
+    /**
+     * Get OrderDetail of Product
+     *
+     * @return \Illuminate\Database\Eloquent\Relations\BelongsToMany
+     */
+    public function products()
+    {
+        return $this->belongsToMany(Product::class, 'order_details', 'product_id', 'order_id');
     }
 
     /**

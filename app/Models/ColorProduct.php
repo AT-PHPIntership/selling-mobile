@@ -14,18 +14,7 @@ class ColorProduct extends Model
      *
      * @var array
      */
-    protected $fillable = [ 'product_id', 'color', 'unit-price'
-    ];
-
-    /**
-     * Get Image of ColorProduxt
-     *
-     * @return \Illuminate\Database\Eloquent\Relations\HasMany
-     */
-    public function images()
-    {
-        return $this->hasMany(App\Models\Image, 'color_product_id', 'id');
-    }
+    protected $fillable = [ 'product_id', 'color', 'path_image', 'quantity', 'price_color_value', 'price_color_type'];
 
     /**
      * Get Product Object
@@ -34,6 +23,6 @@ class ColorProduct extends Model
      */
     public function products()
     {
-        return $this->belongsTo(App\Models\Product, 'product_id', 'id');
+        return $this->belongsTo('App\Models\Product', 'product_id', 'id');
     }
 }

@@ -25,7 +25,7 @@
                 <tbody>
                 @foreach ($orders as $item)
                   <tr class="even pointer">
-                    <td>{{ $item->user['id'] }}</td>
+                    <td>{{ $item->id }}</td>
                     <td>{{ $item->user['username'] }}</td>
                     <td>{{ $item->user['address'] }}</td>
                     <td>{{ $item->user['email'] }}</td>
@@ -35,7 +35,7 @@
                       <form class="col-md-4">
                         <a class="btn btn-primary" title="Detail" href="{{ route('admin.orders.edit', ['id' => $item->id]) }}"><i class="fa fa-eye icon-size" ></i></a>
                       </form>
-                      <form class="col-md-4" action="#" method="POST">
+                      <form class="col-md-4" action="{{ route('admin.orders.destroy', ['id' => $item->id]) }}" method="POST">
                         @csrf
                         @method('DELETE')
                         <button id="deleted" class="btn btn-danger" title="Delete" onclick="return confirm('@lang('admin.mesage_delete')')" type="submit"><i class="fa fa-trash icon-size" ></i></button>
