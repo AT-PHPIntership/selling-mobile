@@ -14,7 +14,7 @@ class Product extends Model
      * @var array
      */
     protected $fillable = [
-        'name', 'quantity', 'manufacturing_date', 'status', 'producer', 'detail', 'description', 'category_id','discount_id', 'about_store_id'
+        'name', 'manufacturing_date', 'price', 'producer', 'detail', 'description', 'category_id'
     ];
 
     /**
@@ -38,6 +38,16 @@ class Product extends Model
     }
 
     /**
+     * Get Image of Product
+     *
+     * @return \Illuminate\Database\Eloquent\Relations\HasMany
+     */
+    public function images()
+    {
+        return $this->hasMany('App\Models\Image', 'product_id', 'id');
+    }
+
+    /**
      * Get OrderDetail of Product
      *
      * @return \Illuminate\Database\Eloquent\Relations\HasMany
@@ -54,7 +64,7 @@ class Product extends Model
      */
     public function categories()
     {
-        return $this->belongsTo(App\Models\Category, 'category_id', 'id');
+        return $this->belongsTo('App\Models\Category', 'category_id', 'id');
     }
 
     /**
