@@ -33,8 +33,8 @@ class ProductController extends Controller
      */
     public function create()
     {
-        $listCategoriesChild = Category::where('parent_id', '<>', null)->get();
-        return view('backend.pages.products.create', compact('listCategoriesChild'));
+        $childCategories = Category::where('parent_id', '<>', null)->get();
+        return view('backend.pages.products.create', compact('childCategories'));
     }
 
     /**

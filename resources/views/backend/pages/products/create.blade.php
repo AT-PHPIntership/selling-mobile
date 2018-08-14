@@ -1,6 +1,7 @@
 @extends('backend.master')
 @section('title', __('product.admin.list.title') )
 @section('content')
+<link href="{{ url('admin/css/add-color.css') }}" rel="stylesheet">
 <div class="row clearfix">
   <div class="col-lg-10 col-md-12 col-sm-12 col-xs-12">
     <div class="card">
@@ -54,32 +55,34 @@
                 <div class="form-line">
                   <select class="form-control" name="category_id">
                     <option value=""></option>
-                    @foreach ($listCategoriesChild as $list)
+                    @foreach ($childCategories as $list)
                     <option value="{{ $list->id }}" {{ (collect(old('category_id'))->contains($list->id)) ? 'selected':'' }}>{{ $list->name }}</option>
                     @endforeach
                   </select>
                 </div>
               </div>
               <div class="form-group">
-                <label for="color">{{ __('product.admin.table.color') }}</label>
-                <div class="form-line">
+                <input id="add_color" class="form-line" type="button" value="+Add Color">
+                <br>
+                <div id="color_pr" class="form-line" hidden>
+                  <label for="color">{{ __('product.admin.table.color') }}</label>
                   <input type="text" name="color" class="form-control" placeholder="" />
                 </div>
-              </div>
-              <div class="form-group">
-                <label for="price_color_type">{{ __('product.admin.table.price_color_type') }}</label>
-                <div class="form-line">
-                  <select class="form-control" name="price_color_type">
-                    <option value=""></option>
-                    <option value="percent">Percent</option>
-                    <option value="currencies">Currencies</option>
-                  </select>
+                <div id="type_pr" class="form-group" hidden>
+                  <div class="form-line">
+                    <label for="price_color_type">{{ __('product.admin.table.price_color_type') }}</label>
+                    <select class="form-control" name="price_color_type">
+                      <option value=""></option>
+                      <option value="percent">Percent</option>
+                      <option value="currencies">Currencies</option>
+                    </select>
+                  </div>
                 </div>
-              </div>
-              <div class="form-group">
-                <label class="control-label" for="price_color_value">{{ __('product.admin.table.price_color_value') }}</label>
-                <div class="form-line">
-                  <input type="text" name="price_color_value" class="form-control" placeholder="" />
+                <div id="value_pr" class="form-group" hidden>
+                  <div class="form-line">
+                    <label class="control-label" for="price_color_value">{{ __('product.admin.table.price_color_value') }}</label>
+                    <input type="text" name="price_color_value" class="form-control" placeholder="" />
+                  </div>
                 </div>
               </div>
               <div class="form-group">
@@ -97,4 +100,5 @@
     </div>
   </div>
 </div>
+<script src="{{ url('admin/js/add-color.js') }}"></script>
 @endsection
