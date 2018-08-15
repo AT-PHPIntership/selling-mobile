@@ -9,6 +9,7 @@ use App\Models\User;
 use App\Models\Product;
 use App\Models\OrderDetail;
 use Session;
+use App\Http\Requests\Backend\OrderRequest;
 
 class OrderController extends Controller
 {
@@ -58,7 +59,7 @@ class OrderController extends Controller
      *
      * @return \Illuminate\Http\Response
      */
-    public function update(Request $request, $id)
+    public function update(OrderRequest $request, $id)
     {
         try {
             $order = Order::findOrFail($id);
