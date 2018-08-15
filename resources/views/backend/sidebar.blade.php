@@ -43,7 +43,7 @@
                         <a href="{{ route('admin.products.index') }}">{{ __('product.admin.list.title') }}</a>
                     </li>
                     <li>
-                        <a href="#">{{ __('product.admin.add.title') }}</a>
+                        <a href="{{ route('admin.products.create') }}">{{ __('product.admin.add.title') }}</a>
                     </li>
                 </ul>
             </li>

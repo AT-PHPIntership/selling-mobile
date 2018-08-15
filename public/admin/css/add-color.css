@@ -1,0 +1,17 @@
+ #add_color {
+  margin-bottom: 15px;
+  background: #5cb85c;
+  height: 50px;
+  width: 150px;
+  color: white;
+  font-weight: bold;
+  font-size: 18px
+}
+.group-add-color {
+  border: 1px solid #b19b9b;
+  margin-bottom: 5px;
+  border-radius: 5px;
+}
+.group-none {
+  display: none;
+}
