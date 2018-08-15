@@ -39,7 +39,7 @@
                 </td>
                 <td>{{ $product->name }}</td>
                 <td>{{ $product->manufacturing_date}}</td>
-                <td>{{ number_format($product->price) }} VND</td>
+                <td>{{ number_format($product->price) }}</td>
                 <td>
                   @foreach ($product->colorProducts as $item_color)
                     <a href="{{ route('admin.products.show', ['id' => $item_color->id]) }}">{{ $item_color->color }}</a>

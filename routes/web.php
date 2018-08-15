@@ -23,8 +23,7 @@ Route::prefix('admin')->namespace('Admin')->group(function () {
             Route::resource('users', 'UserController');
             Route::resource('orders', 'OrderController')->except(['create', 'show', 'store']);
             Route::resource('products', 'ProductController');
-            Route::get('products/{product}/showcolorproduct', 'ProductController@showColorProduct')->name('products.showColorProduct');
-            Route::get('/products/color/{id}', 'ProductController@getColor')->name('products.getColor');
+            Route::get('/products/{idProduct}/colors/{idColor}', 'ProductController@getColor');
         });
     });
 });

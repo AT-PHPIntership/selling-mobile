@@ -37,7 +37,6 @@ class ProductController extends Controller
     {
         try {
             $product = Product::with(['colorProducts', 'images'])->findOrFail($id);
-            //dd($product->colorProducts);
             return view('backend.pages.products.show', compact('product'));
         } catch (Exception $ex) {
             return $ex;
@@ -47,32 +46,15 @@ class ProductController extends Controller
     /**
      * Show the color for Product.
      *
-     *@param int $idColor ColorProducts
+     * @param int $idProduct Products
+     * @param int $idColor   ColorProducts
      *
      * @return \Illuminate\Http\Response
      */
-    public function getColor($id)
+    public function getColor($idProduct, $idColor)
     {
-        
-        $color =  ColorProduct::findOrFail($id);
+        $color =  ColorProduct::where('product_id', $idProduct)->where('id', $idColor)->get();
         return response()->json($color);
-    }
-
-    /**
-     * Display the specified resource.
-     *
-     * @param int $id id
-     *
-     * @return \Illuminate\Http\Response
-     */
-    public function showColorProduct($id)
-    {
-        try {
-            $colors = ColorProduct::where('product_id', $id)->get();
-            return view('backend.pages.products.showcolorproduct', compact('colors'));
-        } catch (Exception $ex) {
-            return $ex;
-        }
     }
 
     /**
