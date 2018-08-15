@@ -12,4 +12,11 @@ return [
         'path' => '/avatars/',
         'avatar_default' => 'default.png',
     ],
+    'order' => [
+        'status' => [
+            'pending' => 0,
+            'approve' => 1,
+            'cancel' => 2,
+        ],
+    ],
 ];
