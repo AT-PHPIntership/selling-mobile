@@ -48,7 +48,22 @@ class ProductController extends Controller
     {
         try {
             $product = Product::create($request->all());
-            $request->request->add(['product_id'=> $product->id]);
+            if (is_array(request()->color)) {
+                for ($i =0; $i < count($request->color) - 1; $i++) {
+                    $itemColor = $request->color[$i];
+                    $newImage = $itemColor['path_image']->getClientOriginalName();
+                    $itemColor['path_image']->move(public_path(config('define.product.images_path_products')), $newImage);
+                    $colorsData = [
+                        'product_id' => $product->id,
+                        'color' => $itemColor['color'],
+                        'path_image' => $newImage,
+                        'quantity' => $itemColor['quantity'],
+                        'price_color_value' => $itemColor['price_color_value'],
+                        'price_color_type' => $itemColor['price_color_type']
+                    ];
+                    $product->colorProducts()->create($colorsData);
+                }
+            }
             if (is_array(request()->file('images'))) {
                 foreach (request()->file('images') as $image) {
                     $newImage = $image->getClientOriginalName();
@@ -58,12 +73,7 @@ class ProductController extends Controller
                         'path_image' => $newImage
                     ];
                 }
-                if ($request->color) {
-                    $request->request->add(['path_image'=> $newImage]);
-                    ColorProduct::create($request->all());
-                } else {
-                    $product->images()->createMany($imagesData);
-                }
+                $product->images()->createMany($imagesData);
             }
             Session::flash('message', __('product.admin.message.add'));
             Session::flash('alert-class', 'success');
