@@ -22,8 +22,39 @@ class ProductController extends Controller
      */
     public function index()
     {
-        $products = Product::with(['colorProducts'])->orderBy('created_at', 'desc')->paginate(config('paging.number_element_in_page'));
+        $products = Product::with(['colorProducts', 'images'])->orderBy('created_at', 'desc')->paginate(config('paging.number_element_in_page'));
         return view('backend.pages.products.index', compact('products'));
+    }
+
+    /**
+     * Display the specified resource.
+     *
+     * @param int $id id
+     *
+     * @return \Illuminate\Http\Response
+     */
+    public function show($id)
+    {
+        try {
+            $product = Product::with(['colorProducts', 'images'])->findOrFail($id);
+            return view('backend.pages.products.show', compact('product'));
+        } catch (Exception $ex) {
+            return $ex;
+        }
+    }
+
+    /**
+     * Show the color for Product.
+     *
+     * @param int $idProduct Products
+     * @param int $idColor   ColorProducts
+     *
+     * @return \Illuminate\Http\Response
+     */
+    public function getColor($idProduct, $idColor)
+    {
+        $color =  ColorProduct::where('product_id', $idProduct)->where('id', $idColor)->get();
+        return response()->json($color);
     }
 
     /**
@@ -53,7 +84,6 @@ class ProductController extends Controller
                     $itemColor = $request->color[$i];
                     $newImage = $itemColor['path_image']->getClientOriginalName();
                     $itemColor['path_image']->move(public_path(config('define.product.images_path_products')), $newImage);
-                    echo $itemColor['price_color_value'];
                     $colorsData = [
                         'product_id' => $product->id,
                         'color' => $itemColor['color'],
