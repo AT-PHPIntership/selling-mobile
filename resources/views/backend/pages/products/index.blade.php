@@ -38,7 +38,7 @@
                 </td>
                 <td>{{ $product->name }}</td>
                 <td>{{ $product->manufacturing_date}}</td>
-                <td>{{ $product->price }} VND</td>
+                <td>{{ number_format($product->price) }}</td>
                 <td>
                   @foreach ($product->colorProducts as $item_color)
                     <a href="{{ route('admin.products.show', ['id' => $item_color->id]) }}">{{ $item_color->color }}</a>
@@ -46,10 +46,10 @@
                 </td>
                 <td>
                   <form class="col-md-4">
-                    <a class="btn btn-primary" href="{{ route('admin.products.showColorProduct', ['id' => $product->id]) }}"><i class="fa fa-eye icon-size" ></i></a>
+                    <a class="btn btn-primary" href="{{ route('admin.products.show', ['id' => $product->id]) }}"><i class="fa fa-eye icon-size" ></i></a>
                   </form>
                   <form class="col-md-4">
-                    <a class="btn btn-primary" id="edit{{ $product->id }}" href="#"><i class="fa fa-edit"></i></a>
+                    <a class="btn btn-primary" id="edit{{ $product->id }}" href="{{ route('admin.products.edit', ['id' => $product->id]) }}"><i class="fa fa-edit"></i></a>
                   </form>
                   <form class="col-md-4" method="POST" action="{{ route('admin.products.destroy', ['id' => $product->id]) }}" id="deleted{{ $product->id }}">
                     @method('DELETE')

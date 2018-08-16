@@ -43,9 +43,18 @@
                         <a href="{{ route('admin.products.index') }}">{{ __('product.admin.list.title') }}</a>
                     </li>
                     <li>
-                        <a href="#">{{ __('product.admin.add.title') }}</a>
+                        <a href="{{ route('admin.products.create') }}">{{ __('product.admin.add.title') }}</a>
                     </li>
                 </ul>
+            </li>
+            </li>
+            <li>
+              <a href="#"><i class="fa fa-shopping-cart"></i> {{ __('admin.order') }}<span class="fa arrow"></span></a>
+              <ul class="nav nav-second-level">
+                <li>
+                  <a href="{{ route('admin.orders.index') }}">{{ __('admin.order_list') }}</a>
+                </li>
+              </ul>
             </li>
         </ul>
     </div>

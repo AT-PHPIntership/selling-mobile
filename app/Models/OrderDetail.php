@@ -25,7 +25,7 @@ class OrderDetail extends Model
      */
     public function order()
     {
-        return $this->belongsTo(App\Models\Order, 'order_id', 'id');
+        return $this->belongsTo('App\Models\Order', 'order_id', 'id');
     }
 
     /**
@@ -35,6 +35,6 @@ class OrderDetail extends Model
      */
     public function product()
     {
-        return $this->belongsTo(App\Models\Product, 'product_id', 'id');
+        return $this->belongsTo('App\Models\Product', 'product_id', 'id');
     }
 }
