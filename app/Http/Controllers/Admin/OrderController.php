@@ -10,6 +10,8 @@ use App\Models\Product;
 use App\Models\OrderDetail;
 use Session;
 use App\Http\Requests\Backend\OrderRequest;
+use App\Mail\OrderShipped;
+use Illuminate\Support\Facades\Mail;
 
 class OrderController extends Controller
 {
@@ -62,8 +64,12 @@ class OrderController extends Controller
     public function update(OrderRequest $request, $id)
     {
         try {
-            $order = Order::findOrFail($id);
+            $order = Order::with(['products.colorProducts', 'orderDetails'])->findOrFail($id);
+            dd($order);
             $input['status'] = $request->status;
+            if ($input['status'] == config('setting.order.status.approve')) {
+                Mail::to($order->user)->send(new OrderShipped($order));
+            }
             $order->update($input);
 
             Session::flash('message', __('admin.flash_update_success'));

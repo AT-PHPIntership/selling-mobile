@@ -7,24 +7,27 @@ use Illuminate\Mail\Mailable;
 use Illuminate\Queue\SerializesModels;
 use Illuminate\Contracts\Queue\ShouldQueue;
 use App\Models\User;
+use App\Models\Order;
+use App\Models\Product;
 use GuzzleHttp\Psr7\Request;
+use App\Models\OrderDetail;
 
 class OrderShipped extends Mailable
 {
     use Queueable, SerializesModels;
 
-    public $user;
+    public $order;
 
     /**
      * Create a new message instance.
      *
-     * @param array $user User
+     * @param string $order Order
      *
      * @return void
      */
-    public function __construct(User $user)
+    public function __construct(Order $order)
     {
-        $this->user = $user;
+        $this->order = $order;
     }
 
     /**
@@ -34,21 +37,7 @@ class OrderShipped extends Mailable
      */
     public function build()
     {
-        return $this->to($this->user->email)
-                    ->subject('Welcome to Phone.com')
-                    ->view('emails.order_shipped');
-    }
-
-    /**
-     * Build the message.
-     *
-     * @param string $request Request
-     *
-     * @return void
-     */
-    public function sendMail(Request $request)
-    {
-        $email = $request->email;
-        Maill::to($email)->send(new OrderShipped());
+        dd($order);
+        return $this->view('emails.orders_shipped');
     }
 }
