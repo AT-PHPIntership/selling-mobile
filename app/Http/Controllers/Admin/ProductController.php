@@ -36,26 +36,8 @@ class ProductController extends Controller
     public function show($id)
     {
         try {
-            $colorProduct = ColorProduct::findOrFail($id);
-            $product = Product::with(['categories'])->findOrFail($colorProduct->product_id);
-            return view('backend.pages.products.show', compact('colorProduct', 'product'));
-        } catch (Exception $ex) {
-            return $ex;
-        }
-    }
-
-    /**
-     * Display the specified resource.
-     *
-     * @param int $id id
-     *
-     * @return \Illuminate\Http\Response
-     */
-    public function showColorProduct($id)
-    {
-        try {
-            $colors = ColorProduct::where('product_id', $id)->get();
-            return view('backend.pages.products.showcolorproduct', compact('colors'));
+            $product = Product::with(['colorProducts', 'images'])->findOrFail($id);
+            return view('backend.pages.products.show', compact('product'));
         } catch (Exception $ex) {
             return $ex;
         }
@@ -64,13 +46,15 @@ class ProductController extends Controller
     /**
      * Show the color for Product.
      *
-     * @param int $id ColorProducts
+     * @param int $idProduct Products
+     * @param int $idColor   ColorProducts
      *
      * @return \Illuminate\Http\Response
      */
-    public function getColor($id)
+    public function getColor($idProduct, $idColor)
     {
-        $color =  ColorProduct::findOrFail($id);
+
+        $color =  ColorProduct::where('product_id', $idProduct)->where('id', $idColor)->get();
         return response()->json($color);
     }
 
@@ -159,7 +143,6 @@ class ProductController extends Controller
                     $itemColor = $request->color[$i];
                     $newImage = $itemColor['path_image']->getClientOriginalName();
                     $itemColor['path_image']->move(public_path(config('define.product.images_path_products')), $newImage);
-                    echo $itemColor['price_color_value'];
                     $colorsData = [
                         'product_id' => $product->id,
                         'color' => $itemColor['color'],

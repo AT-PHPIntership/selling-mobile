@@ -5,11 +5,11 @@
 <div class="row clearfix">
   <div class="col-md-3">
     <div class="text-center">
-      @if ($colorProduct->path_image)
-        @if (strpos($colorProduct->path_image, 'https://') !== false)
-          <img class="img-responsive thumbnail" src="{{ $colorProduct->path_image }}">
+      @if ($product->images->first()['path_image'])
+        @if (strpos($product->images->first()['path_image'], 'https://') !== false)
+          <img class="img-responsive thumbnail" src="{{ $product->images->first()['path_image'] }}">
         @else
-          <img class="img-responsive thumbnail" src="{{ url('admin/images/products/'.$colorProduct->path_image) }}">
+          <img class="img-responsive thumbnail" src="{{ url('admin/images/products/'.$product->images->first()['path_image']) }}">
         @endif
       @else
         <img class="img-responsive thumbnail" url="https://encrypted-tbn0.gstatic.com/images?q=tbn:ANd9GcQ7Qsw_ECf6sVU8xTKXhSyfXlfgwHojXM_7JQxlB8N2sACGfeu2">
@@ -22,7 +22,7 @@
       <div class="form-group">
         <label class="col-lg-3 control-label">{{ __('product.admin.table.id') }}:</label>
         <div class="col-lg-8">
-          <input class="form-control" type="text" value="{{ $product->id }}" disabled>
+          <input id="idProduct" class="form-control" type="text" value="{{ $product->id }}" disabled>
         </div>
       </div>
       <div class="form-group">
@@ -85,22 +85,35 @@
           <input class="form-control" type="text" value="{{ $product->deleted_at }}" disabled>
         </div>
       </div>
+
       <div class="form-group">
-        <label class="col-md-3 control-label">{{ __('product.admin.table.color') }}:</label>
+        <label class="col-md-3 control-label">{{ __('product.admin.table.color') }}</label>
         <div class="col-md-8">
-          <input class="form-control" type="text" value="{{ $colorProduct->color }}" disabled>
+          <select id="colorProduct" class="form-control" name="colorProduct">
+            <option value="">--SELECT COLOR PRODUCT--</option>
+            @foreach ($product->colorProducts as $itemColor)
+            <option value="{{ $itemColor->id }}">{{ $itemColor->color }}</option>
+            @endforeach
+          </select>
         </div>
       </div>
+
       <div class="form-group">
         <label class="col-md-3 control-label">{{ __('product.admin.table.price_color_value') }}:</label>
-        <div class="col-md-8">
-          <input class="form-control" type="text" value="{{ $colorProduct->price_color_value }}" disabled>
+        <div id="colorValue" class="col-md-8">
+          <input class="form-control" type="text" value="" disabled>
         </div>
       </div>
       <div class="form-group">
         <label class="col-md-3 control-label">{{ __('product.admin.table.price_color_type') }}:</label>
-        <div class="col-md-8">
-          <input class="form-control" type="text" value="{{ $colorProduct->price_color_type }}" disabled>
+        <div id="colorType" class="col-md-8">
+          <input class="form-control" type="text" value="" disabled>
+        </div>
+      </div>
+      <div class="form-group">
+        <label class="col-md-3 control-label">{{ __('product.admin.table.quantity') }}:</label>
+        <div id="quantity" class="col-md-8">
+          <input class="form-control" type="text" value="" disabled>
         </div>
       </div>
       <div class="form-group">
@@ -113,4 +126,5 @@
     </form>
   </div>
 </div>
+<script src="{{ url('admin/js/show-color.js') }}"></script>
 @endsection

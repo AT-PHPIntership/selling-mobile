@@ -12,6 +12,12 @@
               @csrf
               @method('PUT')
               <div class="form-group">
+                <label>{{ __('product.admin.table.id') }}:</label>
+                <div class="form-line">
+                  <input id="idProduct" class="form-control" type="text" value="{{ $product->id }}" disabled>
+                </div>
+              </div>
+              <div class="form-group">
                 <label for="name">{{ __('product.admin.table.name') }}</label>
                 <div class="form-line">
                   <input type="text" name="name" value="{{ old('name', $product->name) }}" class="form-control" placeholder="" />
