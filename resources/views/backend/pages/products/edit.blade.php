@@ -63,14 +63,13 @@
                   </select>
                 </div>
               </div>
-              
               <div class="form-group">
                 <label for="color_id">{{ __('product.admin.table.color') }}</label>
                 <div class="form-line">
                   <select id="colorProduct" class="form-control" name="color_id">
                     <option value="">--SELECT COLOR PRODUCT--</option>
                     @foreach ($product->colorProducts as $itemColor)
-                    <option value="{{ $itemColor->id }}">{{ $itemColor->id }}</option>
+                    <option value="{{ $itemColor->id }}">{{ $itemColor->color }}</option>
                     @endforeach
                   </select>
                 </div>
@@ -93,22 +92,20 @@
                   <input class="form-control" type="text" value="" name="quantity" >
                 </div>
               </div>
-              
               <div class="form-group">
-                <div class="form-group">
-                  <label>{{ __('product.admin.table.image') }}</label>
-                  <div class="form-line">
-                    <input type="file" class="form-control" name="images[]" placeholder="" multiple="multiple">
-                  </div>
+                <label>{{ __('product.admin.table.image') }}</label>
+                <div class="form-line">
+                  <input type="file" class="form-control" name="images[]" placeholder="" multiple="multiple">
                 </div>
-                <button type="submit" id="submit" name="submit" class="btn btn-success">{{ __('product.admin.add.title') }}</button>&nbsp;
-                <button class="btn btn-primary" type="reset">{{ __('product.admin.button.reset') }}</button>
-              </form>
-            </div>
+              </div>
+              <button type="submit" id="submit" name="submit" class="btn btn-success">{{ __('product.admin.edit.title') }}</button>&nbsp;
+              <button class="btn btn-primary" type="reset">{{ __('product.admin.button.reset') }}</button>
+            </form>
           </div>
         </div>
       </div>
     </div>
   </div>
-  <script src="{{ url('admin/js/edit-color.js') }}"></script>
-  @endsection
+</div>
+<script src="{{ url('admin/js/edit-color.js') }}"></script>
+@endsection

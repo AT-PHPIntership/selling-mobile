@@ -26,7 +26,7 @@ class Product extends Model
     {
         return $this->hasMany('App\Models\Review', 'product_id', 'id');
     }
-    
+
     /**
      * Get ColorProduct of Product
      *
@@ -73,4 +73,14 @@ class Product extends Model
      * @var array
      */
     protected $dates = ['deleted_at'];
+
+    /**
+     * Get OrderDetail of Order
+     *
+     * @return \Illuminate\Database\Eloquent\Relations\BelongsToMany
+     */
+    public function orders()
+    {
+        return $this->belongsToMany('App\Models\Order', 'order_details', 'order_id', 'product_id');
+    }
 }
