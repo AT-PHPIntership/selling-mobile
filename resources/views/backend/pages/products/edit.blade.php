@@ -63,51 +63,52 @@
                   </select>
                 </div>
               </div>
+              
               <div class="form-group">
                 <label for="color_id">{{ __('product.admin.table.color') }}</label>
                 <div class="form-line">
-                  <select name="color_id" class="form-control">
-                    <?php $colorSelected; ?>
-                    @foreach ($colors as $item_color)
-                      <option value="{{ $item_color->id }}" {{ (collect(old('item_color'))->contains($item_color->id)) ? 'selected':'' }}>{{ $item_color->color }}</option>
-                        <?php $colorSelected = $item_color->path_image; ?>
+                  <select id="colorProduct" class="form-control" name="color_id">
+                    <option value="">--SELECT COLOR PRODUCT--</option>
+                    @foreach ($product->colorProducts as $itemColor)
+                    <option value="{{ $itemColor->id }}">{{ $itemColor->id }}</option>
                     @endforeach
                   </select>
                 </div>
               </div>
               <div class="form-group">
-                <label for="price_color_type">{{ __('product.admin.table.price_color_type') }}</label>
-                <div class="form-line">
-                  <select class="form-control" name="price_color_type">
-                    <option value=""></option>
-                    <option value="percent" {{ $colorSelected->path_image == "percent" ? 'selected' : '' }}></option>
-                    <option value="currencies" {{ $colorSelected->path_image == "currencies" ? 'selected' : '' }}></option>
-                  </select>
+                <label class="control-label">{{ __('product.admin.table.price_color_value') }}:</label>
+                <div id="colorValue" class="form-line">
+                  <input class="form-control" type="text" value="" name="price_color_value">
                 </div>
               </div>
               <div class="form-group">
-                <label class="control-label" for="price_color_value">{{ __('product.admin.table.price_color_value') }}</label>
-                <div class="form-line">
-                  @foreach ($colors as $item_color)
-                    @if ($item_color->id == $colorSelected)
-                      <input type="text" name="price_color_value" value="{{ old('price_color_value', $item_color->price_color_value) }}" class="form-control" placeholder="" />
-                    @endif
-                  @endforeach
+                <label class="control-label">{{ __('product.admin.table.price_color_type') }}:</label>
+                <div id="colorType" class="form-line">
+                  <input class="form-control" type="text" value="" name="price_color_type" >
                 </div>
               </div>
               <div class="form-group">
-                <label>{{ __('product.admin.table.image') }}</label>
-                <div class="form-line">
-                  <input type="file" class="form-control" name="images[]" placeholder="" multiple="multiple">
+                <label class="control-label">{{ __('product.admin.table.quantity') }}:</label>
+                <div id="quantity" class="form-line">
+                  <input class="form-control" type="text" value="" name="quantity" >
                 </div>
               </div>
-              <button type="submit" id="submit" name="submit" class="btn btn-success">{{ __('product.admin.add.title') }}</button>&nbsp;
-              <button class="btn btn-primary" type="reset">{{ __('product.admin.button.reset') }}</button>
-            </form>
+              
+              <div class="form-group">
+                <div class="form-group">
+                  <label>{{ __('product.admin.table.image') }}</label>
+                  <div class="form-line">
+                    <input type="file" class="form-control" name="images[]" placeholder="" multiple="multiple">
+                  </div>
+                </div>
+                <button type="submit" id="submit" name="submit" class="btn btn-success">{{ __('product.admin.add.title') }}</button>&nbsp;
+                <button class="btn btn-primary" type="reset">{{ __('product.admin.button.reset') }}</button>
+              </form>
+            </div>
           </div>
         </div>
       </div>
     </div>
   </div>
-</div>
-@endsection
+  <script src="{{ url('admin/js/edit-color.js') }}"></script>
+  @endsection

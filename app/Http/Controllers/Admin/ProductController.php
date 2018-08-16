@@ -8,6 +8,9 @@ use Illuminate\Support\Facades\DB;
 use App\Models\Product;
 use App\Models\ColorProduct;
 use App\Models\Image;
+use App\Models\Category;
+use Exception;
+use Session;
 
 class ProductController extends Controller
 {
@@ -52,6 +55,37 @@ class ProductController extends Controller
         try {
             $colors = ColorProduct::where('product_id', $id)->get();
             return view('backend.pages.products.showcolorproduct', compact('colors'));
+        } catch (Exception $ex) {
+            return $ex;
+        }
+    }
+
+    /**
+     * Show the color for Product.
+     *
+     *@param int $idColor ColorProducts
+     *
+     * @return \Illuminate\Http\Response
+     */
+    public function getColor($id)
+    {
+        $color =  ColorProduct::findOrFail($id);
+        return response()->json($color);
+    }
+
+    /**
+     * Show the form for editing the specified resource.
+     *
+     * @param int $id id
+     *
+     * @return \Illuminate\Http\Response
+     */
+    public function edit($id)
+    {
+        try {
+            $product = Product::with(['images', 'colorProducts'])->findOrFail($id);
+            $listCategoriesChild = Category::where('parent_id', '<>', null)->get();
+            return view('backend.pages.products.edit', compact('product', 'listCategoriesChild'));
         } catch (Exception $ex) {
             return $ex;
         }

@@ -50,7 +50,7 @@
                     <a class="btn btn-primary" href="{{ route('admin.products.showColorProduct', ['id' => $product->id]) }}"><i class="fa fa-eye icon-size" ></i></a>
                   </form>
                   <form class="col-md-4">
-                    <a class="btn btn-primary" id="edit{{ $product->id }}" href="#"><i class="fa fa-edit"></i></a>
+                    <a class="btn btn-primary" id="edit{{ $product->id }}" href="{{ route('admin.products.edit', ['id' => $product->id]) }}"><i class="fa fa-edit"></i></a>
                   </form>
                   <form class="col-md-4" method="POST" action="#" id="deleted{{ $product->id }}">
                     @method('DELETE')
