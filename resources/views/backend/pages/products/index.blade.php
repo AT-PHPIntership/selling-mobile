@@ -2,7 +2,6 @@
 @section('title', __('product.admin.list.title') )
 @section('content')
 <div class="row clearfix">
-  @include('backend.message')
   <div class="col-lg-12 col-md-12 col-sm-12 col-xs-12">
     <div class="card">
       <div class="body">
@@ -52,7 +51,7 @@
                   <form class="col-md-4">
                     <a class="btn btn-primary" id="edit{{ $product->id }}" href="{{ route('admin.products.edit', ['id' => $product->id]) }}"><i class="fa fa-edit"></i></a>
                   </form>
-                  <form class="col-md-4" method="POST" action="#" id="deleted{{ $product->id }}">
+                  <form class="col-md-4" method="POST" action="{{ route('admin.products.destroy', ['id' => $product->id]) }}" id="deleted{{ $product->id }}">
                     @method('DELETE')
                     {{ csrf_field() }}
                     <button class="btn btn-danger" type="submit" onclick="return confirm('@lang('product.admin.message.msg_del')')"><i class="fa fa-trash icon-size" ></i></button>

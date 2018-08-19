@@ -37,7 +37,6 @@ class OrderShipped extends Mailable
      */
     public function build()
     {
-        dd($order);
         return $this->view('emails.orders_shipped');
     }
 }

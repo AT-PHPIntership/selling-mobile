@@ -23,14 +23,18 @@
         </tr>
       </thead>
       <tbody>
-        @foreach ($order->products as $item)
         <tr>
-          <td></td>
-          <td>{{ $item->name }}</td>
-          <td>{{ $order->quantity }}</td>
-          <td></td>
+          @foreach ($order->products as $product)
+            @foreach ($product->colorProducts as $price)
+              @foreach ($order->orderDetails as $detail)
+                <td>{{ $loop->iteration }}</td>
+                <td>{{ $product->name }}</td>
+                <td>{{ $detail->quantity }}</td>
+                <td>{{ $detail->quantity * $price->price_color_value }}</td>
+              @endforeach
+            @endforeach
+          @endforeach
         </tr>
-        @endforeach
         <tr>
           <td colspan="3" class="text-center"><b>@lang('admin.total_price')</b></td>
           <td colspan="1"><b class="text-red">{{ number_format($order->total_price) }}@lang('admin.vnd')</b></td>

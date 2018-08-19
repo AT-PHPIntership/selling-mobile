@@ -77,6 +77,26 @@ class ProductController extends Controller
     }
 
     /**
+     * Remove the specified resource from storage.
+     *
+     * @param int $id id
+     *
+     * @return \Illuminate\Http\Response
+     */
+    public function destroy($id)
+    {
+        try {
+            $product = Product::with(['colorProducts', 'images'])->findOrFail($id);
+            $product->delete();
+            Session::flash('message', __('product.admin.message.del'));
+            Session::flash('alert-class', 'success');
+            return redirect()->route('admin.products.index');
+        } catch (Exception $ex) {
+            Session::flash('message', __('product.admin.message.del_fail'));
+        }
+    }
+
+    /**
      * Update the specified resource in storage.
      *
      * @param CreateProductRequest $request CreateProductRequest
