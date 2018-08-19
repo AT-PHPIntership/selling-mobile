@@ -83,4 +83,5 @@ return [
     'vnd' => ' VNĐ',
     'order_status' => 'Order Status: ',
     'total_price' => 'Total Price',
+    'note' => 'Note',
 ];
