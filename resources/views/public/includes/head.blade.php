@@ -25,3 +25,4 @@
 <script src="https://ajax.googleapis.com/ajax/libs/jquery/2.1.4/jquery.min.js"></script>
 <script src="{{ url('user/js/slick.min.js') }}"></script>
 <script src="{{ url('user/js/jquery.zoom.min.js') }}"></script>
+<script src="https://ajax.googleapis.com/ajax/libs/jquery/2.1.4/jquery.min.js"></script>
