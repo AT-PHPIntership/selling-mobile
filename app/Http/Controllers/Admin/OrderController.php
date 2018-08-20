@@ -40,9 +40,8 @@ class OrderController extends Controller
                         ->join('order_details', 'orders.id', 'order_details.order_id')
                         ->join('products', 'order_details.product_id', 'products.id')
                         ->join('color_products', 'products.id', 'color_products.product_id')
-                        ->select('orders.*', 'products.*', 'order_details.amount', 'color_products.price_color_value')
+                        ->select('orders.*', 'products.*', 'order_details.quantity', 'color_products.price_color_value')
                         ->where('orders.id', $id)->get();
-
             return view('backend.pages.order.edit', compact('data', 'orders'));
         } catch (Exception $e) {
             Session::flash('message', __('admin.flash_error'));
