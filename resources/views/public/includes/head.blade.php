@@ -2,10 +2,9 @@
 <meta http-equiv="X-UA-Compatible" content="IE=edge">
 <meta name="viewport" content="width=device-width, initial-scale=1">
 <!-- The above 3 meta tags *must* come first in the head; any other head content must come *after* these tags -->
-<title>E-SHOP HTML Template</title>
+<title>MOBILE-SHOP</title>
 <!-- Google font -->
 <link href="https://fonts.googleapis.com/css?family=Hind:400,700" rel="stylesheet">
-<!-- Bootstrap -->{{ url('/admin/css/master.css') }}
 <link type="text/css" rel="stylesheet" href="{{ url('/user/css/bootstrap.min.css') }}" />
 <!-- Slick -->
 <link type="text/css" rel="stylesheet" href="{{ url('/user/css/slick.css') }}" />

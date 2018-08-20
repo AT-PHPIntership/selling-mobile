@@ -4,7 +4,7 @@
   <div id="top-header">
     <div class="container">
       <div class="pull-left">
-        <span>Welcome to E-shop!</span>
+        <span>Welcome to Mobile-shop!</span>
       </div>
       <div class="pull-right">
         <ul class="header-top-links">
