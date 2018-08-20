@@ -84,4 +84,8 @@ return [
     'order_status' => 'Order Status: ',
     'total_price' => 'Total Price',
     'note' => 'Note',
+    'flash_update_send_mail_success' => 'Updated and Send Mail successfully !',
+    'welcome_mail' => 'Welcome to phone.com',
+    'tks_order' => 'Thanks you for ordering',
+    'mail' => 'Mail',
 ];
