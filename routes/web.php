@@ -27,3 +27,6 @@ Route::prefix('admin')->namespace('Admin')->group(function () {
         });
     });
 });
+Route::group(['namespace' => 'User'], function () {
+    Route::get('/', 'HomeController@index')->name('user.home');
+});

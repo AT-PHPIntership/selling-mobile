@@ -1,6 +1,8 @@
 <?php
 namespace App\Models;
 
+use Laravel\Passport\HasApiTokens;
+use Illuminate\Notifications\Notifiable;
 use Illuminate\Database\Eloquent\Model;
 use Illuminate\Database\Eloquent\SoftDeletes;
 
@@ -8,7 +10,7 @@ use Illuminate\Foundation\Auth\User as Authenticatable;
 
 class User extends Authenticatable
 {
-    use SoftDeletes;
+    use SoftDeletes, HasApiTokens, Notifiable;
     const ADMIN_ROLE = 'Admin';
     const MEMBER_ROLE = 'Member';
 
