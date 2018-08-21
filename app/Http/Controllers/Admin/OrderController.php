@@ -10,6 +10,9 @@ use App\Models\Product;
 use App\Models\OrderDetail;
 use Session;
 use App\Http\Requests\Backend\OrderRequest;
+use App\Mail\OrderShipped;
+use Illuminate\Support\Facades\Mail;
+use Illuminate\Bus\Queueable;
 
 class OrderController extends Controller
 {
@@ -40,9 +43,8 @@ class OrderController extends Controller
                         ->join('order_details', 'orders.id', 'order_details.order_id')
                         ->join('products', 'order_details.product_id', 'products.id')
                         ->join('color_products', 'products.id', 'color_products.product_id')
-                        ->select('orders.*', 'products.*', 'order_details.amount', 'color_products.price_color_value')
+                        ->select('orders.*', 'products.*', 'order_details.quantity', 'color_products.price_color_value')
                         ->where('orders.id', $id)->get();
-
             return view('backend.pages.order.edit', compact('data', 'orders'));
         } catch (Exception $e) {
             Session::flash('message', __('admin.flash_error'));
@@ -62,13 +64,22 @@ class OrderController extends Controller
     public function update(OrderRequest $request, $id)
     {
         try {
-            $order = Order::findOrFail($id);
+            $order = Order::with(['products', 'orderDetails.product.colorProducts'])->findOrFail($id);
             $input['status'] = $request->status;
-            $order->update($input);
+            if ($input['status'] == config('setting.order.status.approve')) {
+                Mail::to($order->user)->queue(new OrderShipped($order));
+                $order->update($input);
 
-            Session::flash('message', __('admin.flash_update_success'));
-            Session::flash('alert-class', 'success');
-            return redirect()->route('admin.orders.index');
+                Session::flash('message', __('admin.flash_update_send_mail_success'));
+                Session::flash('alert-class', 'success');
+                return redirect()->route('admin.orders.index');
+            } else {
+                $order->update($input);
+
+                Session::flash('message', __('admin.flash_update_success'));
+                Session::flash('alert-class', 'success');
+                return redirect()->route('admin.orders.index');
+            }
         } catch (Exception $e) {
             Session::flash('message', __('admin.flash_error'));
             Session::flash('alert-class', 'danger');

@@ -35,6 +35,10 @@
                   <td>@lang('admin.email')</td>
                   <td>{{ $data->user['email'] }}</td>
                 </tr>
+                <tr>
+                  <td>@lang('admin.note')</td>
+                  <td>{{ $data->note }}</td>
+                </tr>
               </tbody>
             </table>
           </div>
@@ -57,7 +61,7 @@
             @endforeach
             <tr>
               <td colspan="3" class="text-center"><b>@lang('admin.total_price')</b></td>
-              <td colspan="1"><b class="text-red">{{ number_format($item->amount) }}@lang('admin.vnd')</b></td>
+              <td colspan="1"><b class="text-red">{{ number_format($data->total_price) }}@lang('admin.vnd')</b></td>
             </tr>
             </tbody>
           </table>

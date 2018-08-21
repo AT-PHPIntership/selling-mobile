@@ -26,7 +26,7 @@ class Order extends Model
      */
     public function orderDetails()
     {
-        return $this->hasMany(OrderDestail::class, 'order_id', 'id');
+        return $this->hasMany(OrderDetail::class);
     }
 
     /**
@@ -42,21 +42,11 @@ class Order extends Model
     /**
      * Get OrderDetail of Product
      *
-     * @return \Illuminate\Database\Eloquent\Relations\HasMany
-     */
-    public function orders()
-    {
-        return $this->hasMany('App\Models\Order', 'order_details', 'order_id', 'product_id');
-    }
-
-    /**
-     * Get OrderDetail of Product
-     *
      * @return \Illuminate\Database\Eloquent\Relations\BelongsToMany
      */
     public function products()
     {
-        return $this->belongsToMany(Product::class, 'order_details', 'product_id', 'order_id');
+        return $this->belongsToMany(Product::class, 'order_details', 'order_id', 'product_id');
     }
 
     /**

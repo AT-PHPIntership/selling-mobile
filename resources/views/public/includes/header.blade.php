@@ -4,27 +4,18 @@
   <div id="top-header">
     <div class="container">
       <div class="pull-left">
-        <span>Welcome to Mobile-shop!</span>
+        <span>{{ __('user/index.top_header.title') }}</span>
       </div>
       <div class="pull-right">
         <ul class="header-top-links">
-          <li><a href="#">Store</a></li>
-          <li><a href="#">Newsletter</a></li>
-          <li><a href="#">FAQ</a></li>
+          <li><a href="#">{{ __('user/index.top_header.header_top_links.store') }}</a></li>
+          <li><a href="#">{{ __('user/index.top_header.header_top_links.newsletter') }}</a></li>
+          <li><a href="#">{{ __('user/index.top_header.header_top_links.faq') }}</a></li>
           <li class="dropdown default-dropdown">
-            <a class="dropdown-toggle" data-toggle="dropdown" aria-expanded="true">ENG <i class="fa fa-caret-down"></i></a>
+            <a class="dropdown-toggle" data-toggle="dropdown" aria-expanded="true">{{ __('user/index.top_header.header_top_links.language') }} <i class="fa fa-caret-down"></i></a>
             <ul class="custom-menu">
-              <li><a href="#">English (ENG)</a></li>
-              <li><a href="#">Russian (Ru)</a></li>
-              <li><a href="#">French (FR)</a></li>
-              <li><a href="#">Spanish (Es)</a></li>
-            </ul>
-          </li>
-          <li class="dropdown default-dropdown">
-            <a class="dropdown-toggle" data-toggle="dropdown" aria-expanded="true">USD <i class="fa fa-caret-down"></i></a>
-            <ul class="custom-menu">
-              <li><a href="#">USD ($)</a></li>
-              <li><a href="#">EUR (€)</a></li>
+              <li><a href="#">{{ __('user/index.top_header.header_top_links.eng') }}</a></li>
+              <li><a href="#">{{ __('user/index.top_header.header_top_links.vn') }}</a></li>
             </ul>
           </li>
         </ul>
@@ -65,16 +56,15 @@
               <div class="header-btns-icon">
                 <i class="fa fa-user-o"></i>
               </div>
-              <strong class="text-uppercase">My Account <i class="fa fa-caret-down"></i></strong>
+              <strong class="text-uppercase">{{ __('user/index.account') }}<i class="fa fa-caret-down"></i></strong>
             </div>
-            <a href="#" class="text-uppercase">Login</a> / <a href="#" class="text-uppercase">Join</a>
+            <a href="#" class="text-uppercase">{{ __('user/index.login') }}</a> / <a href="#" class="text-uppercase">Join</a>
             <ul class="custom-menu">
-              <li><a href="#"><i class="fa fa-user-o"></i> My Account</a></li>
-              <li><a href="#"><i class="fa fa-heart-o"></i> My Wishlist</a></li>
-              <li><a href="#"><i class="fa fa-exchange"></i> Compare</a></li>
-              <li><a href="#"><i class="fa fa-check"></i> Checkout</a></li>
-              <li><a href="#"><i class="fa fa-unlock-alt"></i> Login</a></li>
-              <li><a href="#"><i class="fa fa-user-plus"></i> Create An Account</a></li>
+              <li><a href="#"><i class="fa fa-user-o"></i>{{ __('user/index.account') }}</a></li>
+              <li><a href="#"><i class="fa fa-exchange"></i>{{ __('user/index.compare') }}</a></li>
+              <li><a href="#"><i class="fa fa-check"></i>{{ __('user/index.checkout') }}</a></li>
+              <li><a href="#"><i class="fa fa-unlock-alt"></i>{{ __('user/index.login') }}</a></li>
+              <li><a href="#"><i class="fa fa-user-plus"></i>{{ __('user/index.create') }}</a></li>
             </ul>
           </li>
           <!-- /Account -->
@@ -85,7 +75,7 @@
                 <i class="fa fa-shopping-cart"></i>
                 <span class="qty">3</span>
               </div>
-              <strong class="text-uppercase">My Cart:</strong>
+              <strong class="text-uppercase">{{ __('user/index.cart') }}</strong>
               <br>
               <span>35.20$</span>
             </a>
@@ -114,8 +104,8 @@
                   </div>
                 </div>
                 <div class="shopping-cart-btns">
-                  <button class="main-btn">View Cart</button>
-                  <button class="primary-btn">Checkout <i class="fa fa-arrow-circle-right"></i></button>
+                  <button class="main-btn">{{ __('user/index.view_cart') }}</button>
+                  <button class="primary-btn">{{ __('user/index.checkout') }} <i class="fa fa-arrow-circle-right"></i></button>
                 </div>
               </div>
             </div>
