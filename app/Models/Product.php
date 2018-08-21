@@ -83,4 +83,14 @@ class Product extends Model
     {
         return $this->belongsToMany('App\Models\Order', 'order_details', 'product_id', 'order_id');
     }
+
+    /**
+     * Get Promotion of Product
+     *
+     * @return \Illuminate\Database\Eloquent\Relations\HasMany
+     */
+    public function promotions()
+    {
+        return $this->hasMany(Product::class, 'product_id', 'id');
+    }
 }
