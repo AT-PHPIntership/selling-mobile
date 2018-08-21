@@ -81,6 +81,6 @@ class Product extends Model
      */
     public function orders()
     {
-        return $this->belongsToMany('App\Models\Order', 'order_details', 'order_id', 'product_id');
+        return $this->belongsToMany('App\Models\Order', 'order_details', 'product_id', 'order_id');
     }
 }
