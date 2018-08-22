@@ -15,8 +15,8 @@ $(document).ready(function () {
         'Accept': 'application/json',
       },
       data: {
-        email: $('input[type="email"]').val(),
-        password: $('input[type="password"]').val()
+        email: $('#email').val(),
+        password: $('#password').val()
       },
       success: function (response) {
         localStorage.setItem('login-token', response.result.token);
