@@ -8,7 +8,7 @@ use Illuminate\Database\Eloquent\SoftDeletes;
 class Review extends Model
 {
     use SoftDeletes;
-    
+
     /**
      * The attributes that are mass assignable.
      *
@@ -25,7 +25,7 @@ class Review extends Model
      */
     public function users()
     {
-        return $this->belongsTo(App\Models\User, 'user_id', 'id');
+        return $this->belongsTo('App\Models\User', 'user_id', 'id');
     }
 
     /**
@@ -35,7 +35,7 @@ class Review extends Model
      */
     public function products()
     {
-        return $this->belongsTo(App\Models\Product, 'product_id', 'id');
+        return $this->belongsTo('App\Models\Product', 'product_id', 'id');
     }
 
     /**
