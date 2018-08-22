@@ -14,6 +14,7 @@ return [
     ],
     'account' => 'My Account',
     'login' => 'Login',
+    'logout' => 'Logout',
     'join' => 'Join',
     'compare' => 'Compare',
     'checkout' => 'Checkout',
