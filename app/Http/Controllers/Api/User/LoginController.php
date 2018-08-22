@@ -20,6 +20,7 @@ class LoginController extends ApiController
     {
         if (Auth::attempt(['email' => request('email'), 'password' => request('password')])) {
             $user = Auth::user();
+            $data['user'] = $user;
             $data['token'] =  $user->createToken('token')->accessToken;
             return $this->successResponse($data, Response::HTTP_OK);
         } else {

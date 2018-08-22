@@ -13,6 +13,7 @@ $(document).ready(function () {
         },
         success: function (response) {
           localStorage.removeItem('login-token');
+          localStorage.removeItem('username');
           window.location.href = 'http://' + window.location.hostname;
         }
       });

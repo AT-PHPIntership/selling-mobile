@@ -56,7 +56,7 @@
               <div class="header-btns-icon">
                 <i class="fa fa-user-o"></i>
               </div>
-              <strong class="text-uppercase">{{ __('user/index.account') }}<i class="fa fa-caret-down"></i></strong>
+              <strong id="userName" class="text-uppercase">{{ __('user/index.account') }}<i class="fa fa-caret-down"></i></strong>
             </div>
             <a class="text-uppercase" id="userLogout">
               <i class="fa fa-sign-out"></i>{{__('user/index.logout')}}
