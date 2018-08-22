@@ -28,7 +28,10 @@ return [
         'pages' => 'Pages',
         'home' => 'Home',
         'products' => 'Products',
-        'product_detail' => 'Product Details',
+        'product_detail' => 'Product Details'
+    ],
+    'formLogin' => [
+        'email' => 'Your email address',
+        'pass' => 'Your password'
     ]
-    
 ];
