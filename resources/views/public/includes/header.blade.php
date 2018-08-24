@@ -56,14 +56,16 @@
               <div class="header-btns-icon">
                 <i class="fa fa-user-o"></i>
               </div>
-              <strong class="text-uppercase">{{ __('user/index.account') }}<i class="fa fa-caret-down"></i></strong>
+              <strong id="userName" class="text-uppercase">{{ __('user/index.account') }}<i class="fa fa-caret-down"></i></strong>
             </div>
-            <a href="#" class="text-uppercase">{{ __('user/index.login') }}</a> / <a href="#" class="text-uppercase">Join</a>
+            <a class="text-uppercase" id="userLogout">
+              <i class="fa fa-sign-out"></i>{{__('user/index.logout')}}
+            </a>
             <ul class="custom-menu">
               <li><a href="#"><i class="fa fa-user-o"></i>{{ __('user/index.account') }}</a></li>
               <li><a href="#"><i class="fa fa-exchange"></i>{{ __('user/index.compare') }}</a></li>
               <li><a href="#"><i class="fa fa-check"></i>{{ __('user/index.checkout') }}</a></li>
-              <li><a href="#"><i class="fa fa-unlock-alt"></i>{{ __('user/index.login') }}</a></li>
+              <li><a id="login" data-toggle="modal" data-target="#loginModal"><i class="fa fa-unlock-alt"></i>{{ __('user/index.login') }}</a></li>
               <li><a href="#"><i class="fa fa-user-plus"></i>{{ __('user/index.create') }}</a></li>
             </ul>
           </li>
@@ -124,3 +126,4 @@
   <!-- container -->
 </header>
 <!-- /HEADER -->
+<script src="{{ url('user/js/logout.js') }}"></script>

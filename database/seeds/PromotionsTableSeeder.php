@@ -11,6 +11,6 @@ class PromotionsTableSeeder extends Seeder
      */
     public function run()
     {
-        factory(App\Models\Promotion::class, 15)->create();
+        factory(App\Models\Promotion::class, 50)->create();
     }
 }

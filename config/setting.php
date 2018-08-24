@@ -19,4 +19,8 @@ return [
             'cancel' => 2,
         ],
     ],
+    'promotion' => [
+        'currencies' => 'currencies',
+        'percent' => 'percent',
+    ]
 ];
