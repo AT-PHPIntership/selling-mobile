@@ -12,7 +12,6 @@ use App\Http\Requests\User\RegisterRequest;
 use Exception;
 use Illuminate\Support\Facades\Input;
 
-
 class LoginController extends ApiController
 {
 
@@ -72,9 +71,8 @@ class LoginController extends ApiController
             $data['token'] =  $user->createToken('token')->accessToken;
             $data['user'] =  $user;
             return $this->successResponse($data, Response::HTTP_OK);
-        } catch(Exception $ex) {
+        } catch (Exception $ex) {
             return $this->errorResponse('fail login!', Response::HTTP_UNAUTHORIZED);
         }
-        
     }
 }

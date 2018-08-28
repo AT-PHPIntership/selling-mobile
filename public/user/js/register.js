@@ -21,7 +21,7 @@ $(document).ready(function () {
           localStorage.setItem('login-token', response.result.token);
           localStorage.setItem('username', response.result.user.username);
           $('#userName').html(response.result.user.username);
-          //window.location.href = 'http://' + window.location.hostname;
+          window.location.href = 'http://' + window.location.hostname;
         },
         error: function (response) {
           errors = (response.responseJSON.error);
