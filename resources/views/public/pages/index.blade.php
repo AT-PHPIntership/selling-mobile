@@ -828,4 +828,3 @@
 </div>
 <!-- /section -->
 @endsection
-@include('public.pages.login')

@@ -7,5 +7,4 @@ $("#add_color").on("click", function(){
     item.name = item.name.replace(num, num + 1);
   });
   $('.group-add-color').last().after(element);
- });
- 
+});
