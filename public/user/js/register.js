@@ -17,7 +17,7 @@ $(document).ready(function () {
           avatar: $('#regisAvatar').val(),
         },
         success: function (response) {
-          console.log(response);
+          $('#divShow').hide();
           localStorage.setItem('login-token', response.result.token);
           localStorage.setItem('username', response.result.user.username);
           $('#userName').html(response.result.user.username);
