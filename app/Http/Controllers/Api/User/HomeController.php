@@ -7,6 +7,10 @@ use App\Http\Controllers\Controller;
 use App\Http\Controllers\Api\ApiController;
 use Symfony\Component\HttpFoundation\Response;
 use App\Models\Product;
+use Illuminate\Support\Collection;
+use PHP_CodeSniffer\Config;
+use Illuminate\Contracts\Support\Jsonable;
+use Illuminate\Pagination\LengthAwarePaginator;
 
 class HomeController extends ApiController
 {
@@ -15,7 +19,7 @@ class HomeController extends ApiController
      *
      * @return \Illuminate\Http\Response
      */
-    public function index()
+    public function promotion()
     {
         $productPromotions = Product::with([
             'categories',
@@ -24,24 +28,25 @@ class HomeController extends ApiController
                 $query->where('from_date', '<=', now())
                     ->where('to_date', '>=', now());
             }
-        ])->limit(4)->get();
-
-        $productIphones = Product::with([
-            'colorProducts',
-            'promotions',
-            'categories' => function ($query) {
-                $query->where('name', 'Iphone');
-            }
-        ])->limit(8)->get();
-
-        $productSamsungs = Product::with([
-            'colorProducts',
-            'promotions',
-            'categories' => function ($query) {
-                $query->where('name', 'Samsung');
-            }
-        ])->limit(8)->get();
+        ])->limit(4)->latest()->get();
 
         return $this->showAll($productPromotions, Response::HTTP_OK);
+    }
+
+    /**
+     * Display a listing of the resource.
+     *
+     * @return \Illuminate\Http\Response
+     */
+    public function show()
+    {
+        $products = Product::with([
+            'categories',
+            'colorProducts',
+            'promotions',
+        ])->latest()->paginate(config('setting.paginate.limit_rows'));
+        $colection = collect($products);
+
+        return $this->showAll($colection, Response::HTTP_OK);
     }
 }
