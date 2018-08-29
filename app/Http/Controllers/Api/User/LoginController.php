@@ -8,9 +8,23 @@ use Illuminate\Support\Facades\Auth;
 use Illuminate\Http\Response;
 use App\Http\Controllers\Api\ApiController;
 use App\Models\User;
+use App\Http\Requests\User\RegisterRequest;
+use Exception;
+use Illuminate\Support\Facades\Input;
 
 class LoginController extends ApiController
 {
+
+    /**
+     * Display a listing of the resource.
+     *
+     * @return \Illuminate\Http\Response
+     */
+    public function index()
+    {
+        return view('public.pages.register');
+    }
+
     /**
      * Login as user
      *
@@ -39,5 +53,26 @@ class LoginController extends ApiController
         $accessToken = $user->token();
         $accessToken->revoke();
         return $this->successResponse(null, Response::HTTP_NO_CONTENT);
+    }
+
+    /**
+     * Register user
+     *
+     * @param App\Http\Requests\User\RegisterRequest $request request
+     *
+     * @return json authentication code with user info
+     */
+    public function register(RegisterRequest $request)
+    {
+        try {
+            $input = $request->except('password');
+            $input['password'] = bcrypt($request->password);
+            $user = User::create($input);
+            $data['token'] =  $user->createToken('token')->accessToken;
+            $data['user'] =  $user;
+            return $this->successResponse($data, Response::HTTP_OK);
+        } catch (Exception $ex) {
+            return $this->errorResponse('fail login!', Response::HTTP_UNAUTHORIZED);
+        }
     }
 }
