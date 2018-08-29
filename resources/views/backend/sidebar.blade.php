@@ -12,7 +12,7 @@
                 </div>
             </li>
             <li>
-            <a href="index.html"><i class="fa fa-dashboard fa-fw"></i> {{ __('admin.dashboard') }}</a>
+            <a href="{{ route('admin.dashboard') }}"><i class="fa fa-dashboard fa-fw"></i> {{ __('admin.dashboard') }}</a>
             </li>
             <li>
                 <a href="#"><i class="fa fa-user-plus"></i> {{ __('admin.user') }}<span class="fa arrow"></span></a>
