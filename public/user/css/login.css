@@ -1,0 +1,19 @@
+div {
+  font-family: "Times New Roman", Times, serif;
+}
+p.modal-title {
+  color: red;
+  font-size: 35px;
+  text-align: center;
+  font-weight: bold;
+}
+.modal-header {
+  background-color: #b8dae4;
+}
+button#btnLogin {
+  margin: 5% 0; 
+}
+#emailRequired,
+#passRequired {
+	color: red;
+}
