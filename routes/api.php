@@ -21,6 +21,7 @@ Route::group(['as' => 'api.', 'namespace' => 'Api\User'], function () {
     Route::get('show-product-promotion', 'HomeController@promotion');
     Route::get('show-products', 'HomeController@show');
     Route::post('login', 'LoginController@login');
+    Route::post('register', 'LoginController@register')->name('register');
     Route::group(['middleware' => 'auth:api'], function () {
         Route::post('logout', 'LoginController@logout');
     });

@@ -56,4 +56,3 @@
 </div>
 <script src="{{ url('user/js/index.js') }}"></script>
 @endsection
-@include('public.pages.login')

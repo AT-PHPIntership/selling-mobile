@@ -2,11 +2,13 @@ $(document).ready(function () {
   if (localStorage.getItem('login-token')) {
     $('#userLogin').hide();
     $('#userLogout').show();
+    $('#register').hide();
   } else {
     $('#userLogin').show();
     $('#userLogout').hide();
+    $('#register').show();
   }
-  $(document).on('submit', 'form', function (event) {
+  $('#formLogin').on('submit', function (event) {
     event.preventDefault();
     $.ajax({
       url: "/api/login",

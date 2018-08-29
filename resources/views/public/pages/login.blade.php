@@ -7,7 +7,7 @@
         <p class="modal-title">{{ __('user/index.login') }}</p>
       </div>
       <div class="modal-body">
-        <form>
+        <form id="formLogin">
           <label for="email">{{ __('user/index.formLogin.email') }}</label><br>
           <input id="email" class="form-control" type="email" required>
           <br>
@@ -21,5 +21,5 @@
   </div>
 </div>
 </div>
-<script src="{{ url('user/js/login.js') }}"></script>
+<!-- <script src="{{ url('user/js/login.js') }}"></script> -->
 <link type="text/css" rel="stylesheet" href="{{ url('user/css/login.css') }}" />
