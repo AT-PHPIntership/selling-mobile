@@ -32,7 +32,7 @@ class ProductController extends ApiController
             $join->on('products.id', '=', 'promotions.product_id')->where('from_date', '<', $datetimeNow)->where('to_date', '>', $datetimeNow);
         })
         ->latest('products.id')
-        ->paginate(config('setting.paginate.limit_rows'), $columns);
+        ->paginate(config('setting.paginate.limit_rows_index'), $columns);
         $colection = collect($products);
         return $this->showAll($colection, Response::HTTP_OK);
     }

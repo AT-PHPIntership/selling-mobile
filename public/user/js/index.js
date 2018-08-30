@@ -19,10 +19,10 @@ $(document).ready(function() {
                         '<div class="product product-single">' +
                           '<div class="product-thumb">' +
                             '<a href="#" class="main-btn quick-view"><i class="fa fa-search-plus"></i> Quick view</a>' +
-                            '<img src="user/img/product01.jpg" class="img-responsive" >' +
+                            '<img src="' + product.color_products[0].path_image + '" class="img-responsive" >' +
                           '</div>' +
                           '<div class="product-body text-center">' +
-                            '<h3 class="product-price ">'+ price_promotion_check.toString().replace(/(\d)(?=(\d{3})+(?!\d))/g, "$1,") +' <del class="product-old-price">'+ price_currencies.toString().replace(/(\d)(?=(\d{3})+(?!\d))/g, "$1,") +'</del></h3> VNĐ' +
+                            '<h3 class="product-price ">'+ toCurrency(price_promotion_check) +' <del class="product-old-price">'+ toCurrency(price_currencies) +'</del></h3>' +
                           '</div>' +
                           '<h2 class="product-name text-center"><a href="#">'+ product.name +'</a></h2>' +
                           '<div class="product-btns">' +
@@ -54,7 +54,7 @@ function loadProductsData(url)
         success: function (result) {
             var productsLayout = '';
             $.each(result.result.data, function (index, product) {
-               productsLayout += 
+               productsLayout +=
                 '<div class="col-md-3 col-sm-6 col-xs-6">' +
                   '<div class="product product-single">' +
                     '<div class="product-thumb">' +
@@ -62,7 +62,7 @@ function loadProductsData(url)
                       '<img src="' + product.color_products[0].path_image + '" class="img-responsive" >' +
                     '</div>' +
                     '<div class="product-body text-center">' +
-                      '<h3 class="product-price ">'+ toCurrency(product.actual_price) +' <del class="product-old-price">'+ toCurrency(product.price) +'</del></h3> VNĐ' +
+                      '<h3 class="product-price ">'+ toCurrency(product.actual_price) +' <del class="product-old-price">'+ toCurrency(product.price) +'</del></h3>' +
                     '</div>' +
                     '<h2 class="product-name text-center"><a href="#">'+ product.name +'</a></h2>' +
                     '<div class="product-btns">' +
@@ -82,7 +82,7 @@ function loadProductsData(url)
               pageLayout += '<li class="page-item disabled" aria-disabled="true" aria-label="« Previous">' +
                     '<span class="page-link" aria-hidden="true">‹</span>' +
                     '</li>';
-            } 
+            }
             for (i = 1; i <= result.result.last_page; i++) {
               if (i == result.result.current_page) {
                 pageLayout += '<li class="page-item active" aria-current="page"><span class="page-link">' + i + '</span></li>';
@@ -96,7 +96,7 @@ function loadProductsData(url)
                     '</li>';
             } else {
               pageLayout += '<li class="page-item"><a class="page-link" href="'+result.result.next_page_url+'" rel="next" aria-label="Next »">›</a></li>';
-            } 
+            }
             pageLayout += '</ul>';
             $('#js-pagination').html(pageLayout);
 
@@ -114,10 +114,10 @@ function loadProductsData(url)
 function toCurrency(number, currencyType = 'VND')
 {
   switch (currencyType) {
-    case "VND" : 
+    case "VND" :
       return new Intl.NumberFormat('de-DE', { style: 'currency', currency: 'VND' }).format(number);
-    default : 
-      return new Intl.NumberFormat('de-DE', { style: 'currency', currency: 'VND' }).format(number); 
+    default :
+      return new Intl.NumberFormat('de-DE', { style: 'currency', currency: 'VND' }).format(number);
 
   }
 

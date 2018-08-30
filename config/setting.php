@@ -7,6 +7,7 @@ return [
     ],
     'paginate' => [
         'limit_rows' => 10,
+        'limit_rows_index' => 12,
     ],
     'avatars' => [
         'path' => '/avatars/',
