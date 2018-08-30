@@ -1,5 +1,6 @@
 <?php
 return [
+    'date_time_format' => 'Y-m-d H:i:s',
     'product' => [
         'images_path_products' => 'admin/images/products/',
         ],

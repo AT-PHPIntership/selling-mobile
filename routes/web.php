@@ -17,7 +17,7 @@ Route::get('/', function () {
 Route::prefix('admin')->namespace('Admin')->group(function () {
     Auth::routes();
     Route::middleware(['admin'])->group(function () {
-        Route::get('home', 'HomeController@index');
+        Route::get('home', 'HomeController@index')->name('admin.dashboard');
         Route::group(['as' => 'admin.'], function () {
             Route::resource('categories', 'CategoryController');
             Route::resource('users', 'UserController');
