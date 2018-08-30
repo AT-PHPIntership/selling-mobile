@@ -20,6 +20,7 @@ $(document).ready(function () {
           $('#divShow').hide();
           localStorage.setItem('login-token', response.result.token);
           localStorage.setItem('username', response.result.user.username);
+          localStorage.setItem('id', response.result.user.id);
           $('#userName').html(response.result.user.username);
           window.location.href = 'http://' + window.location.hostname;
         },

@@ -2,7 +2,6 @@ $(document).ready(function () {
   $(document).on('click', '#userLogout', function (event) {
     event.preventDefault();
     token = localStorage.getItem('login-token');
-    console.log(token);
     if(token) {
       $.ajax({
         url: "/api/logout",
@@ -14,6 +13,7 @@ $(document).ready(function () {
         success: function (response) {
           localStorage.removeItem('login-token');
           localStorage.removeItem('username');
+          localStorage.removeItem('id');
           window.location.href = 'http://' + window.location.hostname;
         }
       });

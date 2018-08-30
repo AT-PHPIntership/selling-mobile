@@ -7,7 +7,10 @@
       <div class="panel panel-default">
         <div class="panel-body">
           <div class="row form">
-            <div class="col-lg-6" style="width:100%;">
+            <div class="col-md-3">
+              <img id="avataruser" class="img-responsive thumbnail" src="http://www.uic.mx/posgrados/files/2018/05/default-user.png">
+            </div>
+            <div class="col-md-6" style="width:50%; margin-left: 10%">
               <form method="POST" data-ajax="true" data-ajax-failure="checkMember" data-ajax-method="Post" data-ajax-success="checkMember" enctype="multipart/form-data" id="inforForm" method="post">
                 @csrf
                 <p class="contact"><label for="name">{{ __('user/register.name') }}</label></p>
@@ -20,15 +23,15 @@
                 <input id="addressInfo" name="address" placeholder="Enter your address" required="" type="text">
                 <p class="contact"><label for="avatar">{{ __('user/register.avatar') }}</label></p>
                 <input type="file" id="avatarInfo"  name="avatar[]" placeholder="" multiple="multiple">
-              <button type="submit" id="btnUpdateInfo" class="btn btn btn-success"><i class="fa fa-sign-in" ></i>Save</button>
-              <a href="#" class="btn btn btn-danger"><i class="fa fa-close"></i>Back</a>
-            </form>
+                <button type="submit" id="btnUpdateInfo" class="btn btn btn-success"><i class="fa fa-sign-in" ></i>Save</button>
+                <a href="#" class="btn btn btn-danger"><i class="fa fa-close"></i>Back</a>
+              </form>
+            </div>
           </div>
         </div>
       </div>
     </div>
   </div>
-</div>
 </div>
 <script src="/user/js/info-user.js"></script>
 @endsection

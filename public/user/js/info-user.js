@@ -7,7 +7,6 @@ function showUserInfo(response) {
     $('#addressInfo').val(user.address);
     $('#phonenumberInfo').val(user.phonenumber);
     $('#emailInfo').val(user.email);
-    $('#avatarInfo').val(user.avatar);
   }
 }
 function editUserInfo(id) {
