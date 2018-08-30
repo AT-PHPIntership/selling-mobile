@@ -32,21 +32,4 @@ class HomeController extends ApiController
 
         return $this->showAll($productPromotions, Response::HTTP_OK);
     }
-
-    /**
-     * Display a listing of the resource.
-     *
-     * @return \Illuminate\Http\Response
-     */
-    public function show()
-    {
-        $products = Product::with([
-            'categories',
-            'colorProducts',
-            'promotions',
-        ])->latest()->paginate(config('setting.paginate.limit_rows'));
-        $colection = collect($products);
-
-        return $this->showAll($colection, Response::HTTP_OK);
-    }
 }

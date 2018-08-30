@@ -1,3 +1,6 @@
 .quick-view {
     display: inline-table;
 }
+.page-link {
+    cursor: pointer;
+}

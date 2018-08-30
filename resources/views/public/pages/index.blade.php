@@ -49,10 +49,11 @@
           <h2 class="title">Products</h2>
         </div>
       </div>
-      <div id="js-show-products"></div>
-      <div id="js-paginate"></div>
+      <div id="js-show-products" class="row"></div>
+      <div id="js-pagination" class="row">
+      </div>
     </div>
   </div>
 </div>
-<script src="{{ url('user/js/index.js') }}"></script>
+<script src="{{ url('user/js/index.js?v=1') }}"></script>
 @endsection

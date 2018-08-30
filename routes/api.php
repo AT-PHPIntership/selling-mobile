@@ -19,7 +19,7 @@ Route::middleware('auth:api')->get('/user', function (Request $request) {
 Route::group(['as' => 'api.', 'namespace' => 'Api\User'], function () {
     Route::apiResource('categories', 'CategoryController');
     Route::get('show-product-promotion', 'HomeController@promotion');
-    Route::get('show-products', 'HomeController@show');
+    Route::get('products', 'ProductController@index')->name('product');
     Route::post('login', 'LoginController@login');
     Route::post('register', 'LoginController@register')->name('register');
     Route::group(['middleware' => 'auth:api'], function () {
