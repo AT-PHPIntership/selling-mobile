@@ -36,7 +36,7 @@ $(document).ready(function() {
         }
 
         html += '</li>';
-        
+
       });
       $('#js-categories').append(html);
     }

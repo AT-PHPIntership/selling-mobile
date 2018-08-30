@@ -11,6 +11,6 @@ class ColorProductsTableSeeder extends Seeder
      */
     public function run()
     {
-        factory(App\Models\ColorProduct::class, 15)->create();
+        factory(App\Models\ColorProduct::class, 50)->create();
     }
 }
