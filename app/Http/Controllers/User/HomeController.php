@@ -22,7 +22,7 @@ class HomeController extends Controller
      *
      * @return \Illuminate\Http\Response
      */
-    public function profile()
+    public function info()
     {
         return view('public.pages.show-information-user');
     }

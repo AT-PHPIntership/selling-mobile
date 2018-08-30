@@ -8,7 +8,7 @@
         <div class="panel-body">
           <div class="row form">
             <div class="col-lg-6" style="width:100%;">
-              <form method="POST" data-ajax="true" data-ajax-failure="checkMember" data-ajax-method="Post" data-ajax-success="checkMember" enctype="multipart/form-data" id="profileForm" method="post">
+              <form method="POST" data-ajax="true" data-ajax-failure="checkMember" data-ajax-method="Post" data-ajax-success="checkMember" enctype="multipart/form-data" id="inforForm" method="post">
                 @csrf
                 <p class="contact"><label for="name">{{ __('user/register.name') }}</label></p>
                 <input id="userNameInfo" name="name" placeholder="Enter your name" required=""type="text">
@@ -30,5 +30,5 @@
   </div>
 </div>
 </div>
-<script src="/user/js/profile-user.js"></script>
+<script src="/user/js/info-user.js"></script>
 @endsection

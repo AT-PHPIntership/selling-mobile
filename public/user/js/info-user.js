@@ -10,9 +10,9 @@ function showUserInfo(response) {
     $('#avatarInfo').val(user.avatar);
   }
 }
-function editUserInfo() {
+function editUserInfo(id) {
   $.ajax({
-    url: "/api/users/profile",
+    url: "/api/users/" + id + "/info",
     type: "put",
     headers: {
         'Accept': 'application/json',
@@ -24,7 +24,6 @@ function editUserInfo() {
       'avatar' : $('#avatarInfo').val(),
     },
     success: function(response) {
-      console.log(response);
       $('#textMessage').show().text('Update your information suscessful! ');
     },
     error: function (response) {
@@ -34,9 +33,10 @@ function editUserInfo() {
 }
 $(document).ready(function () {
   token = localStorage.getItem('login-token');
+  id = localStorage.getItem('id');
   if(token) {
     $.ajax({
-      url: "/api/users/info",
+      url: "/api/users/" + id + "/info",
       type: "get",
       headers: {
         'Accept': 'application/json',
@@ -49,10 +49,10 @@ $(document).ready(function () {
   
     $('#btnUpdateInfo').on('click', function(event) {
       event.preventDefault();
-      editUserInfo();
+      editUserInfo(id);
     });
   } else {
     $('#textMessage').html('You are not sign in or do not have account. Please sign in or sign up account!');
-    $('#profileForm').hide();
+    $('#inforForm').hide();
   } 
 });
