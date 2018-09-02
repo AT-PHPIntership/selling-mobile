@@ -29,6 +29,7 @@ Route::prefix('admin')->namespace('Admin')->group(function () {
 });
 Route::group(['as' => 'user.', 'namespace' => 'User'], function () {
     Route::get('/', 'HomeController@index');
+    Route::get('products', 'HomeController@showProductCategory');
 });
 Route::group(['as' => 'user.', 'namespace' => 'Api\User'], function () {
     Route::get('register', 'RegisterController@index')->name('register');
