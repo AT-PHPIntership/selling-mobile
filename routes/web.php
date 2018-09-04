@@ -17,7 +17,7 @@ Route::get('/', function () {
 Route::prefix('admin')->namespace('Admin')->group(function () {
     Auth::routes();
     Route::middleware(['admin'])->group(function () {
-        Route::get('home', 'HomeController@index');
+        Route::get('home', 'HomeController@index')->name('admin.dashboard');
         Route::group(['as' => 'admin.'], function () {
             Route::resource('categories', 'CategoryController');
             Route::resource('users', 'UserController');
@@ -29,6 +29,7 @@ Route::prefix('admin')->namespace('Admin')->group(function () {
 });
 Route::group(['as' => 'user.', 'namespace' => 'User'], function () {
     Route::get('/', 'HomeController@index');
+    Route::get('profile', 'UserController@getProfile')->name('profile');
 });
 Route::group(['as' => 'user.', 'namespace' => 'Api\User'], function () {
     Route::get('register', 'RegisterController@index')->name('register');
