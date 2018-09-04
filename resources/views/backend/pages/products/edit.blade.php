@@ -8,7 +8,7 @@
         <h2 class="card-inside-title">{{__('product.admin.edit.title')}}</h2>
         <div class="row clearfix">
           <div class="col-sm-12">
-            <form id="demo-form2" method="POST" action="{{ route('admin.products.update', $product->id) }}" enctype="multipart/form-data">
+            <form id="demo-form2" method="POST" action="{{ route('admin.products.update', $product->id) }}" enctype="multipart/form-data" style="margin-bottom:  10%;">
               @csrf
               @method('PUT')
               <div class="form-group">
@@ -62,8 +62,8 @@
                 <label for="category_id">{{ __('product.admin.table.category_id') }}</label>
                 <div class="form-line">
                   <select class="form-control" name="category_id">
-                    <option value=""></option>
-                    @foreach ($listCategoriesChild as $list)
+                    <option value="">--Change category--</option>
+                    @foreach ($listCategories as $list)
                     <option value="{{ $list->id }}" {{ $list->id == $product->category_id ? 'selected' : '' }} }}>{{ old('name', $list->name) }}</option>
                     @endforeach
                   </select>
@@ -78,6 +78,13 @@
                     <option value="{{ $itemColor->id }}">{{ $itemColor->color }}</option>
                     @endforeach
                   </select>
+                </div>
+              </div>
+              <div class="form-group clearfix">
+                <label>{{ __('product.admin.table.path_color_image') }}</label>
+                <div class="form-line">
+                  <input id="col_pro_img" type="file" class="form-control" name="color_images" placeholder="" multiple="multiple">
+                  <div class="photo-color col-lg-3 col-md-4 col-sm-6 col-xs-12"></div>
                 </div>
               </div>
               <div class="form-group">
@@ -98,14 +105,28 @@
                   <input class="form-control" type="text" value="" name="quantity" >
                 </div>
               </div>
-              <div class="form-group">
+              <div class="form-group clearfix">
                 <label>{{ __('product.admin.table.image') }}</label>
                 <div class="form-line">
-                  <input type="file" class="form-control" name="images[]" placeholder="" multiple="multiple">
+                  <input id="product-images" type="file" class="form-control" name="images[]" placeholder="" multiple="multiple">
+                  <div class="photo col-lg-3 col-md-4 col-sm-6 col-xs-12"></div>
                 </div>
               </div>
-              <button type="submit" id="submit" name="submit" class="btn btn-success">{{ __('product.admin.edit.title') }}</button>&nbsp;
-              <button class="btn btn-primary" type="reset">{{ __('product.admin.button.reset') }}</button>
+              <div class="form-group clearfix">
+                @foreach ($product->images as $image)
+                <div class="col-lg-3 col-md-4 col-sm-6 col-xs-12">
+                  @if (strpos($image->path_image, 'https://') !== false)
+                    <img class="img-responsive thumbnail" src="{{ $image->path_image }}">
+                  @else
+                    <img class="img-responsive thumbnail" src="{{ url('admin/images/products/'.$image->path_image) }}">
+                  @endif
+                </div>
+                @endforeach
+              </div>
+              <div class="form-group">
+                <button type="submit" id="submit" name="submit" class="btn btn-success">{{ __('product.admin.edit.title') }}</button>&nbsp;
+                <button class="btn btn-primary" type="reset">{{ __('product.admin.button.reset') }}</button>
+              </div>
             </form>
           </div>
         </div>

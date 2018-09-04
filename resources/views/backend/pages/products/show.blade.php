@@ -1,5 +1,5 @@
 @extends('backend.master')
-@section('title', __('product.admin.list.title') )
+@section('title',__('product.admin.show.title') )
 @section('content')
 @include('backend.message')
 <div class="row clearfix">
@@ -17,8 +17,13 @@
     </div>
   </div>
   <div class="col-md-9 personal-info">
-    <h3>{{ __('product.admin.show.title') }}</h3>
     <form class="form-horizontal" role="form">
+      <div class="form-group">
+        <label class="col-md-3 control-label"></label>
+        <div class="col-md-8">
+          <a href="{{ route('admin.products.index') }}" class="btn btn-primary">Back</a>
+        </div>
+      </div>
       <div class="form-group">
         <label class="col-lg-3 control-label">{{ __('product.admin.table.id') }}:</label>
         <div class="col-lg-8">
@@ -114,13 +119,6 @@
         <label class="col-md-3 control-label">{{ __('product.admin.table.quantity') }}:</label>
         <div id="quantity" class="col-md-8">
           <input class="form-control" type="text" value="" disabled>
-        </div>
-      </div>
-      <div class="form-group">
-        <label class="col-md-3 control-label"></label>
-        <div class="col-md-8">
-          <a href="#" class="btn btn-primary">Back</a>
-          <input type="reset" class="btn btn-default" value="Cancel">
         </div>
       </div>
     </form>

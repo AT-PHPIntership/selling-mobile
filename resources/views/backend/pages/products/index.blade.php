@@ -5,9 +5,6 @@
   <div class="col-lg-12 col-md-12 col-sm-12 col-xs-12">
     <div class="card">
       <div class="body">
-        <div class="header">
-          <h2>Product</h2>
-        </div>
         <div class="body table-responsive">
           <table class="table table-bordered table-striped">
             <thead>
@@ -17,7 +14,7 @@
                 <th>{{__('product.admin.table.name')}}</th>
                 <th>{{__('product.admin.table.manufacturing_date')}}</th>
                 <th>{{__('product.admin.table.price')}}</th>
-                <th>{{__('product.admin.table.color')}}</th>
+                <th style="width: 15%;">{{__('product.admin.table.color')}}</th>
                 <th>{{__('product.admin.table.action')}}</th>
               </tr>
             </thead>
