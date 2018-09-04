@@ -30,8 +30,6 @@ class UpdateCategory extends Page
                 ->assertSee('Edit Category')
                 ->assertSee('Name Category')
                 ->assertSee('Parent ID')
-                ->assertSee('Created At')
-                ->assertSee('Updated At')
                 ->assertSee('Back')
                 ->assertSee('Submit');
     }
