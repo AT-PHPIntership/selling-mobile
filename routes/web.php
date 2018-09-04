@@ -29,7 +29,7 @@ Route::prefix('admin')->namespace('Admin')->group(function () {
 });
 Route::group(['as' => 'user.', 'namespace' => 'User'], function () {
     Route::get('/', 'HomeController@index');
-    Route::get('showinfor', 'HomeController@info')->name('showinfor');
+    Route::get('profile', 'UserController@getProfile')->name('profile');
 });
 Route::group(['as' => 'user.', 'namespace' => 'Api\User'], function () {
     Route::get('register', 'RegisterController@index')->name('register');
