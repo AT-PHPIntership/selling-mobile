@@ -7,14 +7,15 @@ $(document).ready(function() {
       result.result.forEach(category => {
         let childsHtml = '';
         html += '<li class="dropdown side-dropdown">' +
-                    '<a class="dropdown-toggle" data-toggle="dropdown" aria-expanded="true" href="" >'+category.name+'<i class="fa fa-angle-right"></i></a>';
+                    '<a href="/products?category_id='+category.id+'" >'+category.name+'</a>'+
+                    '<button class="dropdown-toggle fa fa-angle-right" data-toggle="dropdown" aria-expanded="true"></button>';
         if(category.childrens){
           category.childrens.forEach(childcategory => {
             html += '<div class="custom-menu">' +
                 '<div class="row">' +
                   '<div class="col-md-4">' +
                     '<ul class="list-links">' +
-                      childcategory.name +
+                      '<a href="/products?category_id='+childcategory.id+'">'+childcategory.name +'</a>'+
                     '</ul>' +
                     '<hr class="hidden-md hidden-lg">' +
                   '</div>' +

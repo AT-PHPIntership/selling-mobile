@@ -35,6 +35,19 @@
     }
   });
 
+  $('#formSearch').on('submit', function (event) {
+    event.preventDefault();
+    var query = $('#formSearch').find('input[name="name"]').val();
+    if (query == ""){
+      window.location.href = 'http://' + window.location.hostname;
+      console.log(window.location.href);
+    }
+    else{
+      var url = "/products?name=" + query;
+      window.location.href = url;
+    }
+  });
+
   // HOME SLICK
   $('#home-slick').slick({
     autoplay: true,
