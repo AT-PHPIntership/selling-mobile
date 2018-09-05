@@ -16,4 +16,14 @@ class HomeController extends Controller
     {
         return view('public.pages.index');
     }
+
+    /**
+     * Display a listing of the resource.
+     *
+     * @return \Illuminate\Http\Response
+     */
+    public function showProductCategory()
+    {
+        return view('public.pages.show-product-category');
+    }
 }

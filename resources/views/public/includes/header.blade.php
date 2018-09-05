@@ -29,14 +29,10 @@
           </a>
         </div>
         <div class="header-search">
-          <form>
-            <input class="input search-input" type="text" placeholder="Enter your keyword">
-            <select class="input search-categories">
-              <option value="0">All Categories</option>
-              <option value="1">Category 01</option>
-              <option value="1">Category 02</option>
-            </select>
-            <button class="search-btn"><i class="fa fa-search"></i></button>
+          <form id="formSearch" method="GET">
+            @csrf
+            <input id="txtSearch" name="name" class="input search-input" type="text" placeholder="Enter your keyword">
+            <button class="search-btn" type="submit"><i class="fa fa-search"></i></button>
           </form>
         </div>
       </div>
@@ -53,7 +49,7 @@
               <i class="fa fa-sign-out"></i>{{__('user/index.logout')}}
             </a>
             <ul class="custom-menu">
-              <li><a href="#"><i class="fa fa-user-o"></i>{{ __('user/index.account') }}</a></li>
+              <li><a href="{{ route('user.profile') }}"><i class="fa fa-user-o"></i>{{ __('user/index.account') }}</a></li>
               <li><a href="#"><i class="fa fa-exchange"></i>{{ __('user/index.compare') }}</a></li>
               <li><a href="#"><i class="fa fa-check"></i>{{ __('user/index.checkout') }}</a></li>
               <li><a id="login" data-toggle="modal" data-target="#loginModal"><i class="fa fa-unlock-alt"></i>{{ __('user/index.login') }}</a></li>
