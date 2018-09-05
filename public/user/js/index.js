@@ -17,18 +17,18 @@ $(document).ready(function() {
             var price_promotion_check = (promotion_type == 'currencies' ? price_promotion_currencies : price_promotion_percent);
             html += '<div class="col-md-3 col-sm-6 col-xs-6">' +
                         '<div class="product product-single">' +
-                          '<div class="product-thumb">' +
+                          '<div class="product-thumb img-product">' +
                             '<a href="#" class="main-btn quick-view"><i class="fa fa-search-plus"></i> Quick view</a>' +
-                            '<img src="' + product.color_products[0].path_image + '" class="img-responsive" >' +
+                            '<img src="'+ product.color_products[0].path_image +'" class="img-responsive">' +
                           '</div>' +
                           '<div class="product-body text-center">' +
-                            '<h3 class="product-price ">'+ toCurrency(price_promotion_check) +' <del class="product-old-price">'+ toCurrency(price_currencies) +'</del></h3>' +
+                            '<h3 class="product-price" price="'+ Math.round(price_promotion_check, 0) +'">'+ toCurrency(price_promotion_check) +' <del class="product-old-price">'+ toCurrency(price_currencies) +'</del></h3>' +
                           '</div>' +
-                          '<h2 class="product-name text-center"><a href="#">'+ product.name +'</a></h2>' +
+                          '<h2 class="product-name text-center"><a id="product-name" href="#">'+ product.name +'</a></h2>' +
                           '<div class="product-btns">' +
                             '<button class="main-btn icon-btn"><i class="fa fa-heart"></i></button>' +
                             '<button class="main-btn icon-btn"><i class="fa fa-exchange"></i></button>' +
-                            '<button class="primary-btn add-to-cart"><i class="fa fa-shopping-cart"></i> Add to Cart</button>' +
+                            '<button id="'+ product.id +'" onclick="addToCart(this)" class="add-to-cart primary-btn"><i class="fa fa-shopping-cart "></i> Add to Cart</button>' +
                           '</div>' +
                         '</div>';
             html += '</div>';
@@ -57,18 +57,18 @@ function loadProductsData(url)
                productsLayout +=
                 '<div class="col-md-3 col-sm-6 col-xs-6">' +
                   '<div class="product product-single">' +
-                    '<div class="product-thumb">' +
+                    '<div class="product-thumb img-product">' +
                       '<a href="#" class="main-btn quick-view"><i class="fa fa-search-plus"></i> Quick view</a>' +
                       '<img src="' + product.color_products[0].path_image + '" class="img-responsive" >' +
                     '</div>' +
                     '<div class="product-body text-center">' +
-                      '<h3 class="product-price ">'+ toCurrency(product.actual_price) +' <del class="product-old-price">'+ toCurrency(product.price) +'</del></h3>' +
+                      '<h3 class="product-price" price="'+ Math.round(product.actual_price, 0) +'">'+ toCurrency(product.actual_price) +' <del class="product-old-price">'+ toCurrency(product.price) +'</del></h3>' +
                     '</div>' +
-                    '<h2 class="product-name text-center"><a href="#">'+ product.name +'</a></h2>' +
+                    '<h2 class="product-name text-center"><a id="product-name" href="#">'+ product.name +'</a></h2>' +
                     '<div class="product-btns">' +
                       '<button class="main-btn icon-btn"><i class="fa fa-heart"></i></button>' +
                       '<button class="main-btn icon-btn"><i class="fa fa-exchange"></i></button>' +
-                      '<button class="primary-btn add-to-cart"><i class="fa fa-shopping-cart"></i> Add to Cart</button>' +
+                      '<button id="'+ product.id +'" onclick="addToCart(this)" class="primary-btn add-to-cart"><i class="fa fa-shopping-cart"></i> Add to Cart</button>' +
                     '</div>' +
                   '</div>' +
                 '</div>';

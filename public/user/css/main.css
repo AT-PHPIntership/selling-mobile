@@ -4,3 +4,27 @@
 .page-link {
     cursor: pointer;
 }
+.product-total span {
+    float: left;
+    font-size: 18px;
+    font-weight: bolder;
+}
+#totalPrice  {
+    float: right;
+    margin-right: 10px;
+    color: red;
+}
+#js-cart-info .product-body h3 {
+    margin-left: 20px;
+}
+#js-cart-info .product-body h2 {
+    margin-left: 20px;
+}
+#js-cart-info .cancel-btn i {
+    font-size: 18px;
+    color: #ff7c63;
+}
+#js-cart-info .cancel-btn i:hover {
+    color: red;
+}
+
