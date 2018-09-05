@@ -46,7 +46,7 @@
     <div class="row">
       <div class="col-md-12">
         <div class="section-title">
-          <h2 class="title">Products</h2>
+          <h2 id="demo1" class="title">Products</h2>
         </div>
       </div>
       <div id="js-show-products" class="row"></div>
@@ -56,4 +56,5 @@
   </div>
 </div>
 <script src="{{ url('user/js/index.js?v=1') }}"></script>
+<script src="{{ url('user/js/add-to-cart.js') }}"></script>
 @endsection
