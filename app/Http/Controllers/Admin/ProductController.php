@@ -114,7 +114,7 @@ class ProductController extends Controller
                 $colorProduct->price_color_type = $request->price_color_type;
                 $colorProduct->quantity = $request->quantity;
                 if (request()->file('color_images')) {
-                    $imageColor=request()->file('color_images');
+                    $imageColor = request()->file('color_images');
                     $newImageColor = $imageColor->getClientOriginalName();
                     $imageColor->move(public_path(config('define.product.images_path_products')), $newImageColor);
                     $colorProduct->path_image = $newImageColor;

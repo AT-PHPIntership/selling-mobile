@@ -72,24 +72,6 @@
           <input class="form-control" type="text" value="{{ $product->category_id }}" disabled>
         </div>
       </div>
-      <div class="form-group">
-        <label class="col-md-3 control-label">{{ __('product.admin.table.created_at') }}:</label>
-        <div class="col-md-8">
-          <input class="form-control" type="text" value="{{ $product->created_at }}" disabled>
-        </div>
-      </div>
-      <div class="form-group">
-        <label class="col-md-3 control-label">{{ __('product.admin.table.updated_at') }}:</label>
-        <div class="col-md-8">
-          <input class="form-control" type="text" value="{{ $product->updated_at }}" disabled>
-        </div>
-      </div>
-      <div class="form-group">
-        <label class="col-md-3 control-label">{{ __('product.admin.table.deleted_at') }}:</label>
-        <div class="col-md-8">
-          <input class="form-control" type="text" value="{{ $product->deleted_at }}" disabled>
-        </div>
-      </div>
 
       <div class="form-group">
         <label class="col-md-3 control-label">{{ __('product.admin.table.color') }}</label>
@@ -102,7 +84,14 @@
           </select>
         </div>
       </div>
-
+      <div class="form-group">
+        <label class="col-md-3 control-label">{{ __('product.admin.table.path_color_image') }}:</label>
+        <div class="col-md-8">
+          <div class="col-lg-3 col-md-4 col-sm-6 col-xs-12">
+            <img id="colProImg" class="img-responsive thumbnail" >
+          </div>
+        </div>
+      </div>
       <div class="form-group">
         <label class="col-md-3 control-label">{{ __('product.admin.table.price_color_value') }}:</label>
         <div id="colorValue" class="col-md-8">

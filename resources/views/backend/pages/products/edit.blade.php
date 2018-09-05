@@ -62,7 +62,6 @@
                 <label for="category_id">{{ __('product.admin.table.category_id') }}</label>
                 <div class="form-line">
                   <select class="form-control" name="category_id">
-                    <option value="">--Change category--</option>
                     @foreach ($listCategories as $list)
                     <option value="{{ $list->id }}" {{ $list->id == $product->category_id ? 'selected' : '' }} }}>{{ old('name', $list->name) }}</option>
                     @endforeach
@@ -135,4 +134,5 @@
   </div>
 </div>
 <script src="{{ url('admin/js/edit-color.js') }}"></script>
+<script src="{{ url('admin/js/upload-image.js') }}"></script>
 @endsection

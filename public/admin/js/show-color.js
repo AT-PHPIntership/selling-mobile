@@ -10,9 +10,9 @@ $(document).ready(function() {
           $("#colorValue").html("<input class='form-control' type='text' value='"+ data[0].price_color_value + "' disabled >");
           $("#colorType").html("<input class='form-control' type='text' value='"+ data[0].price_color_type + "' disabled >");
           $("#quantity").html("<input class='form-control' type='text' value='"+ data[0].quantity + "' disabled >");
+          $("#colProImg").attr("src", "/admin/images/products/" + data[0].path_image);
         }
       });
-      
     });
   });
 });
