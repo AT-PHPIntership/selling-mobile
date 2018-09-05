@@ -39,6 +39,6 @@ $(document).ready(function () {
     name = localStorage.getItem("username");
     $('#userName').html(name);
   } else {
-    $('#userName').html("My Account");
+    $('#userName').html("Login");
   }
 })
