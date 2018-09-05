@@ -5,6 +5,7 @@
     <meta http-equiv="X-UA-Compatible" content="IE=edge">
     <meta name="viewport" content="width=device-width, initial-scale=1">
     <title>{{ __('admin.title_dash') }}</title>
+    <base href="{{ asset('') }}">
     <link href="{{ url('admin/css/bootstrap.min.css') }}" rel="stylesheet">
     <link href="{{ url('admin/css/metisMenu.min.css') }}" rel="stylesheet">
     <link href="{{ url('admin/css/sb-admin-2.css') }}" rel="stylesheet">

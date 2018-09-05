@@ -18,9 +18,8 @@
               <div class="form-group">
                 <label for="manufacturing_date">{{ __('product.admin.table.manufacturing_date') }}</label>
                 <div class="input-group">
-                  <input type="text" name="manufacturing_date" value="" class="form-control" placeholder="" />
+                  <input type="date" name="manufacturing_date" value="" class="form-control" placeholder="" />
                   <div class="input-group-addon">
-                    <span class="glyphicon glyphicon-calendar"></span>
                   </div>
                 </div>
               </div>
@@ -91,20 +90,22 @@
                         <input type="text" name="color[0][quantity]" class="form-control" placeholder="" />
                       </div>
                     </div>
-                    <div class="form-group">
+                    <div class="form-group clearfix">
                       <label>{{ __('product.admin.table.path_image') }}</label>
                       <div class="form-line">
-                        <input type="file" class="form-control" name="color[0][path_image]" placeholder="" multiple="multiple">
+                        <input id="col_pro_img" type="file" class="form-control" name="color[0][path_image]" placeholder="" multiple="multiple">
+                        <div class="photo-color col-lg-3 col-md-4 col-sm-6 col-xs-12"></div>
                       </div>
                     </div>
                   </div>
                 </div>
               </div>
 
-              <div class="form-group">
+              <div class="form-group clearfix">
                 <label>{{ __('product.admin.table.path_image') }}</label>
                 <div class="form-line">
-                  <input type="file" class="form-control" name="images[]" placeholder="" multiple="multiple">
+                  <input id="product-images" type="file" class="form-control" name="images[]" placeholder="" multiple="multiple">
+                  <div class="photo col-lg-3 col-md-4 col-sm-6 col-xs-12"></div>
                 </div>
               </div>
               <button type="submit" id="submit" name="submit" class="btn btn-success">{{ __('product.admin.add.title') }}</button>&nbsp;
@@ -117,4 +118,5 @@
   </div>
 </div>
 <script src="{{ url('admin/js/add-color.js') }}"></script>
+<script src="{{ url('admin/js/upload-image.js') }}"></script>
 @endsection

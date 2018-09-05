@@ -1,5 +1,5 @@
 @extends('backend.master')
-@section('title', 'List Categories') )
+@section('title', 'List Categories')
 @section('content')
 <div class="right_col" role="main">
   <div class="">

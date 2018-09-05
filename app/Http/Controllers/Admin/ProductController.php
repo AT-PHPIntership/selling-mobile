@@ -69,8 +69,8 @@ class ProductController extends Controller
     {
         try {
             $product = Product::with(['images', 'colorProducts'])->findOrFail($id);
-            $listCategoriesChild = Category::where('parent_id', '<>', null)->get();
-            return view('backend.pages.products.edit', compact('product', 'listCategoriesChild'));
+            $listCategories= Category::all();
+            return view('backend.pages.products.edit', compact('product', 'listCategories'));
         } catch (Exception $ex) {
             return $ex;
         }
@@ -113,6 +113,12 @@ class ProductController extends Controller
                 $colorProduct->price_color_value = $request->price_color_value;
                 $colorProduct->price_color_type = $request->price_color_type;
                 $colorProduct->quantity = $request->quantity;
+                if (request()->file('color_images')) {
+                    $imageColor = request()->file('color_images');
+                    $newImageColor = $imageColor->getClientOriginalName();
+                    $imageColor->move(public_path(config('define.product.images_path_products')), $newImageColor);
+                    $colorProduct->path_image = $newImageColor;
+                }
                 $colorProduct->save();
             }
             if (is_array(request()->file('images'))) {

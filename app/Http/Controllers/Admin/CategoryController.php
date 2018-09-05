@@ -21,7 +21,7 @@ class CategoryController extends Controller
      */
     public function index()
     {
-        $data['categories'] = Category::paginate(config('paging.number_element_in_page'));
+        $data['categories'] = Category::orderBy('updated_at', 'desc')->paginate(config('paging.number_element_in_page'));
         return view('backend.pages.categories.index', $data);
     }
 

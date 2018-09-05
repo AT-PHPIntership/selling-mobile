@@ -20,6 +20,7 @@ return [
             'deleted_at' => 'Delete At',
             'color' => 'Color Product',
             'path_image' => 'Image',
+            'path_color_image' => 'Color Product Image',
             'quantity' => 'Quantity',
             'price_color_value' => 'Price Color Value',
             'price_color_type' => 'Price Color Type',
