@@ -30,7 +30,7 @@ class UserController extends ApiController
      */
     public function update(Request $request)
     {
-        $updatedUser = $request->only(['phonenumber', 'address', 'avatar']);
+        $updatedUser = $request->only(['username' ,'phonenumber', 'address', 'avatar']);
         $user = Auth::user();
         try {
             $user->update($updatedUser);
