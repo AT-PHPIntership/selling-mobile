@@ -56,5 +56,4 @@
   </div>
 </div>
 <script src="{{ url('user/js/index.js?v=1') }}"></script>
-<script src="{{ url('user/js/add-to-cart.js') }}"></script>
 @endsection

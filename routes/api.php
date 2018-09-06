@@ -28,4 +28,6 @@ Route::group(['as' => 'api.', 'namespace' => 'Api\User'], function () {
         Route::put('users/{id}/info', 'UserController@update');
         Route::get('users/{id}/info', 'UserController@index');
     });
+    Route::get('cart/detail', 'CartController@getInfoOrder');
+    Route::post('cart/checkout', 'CartController@checkout');
 });

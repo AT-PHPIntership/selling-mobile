@@ -16,4 +16,14 @@ class OrderController extends Controller
     {
         return view('public.pages.view-cart');
     }
+
+    /**
+     * Display a listing of the resource.
+     *
+     * @return \Illuminate\Http\Response
+     */
+    public function show()
+    {
+        return view('public.pages.order-cart');
+    }
 }

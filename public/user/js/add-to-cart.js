@@ -1,4 +1,5 @@
 var cart = JSON.parse(localStorage.getItem('cart'));
+var totalPrice = localStorage.getItem('totalPrice');
 
 // reload page
 $(document).ready(function(){
@@ -48,6 +49,7 @@ function addToCart(e) {
     $('#totalPrice').text(getTotalPrice());
     loadListCart();
     removeCart();
+    localStoreTotalPrice();
 }
 
 function loadListCart() {
@@ -95,6 +97,7 @@ function removeCart(e) {
         '</div>';
     });
     $('#js-cart-info').html(html);
+    localStoreTotalPrice();
 }
 
 function findId(id, data) {
@@ -166,4 +169,22 @@ function modifyCart(e) {
     showCart();
     loadListCart();
     removeCart();
+    localStoreTotalPrice();
+}
+
+function toCurrency(number, currencyType = 'VND')
+{
+  switch (currencyType) {
+    case "VND" :
+      return new Intl.NumberFormat('de-DE', { style: 'currency', currency: 'VND' }).format(number);
+    default :
+      return new Intl.NumberFormat('de-DE', { style: 'currency', currency: 'VND' }).format(number);
+
+  }
+}
+
+function localStoreTotalPrice() {
+    var temp = $('#totalPrice').text();
+    var totalPrice = temp.replace(/\D+/g, '');
+    localStorage.setItem("totalPrice", totalPrice);
 }

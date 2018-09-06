@@ -37,13 +37,13 @@ $(document).ready(function() {
                 '<img src="' + product.color_products[0].path_image + '" class="img-responsive" >' +
               '</div>' +
               '<div class="product-body text-center">' +
-                '<h3 class="product-price ">'+ toCurrency(product.actual_price) +' <del class="product-old-price">'+ toCurrency(product.price) +'</del></h3>' +
+                '<h3 class="product-price" price="'+ Math.round(product.actual_price, 0) +'">'+ toCurrency(product.actual_price) +' <del class="product-old-price">'+ toCurrency(product.price) +'</del></h3>' +
               '</div>' +
               '<h2 class="product-name text-center"><a href="#">'+ product.name +'</a></h2>' +
               '<div class="product-btns">' +
                 '<button class="main-btn icon-btn"><i class="fa fa-heart"></i></button>' +
                 '<button class="main-btn icon-btn"><i class="fa fa-exchange"></i></button>' +
-                '<button class="primary-btn add-to-cart"><i class="fa fa-shopping-cart"></i> Add to Cart</button>' +
+                '<button id="'+ product.id +'" onclick="addToCart(this)" class="primary-btn add-to-cart"><i class="fa fa-shopping-cart"></i> Add to Cart</button>' +
               '</div>' +
             '</div>' +
           '</div>';
@@ -57,13 +57,13 @@ $(document).ready(function() {
                 '<img src="' + product.color_products[0].path_image + '" class="img-responsive" >' +
               '</div>' +
               '<div class="product-body text-center">' +
-                '<h3 class="product-price ">'+ toCurrency(product.actual_price) +' <del class="product-old-price">'+ toCurrency(product.price) +'</del></h3>' +
+                '<h3 class="product-price" price="'+ Math.round(product.actual_price, 0) +'">'+ toCurrency(product.actual_price) +' <del class="product-old-price">'+ toCurrency(product.price) +'</del></h3>' +
               '</div>' +
               '<h2 class="product-name text-center"><a href="#">'+ product.name +'</a></h2>' +
               '<div class="product-btns">' +
                 '<button class="main-btn icon-btn"><i class="fa fa-heart"></i></button>' +
                 '<button class="main-btn icon-btn"><i class="fa fa-exchange"></i></button>' +
-                '<button class="primary-btn add-to-cart"><i class="fa fa-shopping-cart"></i> Add to Cart</button>' +
+                '<button id="'+ product.id +'" onclick="addToCart(this)" class="primary-btn add-to-cart"><i class="fa fa-shopping-cart"></i> Add to Cart</button>' +
               '</div>' +
             '</div>' +
           '</div>';

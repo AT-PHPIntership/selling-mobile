@@ -20,11 +20,10 @@
         <td><a href="{{ route('user.home') }}" class="btn btn-warning"><i class="fa fa-angle-left"></i> Continue Shopping</a></td>
         <td colspan="2" class="hidden-xs"></td>
         <td class="hidden-xs text-center"><strong>Total: <p id="js-total-price"></p> </strong></td>
-        <td><a href="#" class="btn btn-success btn-block">Checkout <i class="fa fa-angle-right"></i></a></td>
+        <td><button class="btn btn-success btn-block js-checkout-cart">Checkout <i class="fa fa-angle-right"></i></button></td>
       </tr>
     </tfoot>
   </table>
 </div>
 <script src="{{ url('user/js/index.js?v=1') }}"></script>
-<script src="{{ url('user/js/add-to-cart.js') }}"></script>
 @endsection
