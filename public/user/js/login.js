@@ -3,10 +3,12 @@ $(document).ready(function () {
     $('#userLogin').hide();
     $('#userLogout').show();
     $('#register').hide();
+    $('#profile').show();
   } else {
     $('#userLogin').show();
     $('#userLogout').hide();
     $('#register').show();
+    $('#profile').hide();
   }
   $('#formLogin').on('submit', function (event) {
     event.preventDefault();
@@ -40,6 +42,6 @@ $(document).ready(function () {
     name = localStorage.getItem("username");
     $('#userName').html(name);
   } else {
-    $('#userName').html("My Account");
+    $('#userName').html("Login");
   }
 })

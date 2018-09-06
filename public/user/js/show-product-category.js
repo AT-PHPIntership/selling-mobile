@@ -28,13 +28,14 @@ $(document).ready(function() {
      success: function (result) {
       var productsLayout = '';
       $.each(result.result.data, function (index, product) {
-        if ( id===product.categories.id ){
+        console.log(product);
+        if ( id === product.categories.id){
           productsLayout +=
           '<div class="col-md-3 col-sm-6 col-xs-6">' +
             '<div class="product product-single">' +
               '<div class="product-thumb">' +
-                '<a href="#" class="main-btn quick-view"><i class="fa fa-search-plus"></i> Quick view</a>' +
-                '<img src="' + product.color_products[0].path_image + '" class="img-responsive" >' +
+                '<a href="" class="main-btn quick-view"><i class="fa fa-search-plus"></i> Quick view</a>' +
+                '<img style="width: 150px; height:200px; margin: 0 auto" src="'+ '/admin/images/products/' + product.color_products[0].path_image + '" class="img-responsive" >' +
               '</div>' +
               '<div class="product-body text-center">' +
                 '<h3 class="product-price" price="'+ Math.round(product.actual_price, 0) +'">'+ toCurrency(product.actual_price) +' <del class="product-old-price">'+ toCurrency(product.price) +'</del></h3>' +
@@ -48,13 +49,13 @@ $(document).ready(function() {
             '</div>' +
           '</div>';
         }
-        if ( name===product.name ){
+        if ( name != null && product.name.toUpperCase().search(name.toUpperCase()) !== -1 ){
           productsLayout +=
           '<div class="col-md-3 col-sm-6 col-xs-6">' +
             '<div class="product product-single">' +
               '<div class="product-thumb">' +
                 '<a href="#" class="main-btn quick-view"><i class="fa fa-search-plus"></i> Quick view</a>' +
-                '<img src="' + product.color_products[0].path_image + '" class="img-responsive" >' +
+                '<img src="' + '/admin/images/products/' + product.color_products[0].path_image + '" class="img-responsive" >' +
               '</div>' +
               '<div class="product-body text-center">' +
                 '<h3 class="product-price" price="'+ Math.round(product.actual_price, 0) +'">'+ toCurrency(product.actual_price) +' <del class="product-old-price">'+ toCurrency(product.price) +'</del></h3>' +

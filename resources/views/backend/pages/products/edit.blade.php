@@ -25,17 +25,14 @@
               </div>
               <div class="form-group">
                 <label for="manufacturing_date">{{ __('product.admin.table.manufacturing_date') }}</label>
-                <div class="input-group">
-                  <input type="text" name="manufacturing_date" value="{{ old('manufacturing_date', $product->manufacturing_date) }}" class="form-control" placeholder=""/>
-                  <div class="input-group-addon">
-                    <span class="glyphicon glyphicon-calendar"></span>
-                  </div>
+                <div class="form-group">
+                  <input type="date" name="manufacturing_date" value="{{ old('manufacturing_date', $product->manufacturing_date) }}" class="form-control" placeholder=""/>
                 </div>
               </div>
               <div class="form-group">
                 <label for="price">{{ __('product.admin.table.price') }}</label>
                 <div class="form-line">
-                  <input type="text" name="price" value="{{ old('price', $product->price) }}" class="form-control" placeholder="" />
+                  <input type="number" name="price" value="{{ old('price', $product->price) }}" class="form-control" placeholder="" />
                 </div>
               </div>
               <div class="form-group">
@@ -79,6 +76,8 @@
                   </select>
                 </div>
               </div>
+
+              <div id = "show-color-product" hidden>
               <div class="form-group clearfix">
                 <label>{{ __('product.admin.table.path_color_image') }}</label>
                 <div class="form-line">
@@ -89,7 +88,7 @@
               <div class="form-group">
                 <label class="control-label">{{ __('product.admin.table.price_color_value') }}:</label>
                 <div id="colorValue" class="form-line">
-                  <input class="form-control" type="text" value="" name="price_color_value">
+                  <input class="form-control" type="text" value="" name="price_color_value" >
                 </div>
               </div>
               <div class="form-group">
@@ -104,6 +103,8 @@
                   <input class="form-control" type="text" value="" name="quantity" >
                 </div>
               </div>
+              </div>
+
               <div class="form-group clearfix">
                 <label>{{ __('product.admin.table.image') }}</label>
                 <div class="form-line">
