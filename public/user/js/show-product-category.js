@@ -48,7 +48,7 @@ $(document).ready(function() {
             '</div>' +
           '</div>';
         }
-        if ( name===product.name ){
+        if ( name === product.name ){
           productsLayout +=
           '<div class="col-md-3 col-sm-6 col-xs-6">' +
             '<div class="product product-single">' +

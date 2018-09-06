@@ -18,8 +18,8 @@ $(document).ready(function() {
             html += '<div class="col-md-3 col-sm-6 col-xs-6">' +
                         '<div class="product product-single">' +
                           '<div class="product-thumb img-product">' +
-                            '<a href="#" class="main-btn quick-view"><i class="fa fa-search-plus"></i> Quick view</a>' +
-                            '<img src="'+ product.color_products[0].path_image +'" class="img-responsive">' +
+                            '<a href="products/'+ product.id +'" class="main-btn quick-view"><i class="fa fa-search-plus"></i> Quick view</a>' +
+                            '<img src="'+ '/admin/images/products/' + product.color_products[0].path_image +'" class="img-responsive">' +
                           '</div>' +
                           '<div class="product-body text-center">' +
                             '<h3 class="product-price" price="'+ Math.round(price_promotion_check, 0) +'">'+ toCurrency(price_promotion_check) +' <del class="product-old-price">'+ toCurrency(price_currencies) +'</del></h3>' +
@@ -58,8 +58,8 @@ function loadProductsData(url)
                 '<div class="col-md-3 col-sm-6 col-xs-6">' +
                   '<div class="product product-single">' +
                     '<div class="product-thumb img-product">' +
-                      '<a href="#" class="main-btn quick-view"><i class="fa fa-search-plus"></i> Quick view</a>' +
-                      '<img src="' + product.color_products[0].path_image + '" class="img-responsive" >' +
+                      '<a href="products/'+ product.id +'" class="main-btn quick-view"><i class="fa fa-search-plus"></i> Quick view</a>' +
+                      '<img src="' + '/admin/images/products/' + product.color_products[0].path_image + '" class="img-responsive" >' +
                     '</div>' +
                     '<div class="product-body text-center">' +
                       '<h3 class="product-price" price="'+ Math.round(product.actual_price, 0) +'">'+ toCurrency(product.actual_price) +' <del class="product-old-price">'+ toCurrency(product.price) +'</del></h3>' +
