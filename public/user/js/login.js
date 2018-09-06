@@ -4,11 +4,13 @@ $(document).ready(function () {
     $('#userLogout').show();
     $('#register').hide();
     $('#profile').show();
+    $('#login').hide();
   } else {
     $('#userLogin').show();
     $('#userLogout').hide();
     $('#register').show();
     $('#profile').hide();
+    $('#login').show();
   }
   $('#formLogin').on('submit', function (event) {
     event.preventDefault();
