@@ -19,7 +19,7 @@ $(document).ready(function() {
                         '<div class="product product-single">' +
                           '<div class="product-thumb img-product">' +
                             '<a href="#" class="main-btn quick-view"><i class="fa fa-search-plus"></i> Quick view</a>' +
-                            '<img src="'+ product.color_products[0].path_image +'" class="img-responsive">' +
+                            '<img src="'+ '/admin/images/products/' + product.color_products[0].path_image +'" class="img-responsive">' +
                           '</div>' +
                           '<div class="product-body text-center">' +
                             '<h3 class="product-price" price="'+ Math.round(price_promotion_check, 0) +'">'+ toCurrency(price_promotion_check) +' <del class="product-old-price">'+ toCurrency(price_currencies) +'</del></h3>' +

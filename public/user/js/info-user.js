@@ -1,4 +1,5 @@
 function showUserInfo(response) {
+  console.log(response);
   let user = response.result;
   token = localStorage.getItem('login-token');
   if(token) {
@@ -18,15 +19,20 @@ function editUserInfo(id) {
         'Authorization': 'Bearer ' + token
     },
     data: {
+      'username'  : $('#userNameInfo').val(),
       'phonenumber'  : $('#phonenumberInfo').val(),
       'address'  : $('#addressInfo').val(),
       'avatar' : $('#avatarInfo').val(),
     },
     success: function(response) {
+      $('#userName').html(response.result.username);
+      localStorage.setItem('username', response.result.username);
       $('#textMessage').show().text('Update your information suscessful! ');
+      $("#textMessage").fadeOut(5000);
     },
     error: function (response) {
       $('#textMessage').show().text(response.responseJSON.message);
+      $("#textMessage").fadeOut(5000);
     }
   });
 }

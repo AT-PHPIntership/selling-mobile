@@ -12,7 +12,7 @@ return [
             'eng' => 'English (ENG)'
         ]
     ],
-    'account' => 'Login',
+    'account' => 'My Account',
     'login' => 'Login',
     'logout' => 'Logout',
     'join' => 'Join',
