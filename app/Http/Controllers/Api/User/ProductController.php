@@ -74,7 +74,9 @@ class ProductController extends ApiController
     public function show(Product $product)
     {
         $product->images;
-        // $product->category->parent;
+        $product->categories;
+        $product->colorProducts;
+        $product->promotions;
         return $this->showOne($product, Response::HTTP_OK);
     }
 }

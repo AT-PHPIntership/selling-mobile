@@ -28,4 +28,5 @@ Route::group(['as' => 'api.', 'namespace' => 'Api\User'], function () {
         Route::post('logout', 'LoginController@logout');
         Route::put('users/{id}/info', 'UserController@update');
         Route::get('users/{id}/info', 'UserController@index');
+    });
 });

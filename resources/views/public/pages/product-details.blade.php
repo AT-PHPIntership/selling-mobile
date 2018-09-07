@@ -22,16 +22,40 @@
       <div class="product product-details clearfix">
         <div class="col-md-6">
           <div id="product-main-view">
+            <div class="product-view">
+              <img id="product-main-view-1" src="" alt="">
+            </div>
+            <div class="product-view">
+              <img id="product-main-view-2" src="" alt="">
+            </div>
+            <div class="product-view">
+              <img id="product-main-view-3" src="" alt="">
+            </div>
+            <div class="product-view">
+              <img id="product-main-view-4" src="{{ url('admin/images/products/HTC-1.jpg') }}" alt="">
+            </div>
           </div>
           <div id="product-view">
+            <div class="product-view">
+              <img id="productview-1" src="" alt="">
+            </div>
+            <div class="product-view">
+              <img id="productview-2" src="" alt="">
+            </div>
+            <div class="product-view">
+              <img id="productview-3" src="" alt="">
+            </div>
+            <div class="product-view">
+              <img id="productview-4" src="" alt="">
+            </div>
           </div>
         </div>
         <div class="col-md-6">
           <div class="product-body">
             <div class="product-label">
-              <span>New</span>
-              <span class="sale">-20%</span>
-            </div>
+              <span>SALE: </span>
+                <span class="sale"></span>
+              </div>
             <h2 class="product-name"></h2>
             <h3 class="product-price"></h3>
             <div>
@@ -42,24 +66,14 @@
                 <i class="fa fa-star"></i>
                 <i class="fa fa-star-o empty"></i>
               </div>
-              <a href="#">3 Review(s) / Add Review</a>
             </div>
-            <p><strong>Availability:</strong> In Stock</p>
-            <p><strong>Brand:</strong> E-SHOP</p>
+            <p><strong>Manufacturing Date:</strong><span id="manufacturing_date"></span></p>
+            <p><strong>Brand:</strong> SELLING-MOBLE</p>
             <p id="description"></p>
             <div class="product-options">
-              <ul class="size-option">
-                <li><span class="text-uppercase">Size:</span></li>
-                <li class="active"><a href="#">S</a></li>
-                <li><a href="#">XL</a></li>
-                <li><a href="#">SL</a></li>
-              </ul>
               <ul class="color-option">
                 <li><span class="text-uppercase">Color:</span></li>
-                <li class="active"><a href="#" style="background-color:#475984;"></a></li>
-                <li><a href="#" style="background-color:#8A2454;"></a></li>
-                <li><a href="#" style="background-color:#BF6989;"></a></li>
-                <li><a href="#" style="background-color:#9A54D8;"></a></li>
+                <li class="color-product"></li>
               </ul>
             </div>
             <div class="product-btns">
