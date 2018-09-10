@@ -9,5 +9,8 @@ $factory->define(App\Models\Order::class, function (Faker $faker) {
         'user_id' => App\Models\User::all()->random()->id,
         'total_price' => $faker->numberBetween(10000, 100000000),
         'note' => $faker->text(50),
+        'name' => $faker->name,
+        'phone' => $faker->e164PhoneNumber,
+        'address' => $faker->address,
     ];
 });
