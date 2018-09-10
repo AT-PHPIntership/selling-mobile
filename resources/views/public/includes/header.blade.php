@@ -31,7 +31,7 @@
         <div class="header-search">
           <form id="formSearch" method="GET">
             @csrf
-            <input id="txtSearch" name="name" class="input search-input" type="text" placeholder="Enter your keyword">
+            <input id="txtSearch" name="keyword" class="input search-input" type="text" placeholder="Enter your keyword">
             <button class="search-btn" type="submit"><i class="fa fa-search"></i></button>
           </form>
         </div>

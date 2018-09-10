@@ -37,13 +37,13 @@
 
   $('#formSearch').on('submit', function (event) {
     event.preventDefault();
-    var query = $('#formSearch').find('input[name="name"]').val();
+    var query = $('#formSearch').find('input[name="keyword"]').val();
     if (query == ""){
       window.location.href = 'http://' + window.location.hostname;
       console.log(window.location.href);
     }
     else{
-      var url = "/products?name=" + query;
+      var url = "/products?key=" + query;
       window.location.href = url;
     }
   });

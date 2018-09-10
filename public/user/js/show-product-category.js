@@ -17,20 +17,8 @@ function getParameterByName(name, url) {
     if (!results[2]) return '';
     return decodeURIComponent(results[2].replace(/\+/g, ' '));
 }
-$(document).ready(function() {
-  var url = "/api/show-products" + window.location.search;
-  var id = parseInt(getParameterByName('category_id'));
-  var name = getParameterByName('name');
-  var current_page;
-  $.ajax({
-    url: url,
-    type: "get",
-     success: function (result) {
-      var productsLayout = '';
-      $.each(result.result.data, function (index, product) {
-        console.log(product);
-        if ( id === product.categories.id){
-          productsLayout +=
+function showProduct(product, html) {
+  html +=
           '<div class="col-md-3 col-sm-6 col-xs-6">' +
             '<div class="product product-single">' +
               '<div class="product-thumb">' +
@@ -48,26 +36,25 @@ $(document).ready(function() {
               '</div>' +
             '</div>' +
           '</div>';
+  return html;
+}
+$(document).ready(function() {
+  var url = "/api/show-products" + window.location.search;
+  var id = parseInt(getParameterByName('category_id'));
+  var keyword = getParameterByName('key');
+  var current_page;
+  $.ajax({
+    url: url,
+    type: "get",
+     success: function (result) {
+      var productsLayout = '';
+      $.each(result.result.data, function (index, product) {
+        if ( id === product.categories.id ){
+          productsLayout += showProduct(product, productsLayout);
         }
-        if ( name != null && product.name.toUpperCase().search(name.toUpperCase()) !== -1 ){
-          productsLayout +=
-          '<div class="col-md-3 col-sm-6 col-xs-6">' +
-            '<div class="product product-single">' +
-              '<div class="product-thumb">' +
-                '<a href="#" class="main-btn quick-view"><i class="fa fa-search-plus"></i> Quick view</a>' +
-                '<img src="' + '/admin/images/products/' + product.color_products[0].path_image + '" class="img-responsive" >' +
-              '</div>' +
-              '<div class="product-body text-center">' +
-                '<h3 class="product-price ">'+ toCurrency(product.actual_price) +' <del class="product-old-price">'+ toCurrency(product.price) +'</del></h3>' +
-              '</div>' +
-              '<h2 class="product-name text-center"><a href="#">'+ product.name +'</a></h2>' +
-              '<div class="product-btns">' +
-                '<button class="main-btn icon-btn"><i class="fa fa-heart"></i></button>' +
-                '<button class="main-btn icon-btn"><i class="fa fa-exchange"></i></button>' +
-                '<button class="primary-btn add-to-cart"><i class="fa fa-shopping-cart"></i> Add to Cart</button>' +
-              '</div>' +
-            '</div>' +
-          '</div>';
+        if ( keyword != null && ( product.name.toUpperCase().search(keyword.toUpperCase()) !== -1 || product.categories.name.toUpperCase().search(keyword.toUpperCase()) !== -1 )){
+          console.log(product);
+          productsLayout += showProduct(product, productsLayout);
         }
       });  /* end loop */
       $('#js-show-products').html(productsLayout);
