@@ -108,9 +108,7 @@ class ProductController extends Controller
     {
         try {
             $idImageColor = $request->del_image_color;
-            if ($idImageColor) {
-                ColorProduct::where('id', $idImageColor)->update(array('path_image' => null));
-            }
+            ColorProduct::where('id', $idImageColor)->update(array('path_image' => null));
             $idImage = $request->del_image;
             if ($idImage) {
                 $imagesDel = explode(",", $idImage);
