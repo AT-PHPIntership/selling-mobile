@@ -23,7 +23,11 @@
               <div class="form-group">
                 <label class="control-label col-md-3 col-sm-3 col-xs-12">{{ __('category.admin.table.parent_id') }}</label>
                 <div class="col-md-9 col-sm-9 col-xs-12">
-                  <select class="form-control" name="parent_id">
+                  <select class="form-control" name="parent_id" 
+                  @if(!$category->parent_id)
+                    dd('hello');
+                    disabled
+                  @endif>
                     <option value=""></option>
                     @foreach ($listCategoriesParent as $list)
                       <option @if($list->id == $category->parent_id) selected @endif
