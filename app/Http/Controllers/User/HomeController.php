@@ -26,4 +26,14 @@ class HomeController extends Controller
     {
         return view('public.pages.show-product-category');
     }
+
+    /**
+     * Display profile.
+     *
+     * @return \Illuminate\Http\Response
+     */
+    public function profile()
+    {
+        return view('public.pages.show-information-user');
+    }
 }

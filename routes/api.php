@@ -21,6 +21,7 @@ Route::group(['as' => 'api.', 'namespace' => 'Api\User'], function () {
     Route::get('show-product-promotion', 'HomeController@promotion');
     Route::get('products', 'ProductController@index')->name('product');
     Route::get('show-products', 'ProductController@showProductCategory');
+    Route::apiResource('products', 'ProductController');
     Route::post('login', 'LoginController@login');
     Route::post('register', 'LoginController@register')->name('register');
     Route::group(['middleware' => 'auth:api'], function () {

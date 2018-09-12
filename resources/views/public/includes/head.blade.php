@@ -3,6 +3,7 @@
 <meta name="viewport" content="width=device-width, initial-scale=1">
 <!-- The above 3 meta tags *must* come first in the head; any other head content must come *after* these tags -->
 <title>{{ __('user/index.title') }}</title>
+<base href="{{ asset('') }}">
 <!-- Google font -->
 <link href="https://fonts.googleapis.com/css?family=Hind:400,700" rel="stylesheet">
 <link type="text/css" rel="stylesheet" href="{{ url('/user/css/bootstrap.min.css') }}" />
