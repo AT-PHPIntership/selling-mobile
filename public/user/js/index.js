@@ -110,7 +110,6 @@ function loadProductsData(url)
     })
 }
 
-
 function toCurrency(number, currencyType = 'VND')
 {
   switch (currencyType) {
