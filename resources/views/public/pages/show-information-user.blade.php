@@ -16,7 +16,7 @@
                 <p class="contact"><label for="name">{{ __('user/register.name') }}</label></p>
                 <input id="userNameInfo" name="name" placeholder="Enter your name" required=""type="text">
                 <p class="contact"><label for="email">{{ __('user/register.email') }}</label></p>
-                <input id="emailInfo" name="email" placeholder="example@domain.com" required="" type="email">
+                <input id="emailInfo" name="email" placeholder="example@domain.com" required="" type="email" disabled>
                 <p class="contact"><label for="phonenumber">{{ __('user/register.phonenumber') }}</label></p>
                 <input id="phonenumberInfo" name="phonenumber" placeholder="Enter your number" required="" type="text">
                 <p class="contact"><label for="address">{{ __('user/register.address') }}</label></p>
