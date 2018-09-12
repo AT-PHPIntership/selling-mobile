@@ -19,3 +19,17 @@ $('#product-images').on('change', function() {
 $('#col_pro_img').on('change', function() {
   imagesPreview(this, 'div.photo-color');
 });
+$(document).ready(function(){
+  $('.delImage').on('click', function() {
+    if (confirm($(this).data('confirm'))) {
+      delImage($(this).attr('data-id'));
+    }
+  });
+});
+var input = $('#del_image');
+function delImage(ImageId) {
+  document.getElementById("remove-" + ImageId).addEventListener("click", function(){
+    document.getElementById("tr-" + ImageId).remove();
+    input.val( input.val() + ImageId + "," );
+  });
+}

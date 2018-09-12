@@ -85,6 +85,26 @@
                   <div class="photo-color col-lg-3 col-md-4 col-sm-6 col-xs-12"></div>
                 </div>
               </div>
+
+              <div class="form-group row" hidden>
+                <div class="col-md-8">
+                  <input class="form-control col-md-8 active" name="del_image_color" type="text" id="del_image_color" value="">
+                </div>
+              </div>
+              <div class="form-group clearfix">
+                <table >
+                  <tbody>
+                    <tr id="tr-colorImage">
+                      <td id="colorImage" style="width: 50%;">
+                      </td>
+                      <td style="width: 25%;"><a style="font-size:24px" class="remove" id="remove-colorImage" >
+                        <i id="remove" class="fa fa-remove img-thumbnail delImage" style="font-size:25px;color:red" data-id="colorImage" data-confirm="Do you want delete this image products?" ></i></a>
+                      </td>
+                    </tr>
+                  </tbody>
+                </table>
+              </div>
+
               <div class="form-group">
                 <label class="control-label">{{ __('product.admin.table.price_color_value') }}:</label>
                 <div id="colorValue" class="form-line">
@@ -104,7 +124,6 @@
                 </div>
               </div>
               </div>
-
               <div class="form-group clearfix">
                 <label>{{ __('product.admin.table.image') }}</label>
                 <div class="form-line">
@@ -112,16 +131,26 @@
                   <div class="photo col-lg-3 col-md-4 col-sm-6 col-xs-12"></div>
                 </div>
               </div>
-              <div class="form-group clearfix">
-                @foreach ($product->images as $image)
-                <div class="col-lg-3 col-md-4 col-sm-6 col-xs-12">
-                  @if (strpos($image->path_image, 'https://') !== false)
-                    <img class="img-responsive thumbnail" src="{{ $image->path_image }}">
-                  @else
-                    <img class="img-responsive thumbnail" src="{{ url('admin/images/products/'.$image->path_image) }}">
-                  @endif
+              <div class="form-group row" hidden>
+                <div class="col-md-8">
+                  <input class="form-control col-md-8 active" name="del_image" type="text" id="del_image">
                 </div>
-                @endforeach
+              </div>
+              <div class="form-group clearfix">
+                <table >
+                  <tbody>
+                    @foreach ($product->images as $image)
+                    <tr id="tr-{{$image->id}}">
+                      <td style="width: 50%;">
+                        <img height="170px" src="{{ url('admin/images/products/'.$image->path_image) }}" class="rounded" style="margin: 15px;">
+                      </td>
+                      <td style="width: 25%;"><a style="font-size:24px" class="remove" id="remove-{{$image->id}}" >
+                        <i class="fa fa-remove img-thumbnail delImage" style="font-size:25px;color:red" data-id="{{$image->id}}" data-confirm="Do you want delete this image products?" ></i></a>
+                      </td>
+                    </tr>
+                    @endforeach
+                  </tbody>
+                </table>
               </div>
               <div class="form-group">
                 <button type="submit" id="submit" name="submit" class="btn btn-success">{{ __('product.admin.edit.title') }}</button>&nbsp;

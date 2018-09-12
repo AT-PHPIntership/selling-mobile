@@ -107,9 +107,22 @@ class ProductController extends Controller
     public function update(CreateProductRequest $request, Product $product)
     {
         try {
+            $idImageColor = $request->del_image_color;
+            ColorProduct::where('id', $idImageColor)->update(array('path_image' => null));
+            $idImage = $request->del_image;
+            if ($idImage) {
+                $imagesDel = explode(",", $idImage);
+                $imagesDataDel = array();
+                for ($i = 0; $i < count($imagesDel)-1; $i++) {
+                    array_push($imagesDataDel, (int) $imagesDel[$i]);
+                }
+                for ($i = 0; $i < count($imagesDataDel); $i++) {
+                    Image::where('id', $imagesDataDel[$i])->delete();
+                }
+            }
             $product->update($request->all());
-            $colorProduct =ColorProduct::findOrFail($request->color_id);
-            if ($colorProduct) {
+            if ($request->color_id) {
+                $colorProduct =ColorProduct::findOrFail($request->color_id);
                 $colorProduct->price_color_value = $request->price_color_value;
                 $colorProduct->price_color_type = $request->price_color_type;
                 $colorProduct->quantity = $request->quantity;
