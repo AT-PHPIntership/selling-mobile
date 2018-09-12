@@ -31,7 +31,7 @@
         <div class="header-search">
           <form id="formSearch" method="GET">
             @csrf
-            <input id="txtSearch" name="name" class="input search-input" type="text" placeholder="Enter your keyword">
+            <input id="txtSearch" name="keyword" class="input search-input" type="text" placeholder="Enter your keyword">
             <button class="search-btn" type="submit"><i class="fa fa-search"></i></button>
           </form>
         </div>
@@ -50,7 +50,6 @@
             </a>
             <ul class="custom-menu">
               <li><a id="profile" href="{{ route('user.profile') }}"><i class="fa fa-user-o"></i>{{ __('user/index.account') }}</a></li>
-              <li><a href="#"><i class="fa fa-exchange"></i>{{ __('user/index.compare') }}</a></li>
               <li><a href="#"><i class="fa fa-check"></i>{{ __('user/index.checkout') }}</a></li>
               <li><a id="login" data-toggle="modal" data-target="#loginModal"><i class="fa fa-unlock-alt"></i>{{ __('user/index.login') }}</a></li>
               <li><a id="register" href="{{ route('user.register') }}"><i class="fa fa-user-plus"></i>{{ __('user/index.create') }}</a></li>

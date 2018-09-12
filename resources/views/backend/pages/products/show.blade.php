@@ -84,30 +84,32 @@
           </select>
         </div>
       </div>
-      <div class="form-group">
-        <label class="col-md-3 control-label">{{ __('product.admin.table.path_color_image') }}:</label>
-        <div class="col-md-8">
-          <div class="col-lg-3 col-md-4 col-sm-6 col-xs-12">
-            <img id="colProImg" class="img-responsive thumbnail" >
+      <div id = "show-color-product" hidden >
+        <div class="form-group">
+          <label class="col-md-3 control-label">{{ __('product.admin.table.path_color_image') }}:</label>
+          <div class="col-md-8">
+            <div class="col-lg-3 col-md-4 col-sm-6 col-xs-12">
+              <img id="colProImg" class="img-responsive thumbnail" >
+            </div>
           </div>
         </div>
-      </div>
-      <div class="form-group">
-        <label class="col-md-3 control-label">{{ __('product.admin.table.price_color_value') }}:</label>
-        <div id="colorValue" class="col-md-8">
-          <input class="form-control" type="text" value="" disabled>
+        <div class="form-group">
+          <label class="col-md-3 control-label">{{ __('product.admin.table.price_color_value') }}:</label>
+          <div id="colorValue" class="col-md-8">
+            <input class="form-control" type="text" value="" disabled>
+          </div>
         </div>
-      </div>
-      <div class="form-group">
-        <label class="col-md-3 control-label">{{ __('product.admin.table.price_color_type') }}:</label>
-        <div id="colorType" class="col-md-8">
-          <input class="form-control" type="text" value="" disabled>
+        <div class="form-group">
+          <label class="col-md-3 control-label">{{ __('product.admin.table.price_color_type') }}:</label>
+          <div id="colorType" class="col-md-8">
+            <input class="form-control" type="text" value="" disabled>
+          </div>
         </div>
-      </div>
-      <div class="form-group">
-        <label class="col-md-3 control-label">{{ __('product.admin.table.quantity') }}:</label>
-        <div id="quantity" class="col-md-8">
-          <input class="form-control" type="text" value="" disabled>
+        <div class="form-group">
+          <label class="col-md-3 control-label">{{ __('product.admin.table.quantity') }}:</label>
+          <div id="quantity" class="col-md-8">
+            <input class="form-control" type="text" value="" disabled>
+          </div>
         </div>
       </div>
     </form>

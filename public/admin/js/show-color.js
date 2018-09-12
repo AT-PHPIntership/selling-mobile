@@ -1,6 +1,12 @@
 $(document).ready(function() {
   $('#colorProduct').on('change', function() {
+    $('#show-color-product').show();
     $("#colorProduct").each(function () {
+      $('#colorProduct').on('change', function() {
+        if ( $('#colorProduct').val() == "" ) {
+          $('#show-color-product').hide();
+        }
+      });
       var idColor = $(this).val();
       var idProduct = document.getElementById('idProduct').value;
       $.ajax({
