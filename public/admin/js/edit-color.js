@@ -1,6 +1,6 @@
 $(document).ready(function() {
   $('#colorProduct').on('change', function() {
-    $('#show-color-product').show();
+    $("#show-color-product").show();
     $("#colorProduct").each(function () {
       $('#colorProduct').on('change', function() {
         if ( $('#colorProduct').val() == "" ) {
@@ -18,7 +18,7 @@ $(document).ready(function() {
           $("#quantity").html("<input class='form-control' type='text' value='"+ data[0].quantity + "' name='quantity' >");
         }
       });
-      
+
     });
   });
 });

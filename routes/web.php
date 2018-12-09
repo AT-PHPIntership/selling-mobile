@@ -32,6 +32,7 @@ Route::group(['as' => 'user.', 'namespace' => 'User'], function () {
     Route::get('detail-order', 'OrderController@index')->name('detail-order');
     Route::get('products', 'HomeController@showProductCategory');
     Route::get('profile', 'UserController@getProfile')->name('profile');
+    Route::get('checkout-cart', 'OrderController@show')->name('checkout-cart');
 });
 Route::group(['as' => 'user.', 'namespace' => 'Api\User'], function () {
     Route::get('register', 'RegisterController@index')->name('register');

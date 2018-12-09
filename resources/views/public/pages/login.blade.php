@@ -15,6 +15,7 @@
           <input id="password" class="form-control" type="password" required>
           <br>
           <input type="submit" name="btnLogin" id="btnLogin" class="btn btn-warning" value="Login">
+          <a href="{{ route('user.register') }}" name="btnRegister" id="btnRegister" class="btn btn-warning">Register</a>
         </form>
       </div>
     </div>

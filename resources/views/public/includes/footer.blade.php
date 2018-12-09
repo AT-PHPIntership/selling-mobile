@@ -90,6 +90,8 @@
 </footer>
 <!-- /FOOTER -->
 <!-- jQuery Plugins -->
+<script src="{{ url('user/js/checkout-cart.js') }}"></script>
+<script src="{{ url('user/js/add-to-cart.js') }}"></script>
 <script src="{{ url('user/js/jquery.min.js') }}"></script>
 <script src="{{ url('user/js/bootstrap.min.js') }}"></script>
 <script src="{{ url('user/js/slick.min.js') }}"></script>
