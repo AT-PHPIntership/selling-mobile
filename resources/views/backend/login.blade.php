@@ -38,6 +38,9 @@
                                         </span>
                                     @endif
                                 </div>
+                                <div class="form-group">
+                                    <a href="{{ route('password-reset') }}">Forget Password</a>
+                                </div>
                                 <div class="checkbox">
                                     <label>
                                         <input name="remember" type="checkbox" value="Remember Me">{{ __('admin.remember_me') }}

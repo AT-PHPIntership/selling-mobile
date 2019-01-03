@@ -37,3 +37,6 @@ Route::group(['as' => 'user.', 'namespace' => 'User'], function () {
 Route::group(['as' => 'user.', 'namespace' => 'Api\User'], function () {
     Route::get('register', 'RegisterController@index')->name('register');
 });
+Route::group(['namespace' => 'Api\Admin'], function () {
+    Route::get('password-reset', 'PasswordResetController@index')->name('password-reset');
+});
