@@ -14,7 +14,7 @@
         </a>
         <ul class="dropdown-menu dropdown-user">
             <li><a href="#"><i class="fa fa-user fa-fw"></i>{{ __('admin.user_profile') }}</a></li>
-            <li><a href="#"><i class="fa fa-gear fa-fw"></i>{{ __('admin.change_password') }}</a>
+            <li><a href="{{ route('password-reset') }}"><i class="fa fa-gear fa-fw"></i>{{ __('admin.change_password') }}</a>
             </li><li class="divider"></li>
             <li>
                 <a href="{{ route('logout') }}" id="click-logout" onclick="event.preventDefault();

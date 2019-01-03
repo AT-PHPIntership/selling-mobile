@@ -31,3 +31,9 @@ Route::group(['as' => 'api.', 'namespace' => 'Api\User'], function () {
     Route::get('cart/detail', 'CartController@getInfoOrder');
     Route::post('cart/checkout', 'CartController@checkout');
 });
+
+Route::group(['namespace' => 'Api\Admin', 'prefix' => 'password'], function() {
+    Route::post('/create', 'PasswordResetController@create');
+    Route::get('/find/{token}', 'PasswordResetController@find');
+    Route::post('/reset', 'PasswordResetController@reset');
+});
